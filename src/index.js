@@ -3,9 +3,10 @@ import ReactDom from "react-dom";
 import  App  from './App';
 import './index.css';
 import { ThemeProvider } from './components/ThemeContext';
+import 'flowbite';
 
 
 ReactDom.render(
-    <ThemeProvider>
+    <React.StrictMode>
     <App />
-    </ThemeProvider>, document.getElementById('app'))
+    </React.StrictMode>, document.getElementById('app'))

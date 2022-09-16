@@ -5,7 +5,18 @@ module.exports = {
   ],
   darkMode: 'class',
   theme: {
-    extend: {},
+    extend: {
+      backgroundColor:{
+        'bg-color': '#1C1C1E',
+      },
+      padding: {
+        '1/2': '50%',
+        full: '100%',
+      },
+
+    },
   },
-  plugins: [],
+  plugins: [
+    require('daisyui')
+  ],
 }
