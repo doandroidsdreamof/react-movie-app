@@ -9,7 +9,7 @@ import ArtBoard from './ArtBoard.jsx';
 const Layout = () => {
   return (
     <>
-    <div className=" h-screen bg-bg-color w-screen flex">
+    <div className=" h-screen bg-bg-color w-screen  flex reative">
       <SideNav />
       <ArtBoard />
   

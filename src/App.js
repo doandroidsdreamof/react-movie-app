@@ -6,7 +6,7 @@ import Layout from './components/Layout.jsx';
 
  function App() {
   return (
-      <div className='overflow-hidden'>
+      <div className='flex flex-wrap h-screen border-2 w-fit border-red-400'>
        <Layout />
       </div>
   )
