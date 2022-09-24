@@ -1,18 +1,14 @@
 import React from 'react';
-import Card from './components/Card.jsx';
 import SideNav from './components/SideNav.jsx';
-import Layout from './components/Layout.jsx';
+import Row from './components/Row.jsx';
+import Home from './pages/Home.jsx'
 
  function App() {
   return (
     <>
+    <Home />
 
-      <div className=' min-h-screen relative  bg-bg-color flex justify-between'>
-      <SideNav />
-
-      <Layout />
-
-      </div>
+  
       </>
   )    
 }
