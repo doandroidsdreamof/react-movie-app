@@ -11,10 +11,13 @@ import { useState, useEffect } from "react";
 
 const SideNav = () => {
   const [menu, setMenu] = useState(false);
-  useEffect(() => {}, [menu]);
+
+  useEffect(() => {
+
+
+  }, [menu]);
 
   const handleClick = (e) => {
-    e.stopPropagation();
     const hideAll = document.querySelectorAll(".all-hide");
     setMenu(!menu);
     if (menu === false) {
