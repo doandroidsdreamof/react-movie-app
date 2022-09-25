@@ -28,3 +28,8 @@ li.active::after{
     top: 0;
 
 }
+@media (max-width:640px){
+    .all-hide{
+        display: none !important;
+    }
+}
