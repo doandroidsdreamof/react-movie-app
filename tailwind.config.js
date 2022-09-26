@@ -16,6 +16,10 @@ module.exports = {
         '1/2': '50%',
         full: '100%',
       },
+      color:{
+        'starComponent': 'hsl(226, 100%, 66%)',
+
+      },
       minWidth: {
         'onehundred': '100%',
         'ninty': '90%',

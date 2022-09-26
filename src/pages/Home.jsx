@@ -1,6 +1,7 @@
 import React from "react";
 import SideNav from "../components/SideNav.jsx";
 import Row from "../components/Row.jsx";
+import TopSlider from "../components/TopSlider.jsx";
 import RowLayout from "../components/RowLayout.jsx";
 import data from "../utils/Data";
 
@@ -14,12 +15,15 @@ const Home = () => {
     </div>
     <div className="flex flex-1 flex-col  overflow-y-auto">
       <div className="flex flex-1   overflow-x-hidden paragraph">
-      <div className=" w-onehundred left-0 relative">
+      <div className=" w-onehundred left-0 relative ">
+        <div>
+        <TopSlider sliderId="0" endpoint={data.requestWeekTrending} />
+        </div>
       <RowLayout>
-        <Row rowID="1" title="Up Comming" endpoint={data.requestUpcoming} />
-        <Row rowID="2" title="Popular" endpoint={data.requestPopular} />
-        <Row rowID="3" title="Trending" endpoint={data.requestTrending} />
-        <Row rowID="4" title="Top Rated" endpoint={data.requestTopRated} />
+        <Row rowID="1" title="Popular" endpoint={data.requestUpcoming} />
+        <Row rowID="2" title="Trending" endpoint={data.requestTrending} />
+        <Row rowID="3" title="Top Rated" endpoint={data.requestTopRated} />
+        <Row rowID="4" title="Up Comming" endpoint={data.requestPopular}  />
         </RowLayout>
       </div>
       </div>
