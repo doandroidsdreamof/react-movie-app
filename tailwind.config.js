@@ -11,13 +11,14 @@ module.exports = {
       },
       backgroundColor:{
         'bg-color': '#1C1C1E',
+        'star': 'hsl(226, 100%, 66%)',
       },
       padding: {
         '1/2': '50%',
         full: '100%',
       },
       color:{
-        'starComponent': 'hsl(226, 100%, 66%)',
+        'star': 'hsl(226, 100%, 66%)',
 
       },
       minWidth: {

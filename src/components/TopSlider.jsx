@@ -43,7 +43,7 @@ import "swiper/css/effect-creative";
       >
          {data.map((items, id) => (
           <SwiperSlide key={items.length} className=" w-full cursor-pointer  h-96 " >
-             <Star />
+             <Star   rating={items.vote_average} />
             <img data-hash={id} className='object-cover  w-full h-onehundred ' src={`https://image.tmdb.org/t/p/w1280/${items?.backdrop_path}`} alt={items.name} />
           </SwiperSlide>
           
