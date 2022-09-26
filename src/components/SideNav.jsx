@@ -73,7 +73,7 @@ const SideNav = () => {
         </li>
         <li className="hover:bg-gray-800 cursor-pointer sm:justify-start px-4  h-12  flex items-center justify-center">
           <DarkMode />
-          <span className="all-hide ml-2 mt-1 hidden sm:block  text-gray-400 font-semibold tracking-wide hover:text-white transition-colors">Dark Mode</span>
+          <span className="all-hide ml-2 mt-1 hidden sm:block translate-x-1  text-gray-400 font-semibold tracking-wide hover:text-white transition-colors">Dark Mode</span>
         </li>
       </ul>
     </div>
