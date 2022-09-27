@@ -3,7 +3,6 @@ import { AiFillStar } from "react-icons/ai";
 
 const CardStar = ({rating}) => {
   const starColor = "hsl(226, 100%, 66%)";
-  console.log(rating)
   return (
     <>
       <div className=" rounded-lg  h-6 p-3 bottom-5 right-2 absolute z-50 bg-star felex justify-center ">

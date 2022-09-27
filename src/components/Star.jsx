@@ -3,7 +3,6 @@ import { AiFillStar } from "react-icons/ai";
 
 const Star = ({rating}) => {
   const starColor = "hsl(226, 100%, 66%)";
-  console.log(rating)
   return (
     <>
       <div className="toast toast-end rounded-sm  h-6 flex justify-center top-3 absolute z-50">
