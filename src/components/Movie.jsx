@@ -3,6 +3,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import Star from './Star.jsx';
 
 const Movie = ({ data }) => {
+
+  
   return (
 
     <div  className=" " >

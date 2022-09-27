@@ -1,6 +1,6 @@
 import React from "react";
 import Star from "./Star.jsx";
-import Genre from "./Genre.jsx";
+import Genre from "./MovieTitle.jsx";
 import { useEffect, useState } from "react";
 import { Navigation, Pagination, Mousewheel, Keyboard, Scrollbar, A11y, Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -44,9 +44,9 @@ const TopSlider = ({ endpoint }) => {
       >
         {data.map((items, id) => (
           <SwiperSlide key={items.length} className=" w-full cursor-pointer h-96 lg:h-[420px] ">
-            <Star rating={items.vote_average} />
+            <Star  rating={items.vote_average} />
             <div className="bg-gradient-to-br from-black  w-full h-onehundred  absolute opacity-75 transition-all duration-500 ease-in-out hover:opacity-30"> </div>
-            <Genre key={id} genre={items.genre_ids} />
+            <MovieTitle id={id.length} title={items} />
             <img data-hash={id} className="object-cover object-center w-full h-onehundred " src={`https://image.tmdb.org/t/p/w1280/${items?.backdrop_path}`} alt={items.name} />
           </SwiperSlide>
         ))}
