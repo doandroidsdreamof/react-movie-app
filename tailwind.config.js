@@ -12,6 +12,9 @@ module.exports = {
       backgroundColor:{
         'bg-color': '#1C1C1E',
         'star': 'hsl(226, 100%, 66%)',
+        'input-card':'hsl(197, 11%, 12%)',
+        'input-bg': 'hsl(200, 13%, 9%)',
+
       },
       padding: {
         '1/2': '50%',

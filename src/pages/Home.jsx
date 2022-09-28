@@ -20,7 +20,6 @@ const Home = () => {
               </div>
               <RowLayout>
                 <Row rowID="1" title="Popular" endpoint={data.requestUpcoming} />
-
                 <Row rowID="2" title="Trending" endpoint={data.requestTrending} />
                 <Row rowID="3" title="Top Rated" endpoint={data.requestTopRated} />
                 <Row rowID="4" title="Up Comming" endpoint={data.requestPopular} />
