@@ -1,5 +1,6 @@
 import React from "react";
 import SideNav from "../components/SideNav.jsx";
+import Aside from "../components/Aside.jsx";
 import Row from "../components/Row.jsx";
 import TopSlider from "../components/TopSlider.jsx";
 import RowLayout from "../components/RowLayout.jsx";
@@ -9,12 +10,16 @@ const Home = () => {
   return (
     <main className="flex flex-col h-screen  overflow   bg-bg-color">
       <div className="flex flex-1 overflow-x-hidden  overflow-y-auto">
-        <div className="flex   ">
+        <div className="flex">
           <SideNav />
         </div>
-        <div className="flex flex-1 flex-col  overflow-y-auto">
-          <div className="flex flex-1   overflow-x-hidden paragraph">
-            <div className=" w-onehundred left-0 relative ">
+        <div className="flex flex-1 flex-col    overflow-y-auto">
+          <div className="flex flex-1   flex-row-reverse  w-full justify-between  paragraph">
+            <div className="flex bg-white w-60 min-h-screen relative ">
+              <Aside />
+            </div>
+
+            <div className="w-eighty mr-auto left-0 relative  ">
               <div>
                 <TopSlider sliderId="0" endpoint={data.requestWeekTrending} />
               </div>

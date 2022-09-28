@@ -11,10 +11,8 @@ SignUp
  function App() {
   return (
     <>
-    <FormLayout>
-    <SignUp />
-    </FormLayout>
-
+ 
+<Home />
 
   
       </>

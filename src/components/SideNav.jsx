@@ -32,7 +32,7 @@ const SideNav = () => {
   };
 
   return (
-    <div className={menu ? " bg-bg-color z-50 border-r relative font-roboto left-0 border-gray-600  min-h-screen w-14 pt-4  " : " bg-bg-color z-50 border-r relative font-roboto left-0 sm:w-60 min-h-screen  w-14 pt-4 "}>
+    <div className={menu ? " bg-bg-color z-50 border-r relative font-roboto left-0 border-gray-800  min-h-screen w-14 pt-4  " : " bg-bg-color z-50 border-r relative font-roboto left-0 sm:w-[210px] min-h-screen  w-14 pt-4 "}>
       <div className="text-center  text-white p-6"></div>
       <ul className="mt-11 flex  gap-y-4 flex-col ">
         <li className=" hover:bg-gray-800 cursor-pointer sm:justify-start px-4  h-12  flex items-center justify-center active text-center ">
