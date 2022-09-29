@@ -13,7 +13,7 @@ SignUp
   return (
     <>
  
-<SearchBar />
+<Home />
 
   
       </>

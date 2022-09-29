@@ -14,7 +14,7 @@ const SearchBar = () => {
     try {
       const response = await fetch(`${Data.requestSearch}&query=${queryValue}`);
       const getData = await response.json();
-      const passData = await getData.results;
+      const passData = await getData.results.sort();
       console.log("getData => ", passData);
       setSearch([...passData]);
       let parseData = [{}];

@@ -1,6 +1,7 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Star from './Star.jsx';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 const Movie = ({ data }) => {
 
@@ -8,7 +9,7 @@ const Movie = ({ data }) => {
   return (
 
     <div  className=" " >
-      <img 
+      <LazyLoadImage 
         className="object-cover hover:opacity-95 rounded-md transform "
         src={`https://image.tmdb.org/t/p/w342/${data?.poster_path}`}
         alt={data?.title}
