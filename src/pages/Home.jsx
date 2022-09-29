@@ -14,12 +14,12 @@ const Home = () => {
           <SideNav />
         </div>
         <div className="flex flex-1 flex-col    overflow-y-auto">
-          <div className="flex flex-1   flex-row-reverse  w-full justify-between  paragraph">
-            <div className="flex bg-white w-60 min-h-screen relative ">
+          <div className="flex flex-1   md:flex-row-reverse  w-full justify-between  paragraph">
+            <div className=" w-60 hidden lg:flex min-h-screen relative ">
               <Aside />
             </div>
 
-            <div className="w-eighty mr-auto left-0 relative  ">
+            <div className="lg:w-eighty w-onehundred mr-auto left-0 relative  ">
               <div>
                 <TopSlider sliderId="0" endpoint={data.requestWeekTrending} />
               </div>

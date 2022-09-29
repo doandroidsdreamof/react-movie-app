@@ -5,6 +5,7 @@ import Home from './pages/Home.jsx'
 import SignIn from './pages/SignIn.jsx'
 import SignUp from './pages/SignUp.jsx'
 import FormLayout from './components/FormLayout.jsx'
+import SearchBar from './components/SearchBar.jsx'
 
 
 SignUp
@@ -12,7 +13,7 @@ SignUp
   return (
     <>
  
-<Home />
+<SearchBar />
 
   
       </>

@@ -16,7 +16,8 @@ const Row = ({ endpoint, title }) => {
   useEffect(() => {
     fetch(endpoint)
       .then((res) => res.json())
-      .then((get) => setMovies(get.results));
+      .then((get) => setMovies(get.results))
+      .catch(err => {console.log(err)})
   }, [endpoint]);
 
   return (

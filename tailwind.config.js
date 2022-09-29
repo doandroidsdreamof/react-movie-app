@@ -11,9 +11,11 @@ module.exports = {
       },
       backgroundColor:{
         'bg-color': '#1C1C1E',
+        'bg-second': 'hsl(240, 2%, 20%)',
         'star': 'hsl(226, 100%, 66%)',
         'input-card':'hsl(197, 11%, 12%)',
         'input-bg': 'hsl(200, 13%, 9%)',
+        'input-focus': 'hsl(226, 100%, 66%)'
 
       },
       padding: {
@@ -23,6 +25,7 @@ module.exports = {
       textColor:{
         'star': 'hsl(226, 100%, 66%)',
         'head': 'hsl(226, 100%, 66%)',
+        'input-focus': 'hsl(226, 100%, 66%)'
 
       },
       minWidth: {
@@ -96,5 +99,6 @@ module.exports = {
   plugins: [
     require('daisyui'),
     require('@tailwindcss/line-clamp'),
+
   ],
 }
