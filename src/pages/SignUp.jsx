@@ -1,5 +1,5 @@
 import React from "react";
-import signImage from "../assets/img/register2.jpg";
+import signImage from "../assets/image/register2.jpg";
 
 export const SignUp = () => {
   return (

@@ -1,5 +1,5 @@
 import React from "react";
-import signImage from "../assets/img/sign-image2.jpg";
+import signImage from "../assets/image/sign-image2.jpg";
 
 const SignIn = () => {
   return (
