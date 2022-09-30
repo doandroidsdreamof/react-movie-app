@@ -8,7 +8,7 @@ const Aside = ({ trendData }) => {
   useEffect(() => {
     fetch(trendData)
       .then((res) => res.json())
-      .then((get) => setTrend(get.results.slice(0,3)))
+      .then((get) => setTrend(get.results.slice(0, 3)))
       .catch((err) => {
         console.log(err);
       });
@@ -21,11 +21,10 @@ const Aside = ({ trendData }) => {
           <SearchBar />
         </div>
         <div className="    w-[280px] relative  ">
-        <h3 className="font-roboto text-head font-bold text-xl mt-2 ml-4 mb-2">Top Three</h3>
+          <h3 className="font-roboto text-head font-bold text-xl mt-2 ml-4 mb-2">Top Three</h3>
           {trend.map((trends, id) => (
             <>
-            <MovieTrendingDay key={id} trendData={trends} />
-
+              <MovieTrendingDay key={id} trendData={trends} />
             </>
           ))}
         </div>

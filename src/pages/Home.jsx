@@ -7,7 +7,6 @@ import RowLayout from "../components/Layouts/RowLayout.jsx";
 import data from "../../Data.js";
 
 const Home = () => {
-  console.log(data.requestDayTrending)
   return (
     <main className="flex flex-col h-screen  overflow  bg-bg-color">
       <div className="flex flex-1 overflow-x-hidden   overflow-y-auto ">

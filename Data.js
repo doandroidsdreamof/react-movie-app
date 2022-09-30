@@ -10,8 +10,8 @@ const data = {
   requestWeekTrending: ` https://api.themoviedb.org/3/trending/movie/week?api_key=${apiKey}&include_adult=false`,
   requestDayTrending: ` https://api.themoviedb.org/3/trending/movie/day?api_key=${apiKey}&include_adult=false`,
   requestGenre: ` https://api.themoviedb.org/3/genre/movie/list?api_key=${apiKey}&language=en-US`,
-  requestSearch: ` https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&language=en-US&page=1&include_adult=false`
-
+  requestSearch: ` https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&language=en-US&page=1&include_adult=false`,
+  requestSearchByID: `api_key=${apiKey}&language=en-US`
 };
 
 export default data;

@@ -31,7 +31,7 @@ const SearchBar = () => {
       console.error(err);
     }
   }
-  console.log("search out of scope =>", search);
+  //console.log("search out of scope =>", search);
 
   const handleOnSearch = (string, results) => {
     console.log("handleOnSearch string=>", string);
@@ -67,8 +67,8 @@ const SearchBar = () => {
     console.log("Focused");
     setActive(!active)
   };
-  console.log("items out of scope =>", items);
-  //
+  //console.log("items out of scope =>", items);
+  
   const formatResult = (item) => {
     const addElipsis = item.name.length > 20 ? item.name.substring(0, 20) + "..." : item.name;
     return (
