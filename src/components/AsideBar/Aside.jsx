@@ -8,7 +8,7 @@ const Aside = ({ trendData }) => {
   useEffect(() => {
     fetch(trendData)
       .then((res) => res.json())
-      .then((get) => setTrend(get.results.slice(0,6)))
+      .then((get) => setTrend(get.results.slice(0,3)))
       .catch((err) => {
         console.log(err);
       });
@@ -20,9 +20,13 @@ const Aside = ({ trendData }) => {
         <div className=" text-white mt-6 flex relative justify-center w-onehundred self-center">
           <SearchBar />
         </div>
-        <div className="    w-[280px] relative h-full grid grid-cols-2  py-10 mt-9 gap-y-11 ">
+        <div className="    w-[280px] relative  ">
+        <h3 className="font-roboto text-head font-bold text-lg mt-2 ml-5">Daily Trending</h3>
           {trend.map((trends, id) => (
+            <>
             <MovieTrendingDay key={id} trendData={trends} />
+
+            </>
           ))}
         </div>
       </div>

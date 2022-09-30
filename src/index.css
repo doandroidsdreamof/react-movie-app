@@ -31,6 +31,21 @@ li.active::after {
 .swiper-button-next,.swiper-button-prev {
 color:hsl(226, 100%, 66%);
 }
+/* circular-progress-bar */
+.indicator {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  position: absolute;
+  top: 35%;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  user-select: none;
+  color: white;
+
+}
+
 
 @media (max-width: 640px) {
   .all-hide {

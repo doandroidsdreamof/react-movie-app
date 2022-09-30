@@ -1,5 +1,5 @@
 import React from "react";
-import Star from "./Star.jsx";
+import Star from "./Rates/Star.jsx";
 import { useEffect, useState } from "react";
 import { Navigation, Pagination, Keyboard, Autoplay, Lazy, EffectCreative } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";

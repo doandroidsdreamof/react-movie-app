@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { ReactSearchAutocomplete } from "react-search-autocomplete";
-import Data from "../../Data";
+import Data from "../../../Data";
 
 const SearchBar = () => {
   const [search, setSearch] = useState([]);

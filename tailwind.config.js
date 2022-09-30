@@ -26,6 +26,7 @@ module.exports = {
       textColor:{
         'star': 'hsl(226, 100%, 66%)',
         'head': 'hsl(226, 100%, 66%)',
+        'head-second': 'hsl(226, 100%, 56%)',
         'input-focus': 'hsl(226, 100%, 66%)'
 
       },

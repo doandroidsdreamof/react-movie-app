@@ -1,9 +1,9 @@
 import React from "react";
-import SideNav from "../components/SideNav.jsx";
-import Aside from "../components/Aside.jsx";
+import SideNav from "../components/Navbar/SideNav.jsx";
+import Aside from "../components/AsideBar/Aside.jsx";
 import Row from "../components/Row.jsx";
 import TopSlider from "../components/TopSlider.jsx";
-import RowLayout from "../components/RowLayout.jsx";
+import RowLayout from "../components/Layouts/RowLayout.jsx";
 import data from "../../Data.js";
 
 const Home = () => {
@@ -14,7 +14,7 @@ const Home = () => {
         <div className="flex  order-1">
           <SideNav />
         </div>
-        <div className=" w-72 order-3 hidden lg:flex border-l border-l-gray-600">
+ {/*order-3 */}       <div className=" w-72 order-2 hidden lg:flex border-l border-l-gray-600">
           <Aside trendData={data.requestDayTrending}  />
         </div>
         <div className="invisible-overflow flex  flex-1 flex-col  order-2   overflow-y-auto">

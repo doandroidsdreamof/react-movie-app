@@ -2,7 +2,7 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { useEffect, useState } from "react";
-import Star from "./Star.jsx";
+import Star from "./Rates/Star.jsx";
 import "react-lazy-load-image-component/src/effects/opacity.css";
 import "swiper/css/lazy";
 
