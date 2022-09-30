@@ -19,7 +19,7 @@ const Home = () => {
               <Aside />
             </div>
 
-            <div className="lg:w-eighty w-onehundred mr-auto left-0 relative px-10  ">
+            <div className="lg:w-eighty w-onehundred mr-auto left-0 relative px-0 md:px-10  ">
               <div>
                 <TopSlider sliderId="0" endpoint={data.requestWeekTrending} />
               </div>

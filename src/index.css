@@ -28,6 +28,9 @@ li.active::after {
   top: 0;
 }
 
+.swiper-button-next,.swiper-button-prev {
+color:hsl(226, 100%, 66%);
+}
 
 @media (max-width: 640px) {
   .all-hide {
