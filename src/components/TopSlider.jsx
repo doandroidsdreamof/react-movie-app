@@ -54,7 +54,7 @@ const TopSlider = ({ endpoint }) => {
         className="mySwiper mt-11 left-0 ml-auto h-fit w-full md:!w-onehundred !rounded-lg "
       >
         {data.map((items, id) => (
-          <SwiperSlide key={items.length} className=" w-full cursor-pointer h-96 lg:h-[420px] ">
+          <SwiperSlide key={items.length} className="shadow-lg w-full cursor-pointer h-96 lg:h-[420px] ">
             <Star rating={items.vote_average} />
             <div className="bg-gradient-to-br from-black  w-full h-onehundred  absolute transition-all duration-500 ease-in-out hover:opacity-75"> </div>
             <div className="absolute flex flex-col w-[450px]  ">
@@ -66,7 +66,7 @@ const TopSlider = ({ endpoint }) => {
                 {items.overview}
               </p>
             </div>
-            <LazyLoadImage afterLoad={() => {setLoaded(true)}}  data-hash={id} className=" object-cover object-center min-h-onehundred  " src={`https://image.tmdb.org/t/p/original/${items?.backdrop_path}`} alt={items.name} />
+            <LazyLoadImage afterLoad={() => {setLoaded(true)}}  data-hash={id} className=" object-cover object-center min-h-onehundred   " src={`https://image.tmdb.org/t/p/original/${items?.backdrop_path}`} alt={items.name} />
             <div className={!loaded ? "swiper-lazy-preloader" : ""}></div>
           </SwiperSlide>
         ))}

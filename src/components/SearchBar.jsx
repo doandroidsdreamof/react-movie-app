@@ -78,7 +78,7 @@ const SearchBar = () => {
     );
   };
   return (
-    <form className="flex items-center ml-2 justify-center fixed ">
+    <form className="flex items-center ml-2 justify-center  relative">
       <header className="App-header cursor-pointer">
         <div className="w-56 ">
           <ReactSearchAutocomplete styling={{ borderRadius: "5px", hoverBackgroundColor: "none", backgroundColor: "hsl(240, 1%, 20%)", color: "white", border: "0.01rem solid hsl(240, 1%, 50%)",boxShadow:"0px" }} maxResults={4} placeholder="Search..." items={items} onSearch={handleOnSearch} onHover={handleOnHover} onSelect={handleOnSelect} onFocus={handleOnFocus} autoFocus formatResult={formatResult} />
