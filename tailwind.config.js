@@ -15,7 +15,8 @@ module.exports = {
         'star': 'hsl(226, 100%, 66%)',
         'input-card':'hsl(197, 11%, 12%)',
         'input-bg': 'hsl(200, 13%, 9%)',
-        'input-focus': 'hsl(226, 100%, 66%)'
+        'input-focus': 'hsl(226, 100%, 66%)',
+        'button-blue': 'hsl(226, 100%, 36%)'
 
       },
       padding: {
