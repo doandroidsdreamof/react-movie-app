@@ -14,7 +14,7 @@ const Home = () => {
         <div className="flex  order-1">
           <SideNav />
         </div>
- {/*order-3 */}       <div className=" w-72 order-2 hidden lg:flex border-l border-l-gray-600">
+ {/*order-3 */}       <div className=" w-72 order-3 hidden lg:flex border-l border-l-gray-600">
           <Aside trendData={data.requestDayTrending}  />
         </div>
         <div className="invisible-overflow flex  flex-1 flex-col  order-2   overflow-y-auto">

@@ -6,7 +6,7 @@ const DailyTrendBar = ({ dailyTrends }) => {
   const starColor = "hsl(226, 100%, 66%)";
   const fixedInteger = dailyTrends.toFixed(1);
   return (
-    <div className="font-roboto text-4xl font-medium">
+    <div className="font-roboto relative text-4xl font-medium">
       <ProgressBar className="scale-50 " radius={50} 
       progress={fixedInteger * 10} strokeWidth={8}
       initialAnimation={true}
