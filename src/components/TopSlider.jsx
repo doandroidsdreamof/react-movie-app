@@ -54,14 +54,14 @@ const TopSlider = ({ endpoint }) => {
         className="mySwiper mt-11 left-0 ml-auto h-fit w-full md:!w-onehundred !rounded-lg "
       >
         {data.map((items, id) => (
-          <SwiperSlide key={items.length} className="shadow-lg w-full cursor-pointer h-96 lg:h-[420px] ">
+          <SwiperSlide key={items.length} className="shadow-lg w-full cursor-pointer h-80 lg:h-[420px] ">
             <Star rating={items.vote_average} />
             <div className="bg-gradient-to-br from-black  w-full h-onehundred  absolute transition-all duration-500 ease-in-out hover:opacity-75"> </div>
             <div className="absolute flex flex-col w-[450px]  ">
-              <p key={id} className="text-5xl  p-5  text-head   font-roboto font-bold">
+              <p key={id} className="text-4xl lg:text-5xl  p-5  text-head   font-roboto font-bold">
                 {items.original_title ? items.original_title : items.name}{" "}
               </p>
-              <p className="text-2xl  p-5  text-white lg:mt-32 mt-20  font-roboto font-bold">Overview</p>
+              <p className="text-2xl  p-5  text-white lg:mt-32 mt-14  font-roboto font-bold">Overview</p>
               <p key={id} className="overview text-sm  ml-5   line-clamp-3  text-gray-300   font-roboto font-medium">
                 {items.overview}
               </p>

@@ -1,6 +1,7 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
     mode: "production",
@@ -23,12 +24,12 @@ module.exports = {
             {
                 test: /\.(png|jpe?g|gif)$/i,
                 use: [
-                  {
-                    loader: 'file-loader',
-                  },
+                    {
+                        loader: 'file-loader',
+                    },
                 ],
             },
- 
+
 
             {
                 test: /\.(js|jsx)$/,
@@ -49,6 +50,8 @@ module.exports = {
     },
     plugins: [
         new MiniCssExtractPlugin(),
-        new HtmlWebpackPlugin({ template: './src/index.html' })
+        new HtmlWebpackPlugin({ template: './src/index.html' }),
+        new Dotenv({
+            systemvars: true,}),
     ],
 }

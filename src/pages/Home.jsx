@@ -4,9 +4,10 @@ import Aside from "../components/Aside.jsx";
 import Row from "../components/Row.jsx";
 import TopSlider from "../components/TopSlider.jsx";
 import RowLayout from "../components/RowLayout.jsx";
-import data from "../utils/Data";
+import data from "../../Data.js";
 
 const Home = () => {
+  console.log(data.requestDayTrending)
   return (
     <main className="flex flex-col h-screen  overflow  bg-bg-color">
       <div className="flex flex-1 overflow-x-hidden   overflow-y-auto ">

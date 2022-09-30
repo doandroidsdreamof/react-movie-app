@@ -1,4 +1,5 @@
-const apiKey = '5b7e10b2daf5c5ed4b0fb8b0e4946a58';
+const apiKey = process.env.API_KEY
+
 
 const data = {
   requestPopular: `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=1&include_adult=false`,
@@ -14,3 +15,4 @@ const data = {
 };
 
 export default data;
+
