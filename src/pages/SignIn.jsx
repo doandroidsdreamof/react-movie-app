@@ -1,5 +1,6 @@
 import React from "react";
 import signImage from "../assets/image/sign-image2.jpg";
+import { Link } from "react-router-dom";
 
 const SignIn = () => {
   return (
@@ -73,9 +74,9 @@ const SignIn = () => {
 
                 <p className="border-t pt-6 text-sm">
                   Don't have an account ?
-                  <a href="#" className="text-sky-500  ml-2">
+                  <Link to="/signup" className="text-sky-500  ml-2">
                     Sign up
-                  </a>
+                  </Link>
                 </p>
               </form>
             </div>

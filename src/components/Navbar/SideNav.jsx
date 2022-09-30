@@ -8,6 +8,7 @@ import { FiSearch } from "react-icons/fi";
 import { CgProfile } from "react-icons/cg";
 import { HiOutlineLogin } from "react-icons/hi";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const SideNav = () => {
   const [menu, setMenu] = useState(false);
@@ -47,10 +48,12 @@ const SideNav = () => {
             <span className="all-hide ml-10 mt-1  pr-11 hidden md:block  text-gray-400 font-semibold tracking-wide hover:text-white transition-colors">Close Menu</span>
           </label>
         </li>
-        <li className="hover:bg-gray-800 cursor-pointer  md:justify-start px-4 h-12 flex items-center justify-center ">
+        <Link to='/'>
+        <li className="hover:bg-gray-800 cursor-pointer md:justify-start px-4 h-12 flex items-center justify-center ">
           <AiFillHome size={30} />
           <span className="all-hide ml-3 hidden md:block  text-gray-400 font-semibold tracking-wide hover:text-white transition-colors">Home</span>
         </li>
+        </Link>
         <li className="hover:bg-gray-800 cursor-pointer md:justify-start px-4 h-12 flex  items-center justify-center">
           <MdOutlineExplore size={30} />
           <span className="all-hide ml-3 hidden md:block  text-gray-400 font-semibold tracking-wide hover:text-white transition-colors">Explore</span>
@@ -59,14 +62,18 @@ const SideNav = () => {
           <BsBookmarkStarFill size={30} />
           <span className="all-hide ml-3 hidden md:block text-gray-400 font-semibold tracking-wide hover:text-white transition-colors">Bookmark</span>
         </li>
+        <Link to='/profile'>
         <li className="hover:bg-gray-800 cursor-pointer md:justify-start px-4 h-12 flex items-center justify-center">
           <CgProfile size={30} />
           <span className="all-hide ml-3 hidden md:block  text-gray-400 font-semibold tracking-wide hover:text-white transition-colors">Profile</span>
         </li>
+        </Link>
+        <Link to='/login'>
         <li className="hover:bg-gray-800 cursor-pointer md:justify-start px-4 h-12 flex items-center justify-center">
           <HiOutlineLogin size={30} />
           <span className="all-hide ml-3 hidden md:block  text-gray-400 font-semibold tracking-wide hover:text-white transition-colors">Login</span>
         </li>
+        </Link>
         <li className="hover:bg-gray-800 cursor-pointer md:justify-start px-4  h-12  flex items-center justify-center">
           <DarkMode />
           <span className="all-hide ml-2 mt-1 hidden md:block translate-x-1  text-gray-400 font-semibold tracking-wide hover:text-white transition-colors">Dark Mode</span>
