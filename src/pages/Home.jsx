@@ -6,6 +6,8 @@ import TopSlider from "../components/TopSlider.jsx";
 import RowLayout from "../components/RowLayout.jsx";
 import data from "../utils/Data";
 
+
+
 const Home = () => {
   return (
     <main className="flex flex-col h-screen  overflow   bg-bg-color">

@@ -1,20 +1,19 @@
 import React from "react";
 import Star from "./Star.jsx";
 import { useEffect, useState } from "react";
-import { Navigation, Pagination, Mousewheel, Keyboard, Scrollbar, A11y, Autoplay } from "swiper";
+import { Navigation, Pagination, Keyboard, Autoplay, Lazy, EffectCreative } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { useSwiper } from "swiper/react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
-import { EffectCreative } from "swiper";
 import "swiper/css/effect-creative";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
-import "swiper/css/effect-creative";
+import "swiper/css/lazy";
 
 const TopSlider = ({ endpoint }) => {
   const [data, setData] = useState([]);
+  const [loaded,setLoaded]= useState(false)
   useEffect(() => {
     fetch(endpoint)
       .then((res) => res.json())
@@ -23,7 +22,6 @@ const TopSlider = ({ endpoint }) => {
         console.log(err);
       });
   }, []);
-
   return (
     <>
       <Swiper
@@ -43,7 +41,6 @@ const TopSlider = ({ endpoint }) => {
         effect={"creative"}
         creativeEffect={{
           prev: {
-            shadow: true,
             translate: [0, 0, -400],
           },
           next: {
@@ -51,7 +48,7 @@ const TopSlider = ({ endpoint }) => {
           },
         }}
         //autoplay={{ delay: 5000, disableOnInteraction: false }}
-        modules={[Navigation, Pagination, Autoplay, Keyboard,EffectCreative]}
+        modules={[Navigation, Pagination, Autoplay, Keyboard, EffectCreative, Lazy]}
         scrollbar={{ draggable: true }}
         grabCursor={true}
         className="mySwiper mt-11 left-0 ml-auto h-fit w-full md:!w-onehundred !rounded-lg "
@@ -69,7 +66,8 @@ const TopSlider = ({ endpoint }) => {
                 {items.overview}
               </p>
             </div>
-            <LazyLoadImage data-hash={id} className="object-cover object-center min-h-onehundred  " src={`https://image.tmdb.org/t/p/original/${items?.backdrop_path}`} alt={items.name} />
+            <LazyLoadImage afterLoad={() => {setLoaded(true)}}  data-hash={id} className=" object-cover object-center min-h-onehundred  " src={`https://image.tmdb.org/t/p/original/${items?.backdrop_path}`} alt={items.name} />
+            <div className={!loaded ? "swiper-lazy-preloader" : ""}></div>
           </SwiperSlide>
         ))}
       </Swiper>
