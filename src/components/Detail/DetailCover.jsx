@@ -1,7 +1,10 @@
 import React from 'react'
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { useEffect, useState } from "react";
-import DetailButtons from '../Detail/DetailButtons.jsx';
+import BookmarkButton from './BookmarkButton.jsx';
+import PlayVideoButton from './PlayVideoButton.jsx';
+import ShareButton from './ShareButton.jsx';
+
 import "swiper/css/lazy";
 import "react-lazy-load-image-component/src/effects/opacity.css";
 
@@ -14,7 +17,9 @@ import "react-lazy-load-image-component/src/effects/opacity.css";
         <div className="bg-gradient-to-br from-black  w-full h-96   absolute transition-all duration-500 rounded-br-xl rounded-bl-xl ease-in-out hover:opacity-75"> </div>
         <LazyLoadImage effect="opacity" afterLoad={() => {setLoaded(true)}} className='object-cover rounded-br-xl rounded-bl-xl  h-96 w-screen ' src={`https://image.tmdb.org/t/p/original/${passDetail?.backdrop_path}`} alt={passDetail.title} />
         <div className={!loaded ? "swiper-lazy-preloader  " : ""}></div>
-        <DetailButtons />
+        <ShareButton />
+        <BookmarkButton />
+        <PlayVideoButton />
         </div>
 
     
