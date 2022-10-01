@@ -9,6 +9,15 @@ module.exports = {
       fontFamily:{
         'roboto': ['Roboto', 'sans-serif'],
       },
+      color:{
+        'bg-color': '#1C1C1E',
+        'bg-second': 'hsl(240, 2%, 20%)',
+        'star': 'hsl(226, 100%, 66%)',
+        'input-card':'hsl(197, 11%, 12%)',
+        'input-bg': 'hsl(200, 13%, 9%)',
+        'input-focus': 'hsl(226, 100%, 66%)',
+        'button-blue': 'hsl(226, 100%, 36%)'
+      },
       backgroundColor:{
         'bg-color': '#1C1C1E',
         'bg-second': 'hsl(240, 2%, 20%)',
@@ -53,9 +62,11 @@ module.exports = {
         'nintyFive': '95%',
         'ninty': '90%',
         'eighty': '80%',
-        'forty': '40%',
+        'seventy': '70%',
+        'sixty': '60%',
         'fifty': '50%',
         'fortyFive': '45%',
+        'forty': '40%',
       },
       width: {
         'onehundred': '100%',

@@ -1,6 +1,7 @@
 import React from "react";
 import SideNav from "../components/Navbar/SideNav.jsx";
 import Aside from "../components/AsideBar/Aside.jsx";
+import DetailCover from "../components/Detail/DetailCover.jsx";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import data from "../../Data";
@@ -25,7 +26,7 @@ const DetailPage = () => {
     }
   }
 
-  console.log("detay=>", details);
+  //console.log("detay=>", details);
 
   return (
     <section className="flex flex-col h-screen   overflow  bg-bg-color">
@@ -37,7 +38,8 @@ const DetailPage = () => {
           <Aside />
         </div>
         <div className="invisible-overflow flex  flex-1 flex-col  order-2   overflow-y-auto">
-          <h3 className="text-white"></h3>
+            <DetailCover passDetail={details} />
+
         </div>
       </div>
     </section>
