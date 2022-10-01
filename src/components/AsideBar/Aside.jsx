@@ -1,10 +1,13 @@
 import React from "react";
 import SearchBar from "./SearchBar.jsx";
 import MovieTrendingDay from "./MovieTrendingDay.jsx";
+import SimilarMovies from "./SimilarMovies.jsx";
+
 import { useEffect, useState } from "react";
 
-const Aside = ({ trendData }) => {
+const Aside = ({ trendData,DetailPage,HomePage }) => {
   const [trend, setTrend] = useState([]);
+
   useEffect(() => {
     fetch(trendData)
       .then((res) => res.json())
@@ -14,14 +17,16 @@ const Aside = ({ trendData }) => {
       });
   }, [trendData]);
 
+  console.log("aside =>", DetailPage);
+
   return (
     <div className={"  bg-bg-color relative  min-h-screen hidden   font-roboto right-0 border-gray-800   lg:block w-[250px] pt-4 "}>
       <div className=" flex flex-col w-onehundred  h-full">
         <div className=" text-white mt-6 flex relative justify-center w-onehundred self-center">
           <SearchBar />
         </div>
-        <div className="    w-[280px] relative  ">
-          <h3 className="font-roboto text-head font-bold text-xl mt-2 ml-4 mb-2">Top Three</h3>
+        <div className="w-[280px] relative  ">
+          <h3 className="font-roboto text-head font-bold text-2xl mt-2 ml-3 mb-2">{HomePage ? 'Top Three' : 'Similar Movies'}</h3>
           {trend.map((trends, id) => (
             <>
               <MovieTrendingDay key={id} trendData={trends} />

@@ -11,7 +11,8 @@ const data = {
   requestDayTrending: ` https://api.themoviedb.org/3/trending/movie/day?api_key=${apiKey}&include_adult=false`,
   requestGenre: ` https://api.themoviedb.org/3/genre/movie/list?api_key=${apiKey}&language=en-US`,
   requestSearch: ` https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&language=en-US&page=1&include_adult=false`,
-  requestSearchByID: `api_key=${apiKey}&language=en-US`
+  requestSearchByID: `api_key=${apiKey}&language=en-US`,
+  requestSearchByIDSimilar: `api_key=${apiKey}&language=en-US&page=1`
 };
 
 export default data;

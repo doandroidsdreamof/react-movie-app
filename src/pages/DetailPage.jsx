@@ -5,12 +5,16 @@ import DetailCover from "../components/Detail/DetailCover.jsx";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import data from "../../Data";
+import PageLayout from "../components/Layouts/PageLayout.jsx";
 
 const DetailPage = () => {
   let { id } = useParams();
   const [details, setDetails] = useState([]);
-  console.log("detail page =>", id);
+  const [similar, setSimilar] = useState([]);
   const getById = `https://api.themoviedb.org/3/movie/${id}?` + data.requestSearchByID;
+  const getSimilarMovies = `https://api.themoviedb.org/3/movie/${id}/similar?` + data.requestSearchByIDSimilar;
+  //console.log("detail page =>", id);
+
   useEffect(() => {
     fetchDetails(getById);
   }, []);
@@ -26,23 +30,16 @@ const DetailPage = () => {
     }
   }
 
-  //console.log("detay=>", details);
+  console.log("benzer=>", similar);
 
   return (
-    <section className="flex flex-col h-screen   overflow  bg-bg-color">
-      <div className="flex flex-1 overflow-x-hidden   overflow-y-auto ">
-        <div className="flex  order-1">
-          <SideNav />
-        </div>
-        <div className=" w-72 order-3 hidden lg:flex border-l border-l-gray-600">
-          <Aside />
-        </div>
-        <div className="invisible-overflow flex  flex-1 flex-col  order-2   overflow-y-auto">
-            <DetailCover passDetail={details} />
+    <PageLayout
+    nav={<SideNav />}
+    aside={<Aside DetailPage={"DetailPage"} trendData={getSimilarMovies} />}
+    slider={ <DetailCover key={details.length} passDetail={details} />}
+    detailPage={'detailPage'}
+  />
 
-        </div>
-      </div>
-    </section>
   );
 };
 

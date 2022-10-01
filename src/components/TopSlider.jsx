@@ -57,7 +57,7 @@ const TopSlider = ({ endpoint }) => {
         {data.map((items, id) => (
           <SwiperSlide key={id} className="shadow-lg w-full cursor-pointer h-80 lg:h-[420px] ">
             <Link key={id.length} to={`movie/${items.id}`}>
-              <Star rating={items.vote_average} />
+              <Star key={id.length} rating={items.vote_average} />
               <div className="bg-gradient-to-br from-black  w-full h-onehundred  absolute transition-all duration-500 ease-in-out hover:opacity-75"> </div>
               <div className="absolute flex flex-col w-[450px]  ">
                 <p className="text-4xl lg:text-5xl  p-5  text-head   font-roboto font-bold">{items.original_title ? items.original_title : items.name} </p>
