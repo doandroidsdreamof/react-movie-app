@@ -30,7 +30,7 @@ const DetailPage = () => {
     }
   }
 
-  console.log("benzer=>", similar);
+  //console.log("benzer=>", similar);
 
   return (
     <PageLayout

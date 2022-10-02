@@ -17,7 +17,7 @@ const Aside = ({ trendData,DetailPage,HomePage }) => {
       });
   }, [trendData]);
 
-  console.log("aside =>", DetailPage);
+  //console.log("aside =>", DetailPage);
 
   return (
     <div className={"  bg-bg-color relative  min-h-screen hidden   font-roboto right-0 border-gray-800   lg:block w-[250px] pt-4 "}>
