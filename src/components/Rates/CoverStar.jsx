@@ -6,7 +6,7 @@ const CoverStar = ({coverRating}) => {
   const rating = coverRating !== '' ? (Math.round(coverRating * 100) / 100).toFixed(1) : '';
   return (
     <>
-      <div className="toast toast-end rounded-sm  h-6 flex justify-center top-3 absolute z-50">
+      <div className="toast toast-end rounded-sm  h-6 flex justify-center w-12   relative  z-50">
         <div className="alert alert-info h-full flex flex-row text-center items-center">
           <div>
             <span className="font-roboto text-white font-medium ">{ rating}</span>

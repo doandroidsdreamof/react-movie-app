@@ -1,10 +1,22 @@
 import React from "react";
-import { BsPlay,BsPauseFill } from "react-icons/bs";
+import { BsPlay, BsPauseFill } from "react-icons/bs";
 import { useState } from "react";
 const PlayVideoButton = () => {
   const [isActive, setIsActive] = useState(false);
   return (
     <>
+      <button className="btn  align-middle right-4 rounded-full z-50 justify-center bottom-8 absolute   bg-star-second px-2 md:px-12">
+        <BsPlay
+          className="text-white"
+          size={30}
+        />
+      </button>
+    </>
+  );
+};
+
+export default PlayVideoButton;
+/*
       <button
         onClick={() => {
           setIsActive(!isActive);
@@ -29,8 +41,4 @@ const PlayVideoButton = () => {
           />
         )}
       </button>
-    </>
-  );
-};
-
-export default PlayVideoButton;
+      */

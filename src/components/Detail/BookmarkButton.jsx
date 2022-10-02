@@ -7,9 +7,11 @@ const BookmarkButton = () => {
   return (
     <>
 
-      <button onClick={() => { setIsActive(!isActive)}} className="flex items-center p-4  transition ease-in duration-200 uppercase rounded-full hover:bg-black hover:text-white border-2 border-star focus:outline-none">
-           {isActive ? <BsBookmarkHeart size={20} onClick={() => { setIsActive(!isActive)}} />  : <BsBookmarkHeartFill size={20} onClick={() => { setIsActive(!isActive)}} />   }
-      </button>
+
+<button onClick={() => { setIsActive(!isActive)}} className="btn btn-circle scale-110 btn-outline border-2 p-2 hover:bg-star ease-in duration-150">
+{isActive ? <BsBookmarkHeart className="text-white" size={20} onClick={() => { setIsActive(!isActive)}} />  : <BsBookmarkHeartFill className="text-white " size={20} onClick={() => { setIsActive(!isActive)}} />   }
+
+</button>
     </>
   );
 };
