@@ -16,7 +16,7 @@ const GenresDetail = ({ genresList }) => {
     setGenreName(parseGenre);
   }
 
-  console.log(genreName);
+
 
   return (
     <>
