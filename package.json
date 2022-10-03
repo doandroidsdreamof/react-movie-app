@@ -16,6 +16,7 @@
     "@babel/preset-env": "^7.19.1",
     "@babel/preset-react": "^7.18.6",
     "@formkit/auto-animate": "^1.0.0-beta.3",
+    "@headlessui/react": "^1.7.3",
     "@tailwindcss/line-clamp": "^0.4.2",
     "autoprefixer": "10.4.5",
     "daisyui": "^2.27.0",

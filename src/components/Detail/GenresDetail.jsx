@@ -2,9 +2,8 @@ import React from "react";
 import { useEffect, useState } from "react";
 
 const GenresDetail = ({ genresList }) => {
-  const [name, setName] = useState([]);
+  const [genreName, setGenreName] = useState([]);
   useEffect(() => {
-    let c = `https://api.themoviedb.org/3/genre/movie/list?api_key=${process.env.API_KEY}&language=en-US`;
 
     x();
   }, []);
@@ -14,18 +13,18 @@ const GenresDetail = ({ genresList }) => {
     for (let i in genresList.genres) {
       parseGenre.push(genresList.genres[i].name);
     }
-    setName(parseGenre);
+    setGenreName(parseGenre);
   }
 
-  console.log(name);
+  console.log(genreName);
 
   return (
     <>
-      {name.map((items, index) => (
+      {genreName.map((items, index) => (
         <>
-          <button className="hover:bg-black hover:text-white bg-transparent py-2 w-fit z-50 mt-0 order-3   ml-8 bottom-4 relative transition ease-in duration-200 uppercase px-8  font-semibold border rounded  ">
+          <button key={index.length} className="hover:bg-black hover:text-white bg-transparent  md:py-2 w-fit z-50 mt-0  py-1 md:text-base text-xs bottom-4 relative transition ease-in duration-200 uppercase px-8  font-semibold border rounded  ">
             {items}
-            </button>;
+            </button>
         </>
       ))}
     </>

@@ -2,6 +2,7 @@ import React from "react";
 import SideNav from "../components/Navbar/SideNav.jsx";
 import Aside from "../components/AsideBar/Aside.jsx";
 import DetailCover from "../components/Detail/DetailCover.jsx";
+import SectionSecond from "../components/Detail/SectionSecond.jsx";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import data from "../../Data";
@@ -38,6 +39,7 @@ const DetailPage = () => {
     aside={<Aside DetailPage={"DetailPage"} trendData={getSimilarMovies} />}
     slider={ <DetailCover key={details.length} passDetail={details} />}
     detailPage={'detailPage'}
+    sectionSecond={<SectionSecond />}
   />
 
   );

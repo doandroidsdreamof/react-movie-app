@@ -11,7 +11,7 @@ const Home = () => {
   return (
     <PageLayout
       nav={<SideNav />}
-      aside={<Aside HomePage={"HomePage"} trendData={data.requestDayTrending} />}
+      aside={<Aside  HomePage={"HomePage"} trendData={data.requestDayTrending} />}
       slider={<TopSlider sliderId="0" endpoint={data.requestWeekTrending} />}
       row={
         <RowLayout>
