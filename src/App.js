@@ -12,9 +12,9 @@ function App() {
   return (
     <>
       <Routes>
-        <Route  exact  path='/' element={<Home />} />
+        <Route exact path='/' element={<Home />} />
         <Route  path='movie/:id' element={<DetailPage />} />
-        <Route  path='/login' element={
+        <Route path='/login' element={
           <FormLayout>
             <SignIn />
           </FormLayout>

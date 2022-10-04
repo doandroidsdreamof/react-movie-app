@@ -5,7 +5,6 @@ import { Navigation, Pagination, Keyboard, Autoplay, Lazy, EffectCreative } from
 import { Swiper, SwiperSlide } from "swiper/react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { Link } from "react-router-dom";
-import "swiper/css/effect-creative";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -39,17 +38,8 @@ const TopSlider = ({ endpoint }) => {
         }}
         slidesPerView={1}
         keyboard={true}
-        effect={"creative"}
-        creativeEffect={{
-          prev: {
-            translate: [0, 0, -400],
-          },
-          next: {
-            translate: ["100%", 0, 0],
-          },
-        }}
         //autoplay={{ delay: 5000, disableOnInteraction: false }}
-        modules={[Navigation, Pagination, Autoplay, Keyboard, EffectCreative, Lazy]}
+        modules={[Navigation, Pagination, Autoplay, Keyboard, Lazy]}
         scrollbar={{ draggable: true }}
         grabCursor={true}
         className="mySwiper mt-11 left-0 ml-auto h-fit w-full md:!w-onehundred !rounded-lg "
