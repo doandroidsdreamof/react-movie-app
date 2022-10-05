@@ -38,7 +38,7 @@ const TopSlider = ({ endpoint }) => {
         }}
         slidesPerView={1}
         keyboard={true}
-        //autoplay={{ delay: 5000, disableOnInteraction: false }}
+        autoplay={{ delay: 5000, disableOnInteraction: false }}
         modules={[Navigation, Pagination, Autoplay, Keyboard, Lazy]}
         scrollbar={{ draggable: true }}
         grabCursor={true}
