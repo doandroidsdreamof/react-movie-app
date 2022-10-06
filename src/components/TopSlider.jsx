@@ -60,7 +60,7 @@ const TopSlider = ({ endpoint }) => {
                   setLoaded(true);
                 }}
                 data-hash={id}
-                className=" object-cover object-center min-h-onehundred   "
+                className=" object-cover object-center min-h-onehundred"
                 src={`https://image.tmdb.org/t/p/original/${items?.backdrop_path}`}
                 alt={items.name}
               />
