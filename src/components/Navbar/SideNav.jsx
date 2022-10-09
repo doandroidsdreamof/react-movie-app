@@ -28,10 +28,10 @@ const SideNav = () => {
   };
 
   return (
-    <div className={menu ? " bg-bg-color z-50 border-r border-r-gray-600 relative font-roboto left-0  min-h-screen w-14 pt-4  " : " bg-bg-color z-50  relative border-r border-r-gray-600 font-roboto left-0 md:w-[210px] min-h-screen  w-14 pt-4 "}>
+    <div className={menu ? " bg-bg-color z-50 border-r border-r-gray-600 relative font-roboto left-0   min-h-screen w-14 pt-4  " : " bg-bg-color z-50  relative border-r border-r-gray-600 font-roboto left-0 md:w-[210px] min-h-screen  w-14 pt-4 "}>
       <div className="text-center  text-white p-6"></div>
       <ul className="mt-11 flex  gap-y-4 flex-col ">
-        <li className=" hover:bg-gray-800 cursor-pointer md:justify-start px-4  h-12 hidden md:flex items-center justify-center active text-center ">
+        <li className="active:bg-star translate-y-3 hover:bg-gray-800 cursor-pointer md:justify-start px-4  h-12 hidden md:flex items-center justify-center  text-center ">
           <label className=" swap swap-rotate  ">
             <input onClick={(e) => handleClick(e)} type="checkbox" />
             <svg className="swap-on fill-current   md:-translate-x-1" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 512 512">
@@ -44,36 +44,36 @@ const SideNav = () => {
           </label>
         </li>
         <Link to="/">
-          <li className="hover:bg-gray-800 cursor-pointer md:justify-start px-4 h-12 flex items-center justify-center ">
+          <li className="active:bg-star hover:bg-gray-800 cursor-pointer md:justify-start px-4 h-12 flex items-center justify-center ">
             <AiFillHome size={30} />
             <span className="all-hide ml-3 hidden md:block  text-gray-400 font-semibold tracking-wide hover:text-white transition-colors">Home</span>
           </li>
         </Link>
         <Link to='/explore'>
-          <li className="hover:bg-gray-800 cursor-pointer md:justify-start px-4 h-12 flex  items-center justify-center">
+          <li className="active:bg-star hover:bg-gray-800 cursor-pointer md:justify-start px-4 h-12 flex  items-center justify-center">
             <MdOutlineExplore size={30} />
             <span className="all-hide ml-3 hidden md:block  text-gray-400 font-semibold tracking-wide hover:text-white transition-colors">Explore</span>
           </li>
         </Link>
         <Link to='/bookmark'>
-          <li className="hover:bg-gray-800 cursor-pointer md:justify-start px-4 h-12 flex items-center justify-center">
+          <li className="active:bg-star hover:bg-gray-800 cursor-pointer md:justify-start px-4 h-12 flex items-center justify-center">
             <BsBookmarkStarFill size={30} />
             <span className="all-hide ml-3 hidden md:block text-gray-400 font-semibold tracking-wide hover:text-white transition-colors">Bookmark</span>
           </li>
         </Link>
         <Link to="/profile">
-          <li className="hover:bg-gray-800 cursor-pointer md:justify-start px-4 h-12 flex items-center justify-center">
+          <li className="active:bg-star hover:bg-gray-800 cursor-pointer md:justify-start px-4 h-12 flex items-center justify-center">
             <CgProfile size={30} />
             <span className="all-hide ml-3 hidden md:block  text-gray-400 font-semibold tracking-wide hover:text-white transition-colors">Profile</span>
           </li>
         </Link>
         <Link to="/login">
-          <li className="hover:bg-gray-800 cursor-pointer md:justify-start px-4 h-12 flex items-center justify-center">
+          <li className="active:bg-star hover:bg-gray-800 cursor-pointer md:justify-start px-4 h-12 flex items-center justify-center">
             <HiOutlineLogin size={30} />
             <span className="all-hide ml-3 hidden md:block  text-gray-400 font-semibold tracking-wide hover:text-white transition-colors">Login</span>
           </li>
         </Link>
-        <li className="hover:bg-gray-800 cursor-pointer md:justify-start px-4  h-12  flex items-center justify-center">
+        <li className="active:bg-star hover:bg-gray-800 cursor-pointer md:justify-start px-4  h-12  flex items-center justify-center">
           <DarkMode />
           <span className="all-hide ml-2 mt-1 hidden md:block translate-x-1  text-gray-400 font-semibold tracking-wide hover:text-white transition-colors">Dark Mode</span>
         </li>

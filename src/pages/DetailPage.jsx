@@ -8,6 +8,7 @@ import { useState, useEffect } from "react";
 import data from "../../Data";
 import PageLayout from "../components/Layouts/PageLayout.jsx";
 
+
 const DetailPage = () => {
   let { id } = useParams();
   const [details, setDetails] = useState([]);
@@ -34,6 +35,8 @@ const DetailPage = () => {
   //console.log("benzer=>", similar);
 
   return (
+    <>
+      
     <PageLayout
     nav={<SideNav />}
     aside={<Aside DetailPage={"DetailPage"} trendData={getSimilarMovies} />}
@@ -41,6 +44,11 @@ const DetailPage = () => {
     detailPage={'detailPage'}
     sectionSecond={<SectionSecond />}
   />
+
+
+
+      
+    </>
 
   );
 };

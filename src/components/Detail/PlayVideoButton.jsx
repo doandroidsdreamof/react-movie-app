@@ -1,44 +1,62 @@
 import React from "react";
 import { BsPlay, BsPauseFill } from "react-icons/bs";
+import { CgClose } from "react-icons/cg";
+
 import { useState } from "react";
-const PlayVideoButton = () => {
-  const [isActive, setIsActive] = useState(false);
+
+
+const PlayVideoButton = (props) => {
+  const [isActive, setIsActive] = useState(true);
+
+  function openVideo(){
+    props.handleClick()
+    setIsActive(!isActive);
+
+  }
+
   return (
     <>
-      <button className="btn  align-middle right-4 rounded-full z-50 justify-center md:bottom-8 bottom-14 absolute   bg-star-second md:px-2 lg:px-8">
-        <BsPlay
-          className="text-white"
-          size={30}
-        />
+       <button
+        className="btn border-none  align-middle right-4 rounded-full z-50 justify-center md:bottom-8 bottom-14 absolute  px-2  bg-star-second"
+      >
+        {isActive ? (
+          <BsPlay
+            className="text-white"
+            size={30}
+            onClick={openVideo}     
+          
+          />
+        ) : (
+          <CgClose
+            className="text-white"
+            size={30}
+            onClick={openVideo}
+          />
+        )}
       </button>
     </>
   );
 };
 
 export default PlayVideoButton;
+
+
 /*
-      <button
-        onClick={() => {
-          setIsActive(!isActive);
-        }}
-        className="btn btn-active bg-star px-12"
-      >
-        {isActive ? (
-          <BsPlay
-            className="text-white"
-            size={30}
-            onClick={() => {
-              setIsActive(!isActive);
-            }}
-          />
-        ) : (
-          <BsPauseFill
-            className="text-white"
-            size={30}
-            onClick={() => {
-              setIsActive(!isActive);
-            }}
-          />
-        )}
+
+
+
+
+
+
+
+
+
+           <button className="btn border-none  align-middle right-4 rounded-full z-50 justify-center md:bottom-8 bottom-14 absolute  px-2  bg-star-second  ">
+        <BsPlay
+          className="text-white"
+          size={30}
+         onClick={openVideo}
+        />
       </button>
+
       */

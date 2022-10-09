@@ -62,3 +62,14 @@ color:hsl(226, 100%, 66%);
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
+
+
+
+
+.react-player {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+
+}
