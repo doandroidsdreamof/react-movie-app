@@ -19,7 +19,7 @@ const TopSlider = ({ endpoint }) => {
       .then((res) => res.json())
       .then((get) => setData(get.results.slice(0, 3)))
       .catch((err) => {
-        console.log(err);
+        console.error(err);
       });
   }, []);
   return (

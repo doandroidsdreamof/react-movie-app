@@ -15,7 +15,7 @@ const Row = ({ endpoint, title }) => {
     fetch(endpoint)
       .then((res) => res.json())
       .then((get) => setMovies(get.results))
-      .catch(err => {console.log(err)})
+      .catch(err => {console.error(err)})
   }, [endpoint]);
 
   return (

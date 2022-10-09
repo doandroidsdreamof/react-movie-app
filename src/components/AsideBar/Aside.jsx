@@ -13,11 +13,10 @@ const Aside = ({ trendData,DetailPage,HomePage }) => {
       .then((res) => res.json())
       .then((get) => setTrend(get.results.slice(0, 3)))
       .catch((err) => {
-        console.log(err);
+        console.error(err);
       });
   }, [trendData]);
 
-  //console.log("aside =>", DetailPage);
 
   return (
     <div className={"  bg-bg-color relative  min-h-screen hidden   font-roboto right-0 border-gray-800   lg:block w-[250px] pt-4 "}>

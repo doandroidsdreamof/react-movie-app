@@ -8,7 +8,7 @@ const BookmarkButton = () => {
     <>
 
 
-<button onClick={() => { setIsActive(!isActive)}} className="btn btn-circle scale-110 btn-outline border-2 p-2 hover:bg-star ease-in duration-150">
+<button onClick={() => { setIsActive(!isActive)}} className="btn btn-circle scale-110 btn-outline border-2 p-2 hover:bg-star ease-in duration-150 z-50">
 {isActive ? <BsBookmarkHeart className="text-white" size={20} onClick={() => { setIsActive(!isActive)}} />  : <BsBookmarkHeartFill className="text-white " size={20} onClick={() => { setIsActive(!isActive)}} />   }
 
 </button>

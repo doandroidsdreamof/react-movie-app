@@ -5,10 +5,10 @@ const GenresDetail = ({ genresList }) => {
   const [genreName, setGenreName] = useState([]);
   useEffect(() => {
 
-    x();
+    genreConvert();
   }, []);
 
-  function x() {
+  function genreConvert() {
     let parseGenre = [];
     for (let i in genresList.genres) {
       parseGenre.push(genresList.genres[i].name);

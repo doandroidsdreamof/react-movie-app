@@ -15,7 +15,6 @@ const DetailPage = () => {
   const [similar, setSimilar] = useState([]);
   const getById = `https://api.themoviedb.org/3/movie/${id}?` + data.requestSearchByID;
   const getSimilarMovies = `https://api.themoviedb.org/3/movie/${id}/similar?` + data.requestSearchByIDSimilar;
-  //console.log("detail page =>", id);
 
   useEffect(() => {
     fetchDetails(getById);
@@ -32,7 +31,7 @@ const DetailPage = () => {
     }
   }
 
-  //console.log("benzer=>", similar);
+console.log(details)
 
   return (
     <>

@@ -13,7 +13,9 @@ const data = {
   requestSearch: ` https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&language=en-US&page=1&include_adult=false`,
   requestSearchByID: `api_key=${apiKey}&language=en-US`,
   requestSearchByIDSimilar: `api_key=${apiKey}&language=en-US&page=1`,
-  requestVideo: `/videos?api_key=${apiKey}&language=en-US`
+  requestVideo: `/videos?api_key=${apiKey}&language=en-US`,
+  requestCast:`/credits?api_key=${apiKey}&language=en-US`,
+  requestPeople: `api_key=${apiKey}&language=en-US&page=1&include_adult=false`,
 };
 
 export default data;

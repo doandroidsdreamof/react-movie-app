@@ -1,8 +1,8 @@
 import React from "react";
 import { useState } from "react";
 import { Tab } from "@headlessui/react";
-
-
+import Cast from './Cast.jsx';
+import CastGrid from '../Layouts/CastGrid.jsx'
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
@@ -14,11 +14,11 @@ const SectionSecond = () => {
     Review: [{ id: 3 }, { name: "Review" }],
   });
 
-  console.log(categories ? categories : "d");
+ // console.log(categories ? categories : "d");
 
   return (
-    <div className="w-full  flex h-full">
-      <div className="w-full max-w-md px-2 py-16 sm:px-0 mx-auto relative top-0 -translate-y-12">
+    <div className="w-full  flex flex-col h-full">
+      <div className="w-full  mt-4 max-w-md px-2 sm:px-0 mx-auto relative top-0 ">
         <Tab.Group>
           <Tab.List className="flex space-x-1 rounded-xl bg-blue-600/40 p-1 ">
             {Object.keys(categories).map((category) => (
@@ -30,6 +30,11 @@ const SectionSecond = () => {
           <Tab.Panels className="mt-2"></Tab.Panels>
         </Tab.Group>
       </div>
+      <CastGrid>
+      <Cast />
+
+      </CastGrid>
+ 
     </div>
   );
 };

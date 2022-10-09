@@ -21,14 +21,14 @@ const PlayVideoButton = (props) => {
       >
         {isActive ? (
           <BsPlay
-            className="text-white"
+            className="text-white z-50"
             size={30}
             onClick={openVideo}     
           
           />
         ) : (
           <CgClose
-            className="text-white"
+            className="text-white z-50"
             size={30}
             onClick={openVideo}
           />
@@ -41,22 +41,3 @@ const PlayVideoButton = (props) => {
 export default PlayVideoButton;
 
 
-/*
-
-
-
-
-
-
-
-
-
-           <button className="btn border-none  align-middle right-4 rounded-full z-50 justify-center md:bottom-8 bottom-14 absolute  px-2  bg-star-second  ">
-        <BsPlay
-          className="text-white"
-          size={30}
-         onClick={openVideo}
-        />
-      </button>
-
-      */

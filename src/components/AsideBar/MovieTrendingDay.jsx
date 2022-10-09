@@ -5,7 +5,6 @@ import { Link,useNavigate  } from "react-router-dom";
 
 const MovieTrendingDay = ({ trendData }) => {
   const navigate = useNavigate();
-  console.log("trend", trendData);
   const addElipsisTitle = trendData.title.length > 15 ? trendData.title.substring(0, 15) + "..." : trendData.title;
 
   return (

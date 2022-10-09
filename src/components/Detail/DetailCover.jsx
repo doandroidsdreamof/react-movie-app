@@ -27,7 +27,7 @@ const DetailCover = ({ passDetail }) => {
       .then((res) => res.json())
       .then((get) => setUrl(get.results[0]))
       .catch((err) => {
-        console.log(err);
+        console.error(err);
       });
    
 
@@ -40,7 +40,6 @@ const DetailCover = ({ passDetail }) => {
 
   function Constructor(url){
     if(typeof this.url !== undefined){
-      console.log('ok')
       this.url = url.key;
     }
 
@@ -49,28 +48,27 @@ const DetailCover = ({ passDetail }) => {
   }
   const key = new Constructor(url);
   
-  console.log('burası =>', key.url !== undefined ? key.url : null)
+
 
   return (
     <>
       <Swiper className="mySwiper z-50  " modules={[Lazy]}>
-        <div className="swiper-slide  h-fit w-full">
+        <div className="swiper-slide  h-fit w-full z-50">
           <PlayVideoButton handleClick={handleClick} />
-          <div className="bg-gradient-to-tl flex flex-col from-black w-onehundred   h-96 z-0   absolute    rounded-br-xl rounded-bl-xl  ">
-            <div className="flex flex-row  justify-end gap-3 p-4">
+          <div className="bg-gradient-to-tl flex flex-col from-black w-onehundred   h-96    absolute    rounded-br-xl rounded-bl-xl  ">
+            <div className={open ? "flex flex-row  justify-end gap-3 p-4 z-0" : "flex flex-row  justify-end gap-3 p-4 z-50"}>
               <BookmarkButton />
               <ShareButton />
             </div>
-            <div className="z-50 flex-col   h-full flex ">
+            <div className={open ? "flex-col z-0   h-full flex " : "flex-col z-10   h-full flex "}>
               <DailyTrendBar scale={"scale"} dailyTrends={passDetail.vote_average} />
               <h3 className="text-gray-50 order-2 relative bottom-3 ml-8 mt-auto -translate-y-8 text-2xl md:text-4xl z-50 font-roboto font-medium">{passDetail.title}</h3>
               <div className="flex flex-row order-3 ml-8 mr-auto transition  flex-wrap gap-2 max-w-eighty z-50 h-fit">
                 <GenresDetail key={genre.length} genresList={genre} />
               </div>
-              <div className="h-28 w-full bottom-0 bg-white-600 absolute rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 rounded-br-xl rounded-bl-xl border-gray-100"></div>
+              <div className=" h-28 w-full bottom-0 bg-white-600 absolute rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 rounded-br-xl rounded-bl-xl border-gray-100"></div>
             </div>
           </div>
-          <ReactPlayer className="react-player" height="100%" width="100%" url={!open ? "  " : `https://www.youtube.com/watch?v=${key.url}`} />
           <LazyLoadImage
             effect="opacity"
             afterLoad={() => {
@@ -80,6 +78,7 @@ const DetailCover = ({ passDetail }) => {
             src={`https://image.tmdb.org/t/p/original/${passDetail?.backdrop_path}`}
             alt={passDetail.title}
           />
+          <ReactPlayer className="react-player " height="100%" width="100%" url={!open ? "  " : `https://www.youtube.com/watch?v=${key.url}`} />
 
           <div className={!loaded ? "swiper-lazy-preloader" : ""}></div>
         </div>
