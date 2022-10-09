@@ -18,7 +18,7 @@ const DetailPage = () => {
 
   useEffect(() => {
     fetchDetails(getById);
-  }, []);
+  }, [id]);
 
   async function fetchDetails(id) {
     try {

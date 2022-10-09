@@ -6,6 +6,9 @@ import SignUp from './pages/SignUp.jsx'
 import Profile from './pages/Profile.jsx'
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import FormLayout from './components/Layouts/FormLayout.jsx'
+import BookMark from './pages/BookMark.jsx'
+import Error from './pages/Error.jsx'
+import Explore from './pages/Explore.jsx'
 
 
 function App() {
@@ -25,6 +28,9 @@ function App() {
           </FormLayout>
         } />
         <Route path='/profile' element={<Profile />} />
+        <Route path='/explore' element={<Explore />} />
+        <Route path='/bookmark' element={<BookMark />} />
+        <Route path='*' element={<Error />}/>
       </Routes>
 
 

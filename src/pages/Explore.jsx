@@ -1,7 +1,17 @@
 import React from 'react'
+import PageLayout from "../components/Layouts/PageLayout.jsx";
+import SideNav from "../components/Navbar/SideNav.jsx";
+import Aside from "../components/AsideBar/Aside.jsx";
 
-export const Explore = () => {
+
+ const Explore = () => {
   return (
-    <div>Explore</div>
+    <PageLayout
+      nav={<SideNav />}
+      
+ 
+    />
   )
 }
+
+export default Explore

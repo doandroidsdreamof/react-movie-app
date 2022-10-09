@@ -10,10 +10,7 @@ import { Link } from "react-router-dom";
 
 const SideNav = () => {
   const [menu, setMenu] = useState(false);
-  useEffect(() => {
-    
-
-  }, [menu]);
+  useEffect(() => {}, [menu]);
 
   const handleClick = (e) => {
     const hideAll = document.querySelectorAll(".all-hide");
@@ -46,31 +43,35 @@ const SideNav = () => {
             <span className="all-hide ml-10 mt-1  pr-11 hidden md:block  text-gray-400 font-semibold tracking-wide hover:text-white transition-colors">Close Menu</span>
           </label>
         </li>
-        <Link to='/'>
-        <li className="hover:bg-gray-800 cursor-pointer md:justify-start px-4 h-12 flex items-center justify-center ">
-          <AiFillHome size={30} />
-          <span className="all-hide ml-3 hidden md:block  text-gray-400 font-semibold tracking-wide hover:text-white transition-colors">Home</span>
-        </li>
+        <Link to="/">
+          <li className="hover:bg-gray-800 cursor-pointer md:justify-start px-4 h-12 flex items-center justify-center ">
+            <AiFillHome size={30} />
+            <span className="all-hide ml-3 hidden md:block  text-gray-400 font-semibold tracking-wide hover:text-white transition-colors">Home</span>
+          </li>
         </Link>
-        <li className="hover:bg-gray-800 cursor-pointer md:justify-start px-4 h-12 flex  items-center justify-center">
-          <MdOutlineExplore size={30} />
-          <span className="all-hide ml-3 hidden md:block  text-gray-400 font-semibold tracking-wide hover:text-white transition-colors">Explore</span>
-        </li>
-        <li className="hover:bg-gray-800 cursor-pointer md:justify-start px-4 h-12 flex items-center justify-center">
-          <BsBookmarkStarFill size={30} />
-          <span className="all-hide ml-3 hidden md:block text-gray-400 font-semibold tracking-wide hover:text-white transition-colors">Bookmark</span>
-        </li>
-        <Link to='/profile'>
-        <li className="hover:bg-gray-800 cursor-pointer md:justify-start px-4 h-12 flex items-center justify-center">
-          <CgProfile size={30} />
-          <span className="all-hide ml-3 hidden md:block  text-gray-400 font-semibold tracking-wide hover:text-white transition-colors">Profile</span>
-        </li>
+        <Link to='/explore'>
+          <li className="hover:bg-gray-800 cursor-pointer md:justify-start px-4 h-12 flex  items-center justify-center">
+            <MdOutlineExplore size={30} />
+            <span className="all-hide ml-3 hidden md:block  text-gray-400 font-semibold tracking-wide hover:text-white transition-colors">Explore</span>
+          </li>
         </Link>
-        <Link to='/login'>
-        <li className="hover:bg-gray-800 cursor-pointer md:justify-start px-4 h-12 flex items-center justify-center">
-          <HiOutlineLogin size={30} />
-          <span className="all-hide ml-3 hidden md:block  text-gray-400 font-semibold tracking-wide hover:text-white transition-colors">Login</span>
-        </li>
+        <Link to='/bookmark'>
+          <li className="hover:bg-gray-800 cursor-pointer md:justify-start px-4 h-12 flex items-center justify-center">
+            <BsBookmarkStarFill size={30} />
+            <span className="all-hide ml-3 hidden md:block text-gray-400 font-semibold tracking-wide hover:text-white transition-colors">Bookmark</span>
+          </li>
+        </Link>
+        <Link to="/profile">
+          <li className="hover:bg-gray-800 cursor-pointer md:justify-start px-4 h-12 flex items-center justify-center">
+            <CgProfile size={30} />
+            <span className="all-hide ml-3 hidden md:block  text-gray-400 font-semibold tracking-wide hover:text-white transition-colors">Profile</span>
+          </li>
+        </Link>
+        <Link to="/login">
+          <li className="hover:bg-gray-800 cursor-pointer md:justify-start px-4 h-12 flex items-center justify-center">
+            <HiOutlineLogin size={30} />
+            <span className="all-hide ml-3 hidden md:block  text-gray-400 font-semibold tracking-wide hover:text-white transition-colors">Login</span>
+          </li>
         </Link>
         <li className="hover:bg-gray-800 cursor-pointer md:justify-start px-4  h-12  flex items-center justify-center">
           <DarkMode />
