@@ -18,39 +18,36 @@ const Overview = () => {
       .catch((err) => {
         console.error(err);
       });
-  }, []);
+  }, [id]);
 
   console.log("burası", detail);
 
   return (
-    <div className="w-full h-full flex flex-col flex-wrap px-5 md:px-10 lg:px-20 text-left">
-<div className="translate-x-1">
+ <section>
+     <div className="w-full h-full flex flex-col flex-wrap px-5 md:px-10 lg:px-20 mt-8 gap-y-12">
+<div className="translate-x-2  gap-y-12 flex flex-col">
 <div className="">
-        <h2 className="">{detail.title}</h2>
-        <h3 className="">{detail.tagline}</h3>
+    <h3 className="italic font-roboto font-medium text-white text-xl block text-center">{detail.tagline ? <blockquote><q>{detail.tagline}</q></blockquote> : <></>}</h3>
       </div>
-      <div className="">
-      <h3 className="">Overview</h3>
-      <p className="">{detail.overview}</p>
+      <div className="flex flex-col gap-y-4">
+      <h3 className="font-roboto text-gray-100 text-xl text-center md:text-left">Overview</h3>
+      <p className="font-roboto text-gray-400 text-md text-justify ">{detail.overview}</p>
       </div>
-      <div className="">
-      <h3 className="">Details</h3>
-      <p className="">Original Title: {detail.original_title}</p>
-      <p className="">Release Date: {detail.release_date}</p>
+      <div className="flex flex-col gap-y-1">
+      <h3 className="font-roboto text-gray-100 text-lg text-center md:text-left">Details</h3>
+      <p className="font-roboto text-gray-400 text-sm text-center md:text-left">Original Title: {detail.original_title}</p>
+      <p className="font-roboto text-gray-400 text-sm text-center md:text-left">Release Date: {detail.release_date}</p>
       </div>
 </div>
-
-      <div className="stats shadow flex flex-wrap md:flex-nowrap bg-card-second rounded-md ">
+  <div className="stats shadow flex flex-wrap md:flex-nowrap bg-card-second rounded-md ">
   <div className="stat  ">
     <div className="stat-title ">Budged</div> 
     <div className="stat-value text-primary flex border-b border-gray-200 sm:border-0">{detail.budget} <span><BsCurrencyDollar size={23} className='text-gray-300 translate-y-3'/></span> </div>
   </div>
-
   <div className="stat ">
     <div className="stat-title ">Vote Count</div>
     <div className="stat-value text-secondary border-b border-gray-200 sm:border-0 ">{detail.vote_count}</div>
   </div>
-  
   <div className="stat ">
     <div className="stat-title">Popularity</div>
     <div className="stat-value border-b border-gray-200 sm:border-0">{detail.popularity}</div>
@@ -58,6 +55,7 @@ const Overview = () => {
   
 </div>
       </div>
+ </section>
 
 
   );

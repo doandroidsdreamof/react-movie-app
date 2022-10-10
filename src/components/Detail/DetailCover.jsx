@@ -11,6 +11,7 @@ import GenresDetail from "../Detail/GenresDetail.jsx";
 import ReactPlayer from "react-player/lazy";
 import data from "../../../Data";
 import { useParams } from "react-router-dom";
+import Tooltip from '@mui/material/Tooltip';
 import "swiper/css";
 import "swiper/css/lazy";
 
@@ -29,8 +30,7 @@ const DetailCover = ({ passDetail }) => {
       .catch((err) => {
         console.error(err);
       });
-   
-
+  
   }, []);
 
   function handleClick() {
@@ -39,22 +39,28 @@ const DetailCover = ({ passDetail }) => {
 
 
   function Constructor(url){
-    if( this.url !== undefined){
-      this.url = url.key;
-    }
+if(typeof url == 'undefined'){
+  this.url = 'undefined';
+  return
+}else{
+  this.url = url;
 
+}
 
-   
   }
-  const key = new Constructor(url);
-  
+  const key =  typeof url !== 'undefined' ? new Constructor(url.key) : '';
+
+  console.log('xxxxxxx',  url )
 
 
   return (
     <>
       <Swiper className="mySwiper z-50  " modules={[Lazy]}>
         <div className="swiper-slide  h-fit w-full z-50">
+        <Tooltip title="Menu" placement="right">
+
           <PlayVideoButton handleClick={handleClick} />
+          </Tooltip>
           <div className="bg-gradient-to-tl flex flex-col from-black w-onehundred   h-96    absolute    rounded-br-xl rounded-bl-xl  ">
             <div className={open ? "flex flex-row  justify-end gap-3 p-4 z-0" : "flex flex-row  justify-end gap-3 p-4 z-50"}>
               <BookmarkButton />
@@ -78,7 +84,7 @@ const DetailCover = ({ passDetail }) => {
             src={`https://image.tmdb.org/t/p/original/${passDetail?.backdrop_path}`}
             alt={passDetail.title}
           />
-          <ReactPlayer className="react-player " height="100%" width="100%" url={!open ? "  " : `https://www.youtube.com/watch?v=${key.url}`} />
+          <ReactPlayer className="react-player " height="100%" width="100%" url={!open ? "  " : `https://www.youtube.com/watch?v=${key.url}}`} />
 
           <div className={!loaded ? "swiper-lazy-preloader" : ""}></div>
         </div>
