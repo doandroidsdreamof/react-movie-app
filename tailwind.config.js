@@ -43,7 +43,7 @@ module.exports = {
         'card-color': 'hsl(216, 8%, 13%)',
         'section-color': 'hsl(216, 8%, 13%)',
         'card-second': 'hsl(216, 8%, 13%)',
-        'card-dark': 'hsl(225, 8%, 10%))',
+        'card-dark': 'hsl(225, 8%, 10%)',
         'nav': 'hsl(240, 7%, 9%)',
   
 

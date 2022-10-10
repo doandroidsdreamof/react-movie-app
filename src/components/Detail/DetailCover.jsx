@@ -39,7 +39,7 @@ const DetailCover = ({ passDetail }) => {
 
 
   function Constructor(url){
-    if(typeof this.url !== undefined){
+    if( this.url !== undefined){
       this.url = url.key;
     }
 
