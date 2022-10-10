@@ -11,8 +11,8 @@ module.exports = {
         'roboto': ['Roboto', 'sans-serif'],
       },
       colors:{
-        'bg-color': 'hsl(240, 6%, 10%)',
-        'bg-second': 'hsl(0, 0%, 11%)',
+        'bg-color': 'hsl(240, 7%, 9%)',
+        'bg-second': 'hsl(225, 8%, 10%)',
         'star': 'hsl(226, 100%, 66%)',
         'input-card':'hsl(197, 11%, 12%)',
         'input-bg': 'hsl(200, 13%, 9%)',
@@ -21,8 +21,8 @@ module.exports = {
       },
       
       borderColor:{
-        'bg-color': '#1C1C1E',
-        'bg-second': 'hsl(0, 0%, 11%)',
+        'bg-color': 'hsl(240, 7%, 9%)',
+        'bg-second': 'hsl(225, 8%, 10%)',
         'star': 'hsl(226, 100%, 66%)',
         'star-second': 'hsl(226, 100%, 56%)',
         'input-card':'hsl(197, 11%, 12%)',
@@ -31,18 +31,18 @@ module.exports = {
         'button-blue': 'hsl(226, 100%, 36%)'
       },
       backgroundColor:{
-        'bg-color': 'hsl(0, 0%, 7%)',
+        'bg-color': 'hsl(240, 7%, 9%)',
         'bg-color-radio': '#448ef3',
-        'bg-second': 'hsl(0, 0%, 11%)',
+        'bg-second': 'hsl(225, 8%, 10%)',
         'star': 'hsl(226, 100%, 66%)',
         'star-second': 'hsl(198, 93%, 60%)',
         'input-card':'hsl(197, 11%, 12%)',
         'input-bg': 'hsl(200, 13%, 9%)',
         'input-focus': 'hsl(226, 100%, 66%)',
         'button-blue': 'hsl(226, 100%, 36%)',
-        'card-color': 'hsl(0, 0%, 20%)',
-        'card-second': 'hsl(0, 0%, 13%)',
-   
+        'card-color': 'hsl(216, 8%, 13%)',
+        'card-second': 'hsl(216, 8%, 13%)',
+    
 
       },
       padding: {
