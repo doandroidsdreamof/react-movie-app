@@ -16,6 +16,8 @@ const data = {
   requestVideo: `/videos?api_key=${apiKey}&language=en-US`,
   requestCast:`/credits?api_key=${apiKey}&language=en-US`,
   requestPeople: `api_key=${apiKey}&language=en-US&page=1&include_adult=false`,
+  requestSearchMovie: `api_key=${apiKey}&language=en-US`,
+
 };
 
 export default data;
