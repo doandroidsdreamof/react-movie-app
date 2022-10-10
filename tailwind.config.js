@@ -31,7 +31,7 @@ module.exports = {
         'button-blue': 'hsl(226, 100%, 36%)'
       },
       backgroundColor:{
-        'bg-color': 'hsl(240, 7%, 9%)',
+        'bg-color': 'hsl(225, 8%, 10%) ',
         'bg-color-radio': '#448ef3',
         'bg-second': 'hsl(225, 8%, 10%)',
         'star': 'hsl(226, 100%, 66%)',
@@ -41,8 +41,11 @@ module.exports = {
         'input-focus': 'hsl(226, 100%, 66%)',
         'button-blue': 'hsl(226, 100%, 36%)',
         'card-color': 'hsl(216, 8%, 13%)',
+        'section-color': 'hsl(216, 8%, 13%)',
         'card-second': 'hsl(216, 8%, 13%)',
-    
+        'card-dark': 'hsl(225, 8%, 10%))',
+        'nav': 'hsl(240, 7%, 9%)',
+  
 
       },
       padding: {

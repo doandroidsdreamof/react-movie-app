@@ -28,13 +28,19 @@ const Cast = () => {
   return (
     <>
       {casts.map((actor, i) => (
-   <div className="flex items-center relative  p-4 w-full bg-card-color rounded-lg overflow-hidden shadow hover:shadow-md ">
-   <LazyLoadImage key={i} className="w-12 h-12 rounded-full object-cover bg-gray-100 text-[10px] text-center flex justify-center" src={actor.profile_path ? `${imagePath}${actor?.profile_path}` : fallBack  } alt={actor?.original_name}/>
+
+<div className="flex items-center relative p-2 w-full bg-card-second rounded-lg overflow-hidden shadow hover:shadow-md ">
+   <LazyLoadImage key={i} className="w-20 h-20 rounded-md object-cover bg-gray-100 text-[10px] text-center flex justify-center" src={actor.profile_path ? `${imagePath}${actor?.profile_path}` : fallBack  } alt={actor?.original_name}/>
    <div className="ml-3">
      <p className="font-medium text-gray-100">{actor?.original_name}</p>
      <p className="text-sm text-gray-400   line-clamp-2">Character name {actor?.character.length > 20 ? actor?.character.substring(0, 20) + "..." : actor?.character}</p>
    </div>
+   
    </div>
+
+
+
+ 
       ))}
     </>
   );
@@ -55,13 +61,9 @@ export default Cast;
     console.log('burası', bioId)
   }
 */
-/*
-   <div className="flex items-center relative  p-4 w-full bg-white rounded-lg overflow-hidden shadow hover:shadow-md">
-	<img key={i} className="w-12 h-12 rounded-full bg-gray-100" src={`https://image.tmdb.org/t/p/w500/${actor?.profile_path}`} alt={actor?.original_name}/>
-	<div className="ml-3">
-	  <p className="font-medium text-gray-800">{actor?.original_name}</p>
-	  <p className="text-sm text-gray-600">character {actor?.character}</p>
-	</div>
-  </div>
 
-  */
+
+
+
+
+  

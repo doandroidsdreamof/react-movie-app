@@ -1,6 +1,6 @@
 import React from "react";
 import SearchBar from "./SearchBar.jsx";
-import MovieTrendingDay from "./MovieTrendingDay.jsx";
+import MovieTrendingDaily from "./MovieTrendingDaily.jsx";
 import SimilarMovies from "./SimilarMovies.jsx";
 
 import { useEffect, useState } from "react";
@@ -19,7 +19,7 @@ const Aside = ({ trendData,DetailPage,HomePage }) => {
 
 
   return (
-    <div className={"  bg-bg-color relative  min-h-screen hidden   font-roboto right-0 border-gray-800   lg:block w-[250px] pt-4 "}>
+    <div className={"  bg-nav relative  min-h-screen hidden font-roboto right-0 border-gray-800   lg:block w-[350px] pt-4 "}>
       <div className=" flex flex-col w-onehundred  h-full">
         <div className=" text-white mt-6 flex relative justify-center w-onehundred self-center">
           <SearchBar />
@@ -28,7 +28,7 @@ const Aside = ({ trendData,DetailPage,HomePage }) => {
           <h3 className="font-roboto text-head font-bold text-2xl mt-2 ml-3 mb-2">{HomePage ? 'Top Three' : 'Similar Movies'}</h3>
           {trend.map((trends, id) => (
             <>
-              <MovieTrendingDay key={id} trendData={trends} />
+              <MovieTrendingDaily key={id} trendData={trends} />
             </>
           ))}
         </div>

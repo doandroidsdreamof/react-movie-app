@@ -51,6 +51,19 @@ const SectionSecond = () => {
           <Tab.Panels className="mt-2"></Tab.Panels>
         </Tab.Group>
       </div>
+      <CastGrid>
+          <Cast />
+        </CastGrid>
+
+        
+
+    </div>
+  );
+};
+
+export default SectionSecond;
+/*
+
       {logic === 0 ? (
        <Overview />
       ) : logic === 1 ? (
@@ -64,8 +77,5 @@ const SectionSecond = () => {
           <Cast />
         </CastGrid>
       )}
-    </div>
-  );
-};
 
-export default SectionSecond;
+      */

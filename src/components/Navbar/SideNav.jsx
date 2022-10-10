@@ -34,11 +34,11 @@ const SideNav = () => {
 
 
   return (
-    <div className={menu ? " bg-bg-color z-50 border-r border-r-gray-600 relative font-roboto left-0   min-h-screen w-14 pt-4  " : " bg-bg-color z-50  relative border-r border-r-gray-600 font-roboto left-0 md:w-[210px] min-h-screen  w-14 pt-4 "}>
+    <div className={menu ? " bg-nav z-50 border-r border-r-gray-600 relative font-roboto left-0   min-h-screen w-14 pt-4  " : " bg-bg-color z-50  relative border-r border-r-gray-600 font-roboto left-0 md:w-[210px] min-h-screen  w-14 pt-4 "}>
       <div className="text-center  text-white p-6"></div>
       <ul className="mt-11 flex  gap-y-4 flex-col ">
       <Tooltip title="Menu" placement="right">
-        <li className="active:bg-star hover:bg-gray-800 cursor-pointer vomd:justify-start px-4 h-12 flex items-center justify-center translate-y-2">
+        <li className="active:bg-star hover:bg-gray-800 cursor-pointer vomd:justify-start px-4 h-12 hidden md:flex items-center justify-center translate-y-2">
           <label className=" swap swap-rotate  ">
             <input onClick={(e) => handleClick(e)} type="checkbox" />
             <svg className="swap-off fill-current   " xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 512 512">
