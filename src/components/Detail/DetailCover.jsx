@@ -60,7 +60,7 @@ const DetailCover = ({ passDetail }) => {
               <BookmarkButton />
               <ShareButton />
             </div>
-            <div className={open ? "flex-col z-10    h-full flex " : "flex-col z-10   h-full flex "}>
+            <div className={open ? "flex-col z-0    h-full flex " : "flex-col z-10   h-full flex "}>
               <DailyTrendBar scale={"scale"} dailyTrends={passDetail.vote_average} />
               <h3 className="text-gray-50 order-2 relative bottom-3 ml-8 mt-auto -translate-y-8 text-2xl md:text-4xl z-50 font-roboto font-medium">{passDetail.title}</h3>
               <div className="flex flex-row order-3 ml-8 mr-auto transition  flex-wrap gap-2 max-w-eighty z-50 h-fit">

@@ -10,7 +10,7 @@ module.exports = {
       fontFamily:{
         'roboto': ['Roboto', 'sans-serif'],
       },
-      color:{
+      colors:{
         'bg-color': 'hsl(240, 6%, 10%)',
         'bg-second': 'hsl(0, 0%, 11%)',
         'star': 'hsl(226, 100%, 66%)',
@@ -19,6 +19,7 @@ module.exports = {
         'input-focus': 'hsl(226, 100%, 66%)',
         'button-blue': 'hsl(226, 100%, 36%)'
       },
+      
       borderColor:{
         'bg-color': '#1C1C1E',
         'bg-second': 'hsl(0, 0%, 11%)',
