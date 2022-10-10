@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import data from "../../../Data";
 import { useState, useEffect } from "react";
 import fallBack from '../../assets/image/fallback-image-jpg.jpg'
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const Cast = () => {
   let { id } = useParams();
@@ -28,7 +29,7 @@ const Cast = () => {
     <>
       {casts.map((actor, i) => (
    <div className="flex items-center relative  p-4 w-full bg-card-color rounded-lg overflow-hidden shadow hover:shadow-md ">
-   <img key={i} className="w-12 h-12 rounded-full object-cover bg-gray-100 text-[10px] text-center flex justify-center" src={actor.profile_path ? `${imagePath}${actor?.profile_path}` : fallBack  } alt={actor?.original_name}/>
+   <LazyLoadImage key={i} className="w-12 h-12 rounded-full object-cover bg-gray-100 text-[10px] text-center flex justify-center" src={actor.profile_path ? `${imagePath}${actor?.profile_path}` : fallBack  } alt={actor?.original_name}/>
    <div className="ml-3">
      <p className="font-medium text-gray-100">{actor?.original_name}</p>
      <p className="text-sm text-gray-400   line-clamp-2">Character name {actor?.character.length > 20 ? actor?.character.substring(0, 20) + "..." : actor?.character}</p>
