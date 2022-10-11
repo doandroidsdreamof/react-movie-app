@@ -37,7 +37,7 @@ const StyledButton = styled('button')(
   min-height: calc(1.5em + 22px);
   min-width: 320px;
   padding: 12px;
-  border-radius: 12px;
+  border-radius: 4px;
   text-align: left;
   line-height: 1.5;
   background: ${theme.palette.mode === 'light' ? 'hsl(240, 1%, 20%)' : '#fff'};
