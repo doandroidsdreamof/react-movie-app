@@ -13,10 +13,10 @@ import React from 'react'
       />
   
       <label
-        className="block cursor-pointer rounded-lg border border-gray-100 p-4 text-sm font-medium shadow-sm transition-colors hover:bg-gray-50 peer-checked:border-blue-500 peer-checked:ring-1 peer-checked:ring-blue-500"
+        className="block cursor-pointer text-center rounded-lg border border-gray-100 p-4 text-sm font-medium shadow-sm transition-colors hover:bg-gray-50 peer-checked:border-blue-500 peer-checked:ring-1 peer-checked:ring-blue-500"
         for="standard_alt"
       >
-        <span>Horror</span>
+        <span className='text-gray-300 font-roboto'>Horror</span>
   
       </label>
   
@@ -39,4 +39,4 @@ import React from 'react'
 }
 
 
-export default GenresExplore;
+export default GenresExplore

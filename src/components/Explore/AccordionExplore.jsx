@@ -26,7 +26,7 @@ function AccordionExplore(props) {
           id="panel1bh-header"
         >
           
-          <Typography sx={{ color: '#d1d5db' }}>Filter Genres  <MdKeyboardArrowUp size={20} className={rotate ? '  absolute right-2 -translate-y-5 duration-200 ease-in ' : '  absolute right-2 -translate-y-5 duration-200 ease-in  rotate-180'} /></Typography>
+          <Typography sx={{ color: '#9ca3af', fontSize: '14px' }}>Filter Movies By Genres  <MdKeyboardArrowUp size={20} className={rotate ? '  absolute right-2 -translate-y-5 duration-200 ease-in ' : '  absolute right-2 -translate-y-5 duration-200 ease-in  rotate-180'} /></Typography>
   
         </AccordionSummary>
         <AccordionDetails>
