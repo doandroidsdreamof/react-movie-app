@@ -61,12 +61,14 @@ const StyledButton = styled('button')(
   &.${selectUnstyledClasses.expanded} {
     &::after {
       content: '▴';
+      transform:scale(1.5);
     }
   }
 
   &::after {
     content: '▾';
     float: right;
+    transform:scale(1.5);
   }
   `,
 );
