@@ -17,7 +17,7 @@ const data = {
   requestCast:`/credits?api_key=${apiKey}&language=en-US`,
   requestPeople: `api_key=${apiKey}&language=en-US&page=1&include_adult=false`,
   requestSearchMovie: `api_key=${apiKey}&language=en-US`,
-  requestExploreInitial: ` https://api.themoviedb.org/3/trending/movie/week?api_key=${apiKey}&page=1&`
+  requestExploreInitial: `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&include_adult=false`,
 
 };
 

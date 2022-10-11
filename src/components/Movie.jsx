@@ -5,11 +5,10 @@ import { Link  } from "react-router-dom";
 import "react-lazy-load-image-component/src/effects/opacity.css";
 import "swiper/css/lazy";
 
-const Movie = ({ data,explore }) => {
+const Movie = ({ data,explore,expolorePage }) => {
   const [loaded,setLoaded]= useState(false)
 
   useEffect(() =>{
-
   },[])
  
  
