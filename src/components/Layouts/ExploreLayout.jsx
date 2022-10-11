@@ -2,7 +2,7 @@ import React from "react";
 
 const ExploreLayout = (props) => {
   return (
-    <section className="flex flex-col h-screen  bg-bg-color">
+    <div className="flex flex-col h-screen  bg-bg-color">
       <div className="flex flex-1 overflow-x-hidden ">
         <div className="Side-nav  flex  order-1">{props.nav}</div>
         <div className="detail-second-section  flex  flex-1 flex-col  order-2   overflow-y-auto">
@@ -22,7 +22,7 @@ const ExploreLayout = (props) => {
         </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

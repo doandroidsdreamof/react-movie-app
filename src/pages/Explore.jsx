@@ -26,16 +26,17 @@ fetch(data.requestExploreInitial + `&page=${page}`)
 .catch(err => {console.error(err)})
 
 },[page])
-function infiniteIncrease(){
-  setPage(page < 1000 ? page + 1 : page)
+
+const infiniteIncrease = () =>{
+   setPage(page < 1000 ? page + 1 : page)
+
 }
 
 console.log('here', initialMovies)
 
   return (
-    <>
+    <section className=''>
 
-<div className=''>
 <InfiniteScroll
           dataLength={page}
           next={infiniteIncrease}
@@ -62,11 +63,11 @@ console.log('here', initialMovies)
   />
         </InfiniteScroll>
 
-</div>
 
 
 
-  </>
+
+  </section>
   )
 }
 
