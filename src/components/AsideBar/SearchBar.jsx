@@ -73,15 +73,15 @@ console.log(searchLogic.explorePage )
     const addElipsis = item.name.length > 20 ? item.name.substring(0, 20) + "..." : item.name;
     return (
       <>
-        <span style={{ borderRadius: "5px", hoverBackgroundColor: "none", backgroundColor: "hsl(240, 2%, 20%)", display: "block", textAlign: "left" }}>{addElipsis}</span>
+        <span style={{ borderRadius: " 15px", hoverBackgroundColor: "none", backgroundColor: "hsl(240, 1%, 20%)", display: "block", textAlign: "left" }}>{addElipsis}</span>
       </>
     );
   };
   return (
     <form className="flex items-center   justify-center w-full z-50 relative">
       <header className="App-header cursor-pointer w-full">
-        <div className={searchLogic.explorePage ? "lg:w-fifty md:w-seventy w-ninty mx-auto md:mr-auto" : "w-72  px-2"}>
-          <ReactSearchAutocomplete styling={{ borderRadius: "5px", hoverBackgroundColor: "none", backgroundColor: "hsl(240, 1%, 20%)", color: "white", border: "0.01rem solid hsl(240, 1%, 50%)",boxShadow:"0px" }} maxResults={4} placeholder="Search..." items={items} onSearch={handleOnSearch} onHover={handleOnHover} onSelect={handleOnSelect} onFocus={handleOnFocus} autoFocus formatResult={formatResult} />
+        <div className={searchLogic.explorePage ? "lg:w-[650px] md:w-[500px] w-ninty mx-auto md:mr-auto " : "w-72  px-2"}>
+          <ReactSearchAutocomplete styling={{ borderRadius: "15px", hoverBackgroundColor: "none", backgroundColor: "hsl(240, 1%, 20%)", color: "white", border: "0.12rem solid hsl(226, 80%, 66%)",boxShadow:"0px" }} maxResults={4} placeholder="Search..." items={items} onSearch={handleOnSearch} onHover={handleOnHover} onSelect={handleOnSelect} onFocus={handleOnFocus} autoFocus formatResult={formatResult} />
         </div>
       </header>
     </form>
