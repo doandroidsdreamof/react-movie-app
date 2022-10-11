@@ -50,7 +50,6 @@ if(typeof url == 'undefined'){
   }
   const key =  typeof url !== 'undefined' ? new Constructor(url.key) : '';
 
-  console.log('xxxxxxx',  url )
 
 
   return (

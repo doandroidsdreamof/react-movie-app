@@ -42,7 +42,7 @@ module.exports = {
         'button-blue': 'hsl(226, 100%, 36%)',
         'card-color': 'hsl(216, 8%, 13%)',
         'section-color': 'hsl(216, 8%, 13%)',
-        'card-second': 'hsl(216, 8%, 13%)',
+        'card-second': 'hsl(216, 8%, 17%)',
         'card-dark': 'hsl(225, 8%, 10%)',
         'nav': 'hsl(240, 7%, 9%)',
   

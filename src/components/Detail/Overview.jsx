@@ -24,7 +24,7 @@ const Overview = () => {
 
   return (
  <section>
-     <div className="w-full h-full flex flex-col flex-wrap px-5 md:px-10 lg:px-20 mt-8 gap-y-12">
+     <div className="w-full h-full flex flex-col flex-wrap px-5 md:px-10 lg:px-14 mt-8 gap-y-12">
 <div className="translate-x-2  gap-y-12 flex flex-col">
 <div className="">
     <h3 className="italic font-roboto font-medium text-white text-xl block text-center">{detail.tagline ? <blockquote><q>{detail.tagline}</q></blockquote> : <></>}</h3>
@@ -42,15 +42,15 @@ const Overview = () => {
   <div className="stats shadow flex flex-wrap md:flex-nowrap bg-card-second rounded-md ">
   <div className="stat  ">
     <div className="stat-title ">Budged</div> 
-    <div className="stat-value text-primary flex border-b border-gray-200 sm:border-0">{detail.budget} <span><BsCurrencyDollar size={23} className='text-gray-300 translate-y-3'/></span> </div>
+    <div className="stat-value text-primary flex border-b border-gray-500 sm:border-0">{detail.budget} <span><BsCurrencyDollar size={23} className='text-gray-300 translate-y-3'/></span> </div>
   </div>
   <div className="stat ">
     <div className="stat-title ">Vote Count</div>
-    <div className="stat-value text-secondary border-b border-gray-200 sm:border-0 ">{detail.vote_count}</div>
+    <div className="stat-value text-secondary border-b border-gray-500 sm:border-0 ">{detail.vote_count}</div>
   </div>
   <div className="stat ">
     <div className="stat-title">Popularity</div>
-    <div className="stat-value border-b border-gray-200 sm:border-0">{detail.popularity}</div>
+    <div className="stat-value border-b border-gray-500 sm:border-0">{detail.popularity}</div>
   </div>
   
 </div>

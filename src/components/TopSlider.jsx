@@ -48,13 +48,12 @@ const TopSlider = ({ endpoint }) => {
           <SwiperSlide key={id} className="shadow-lg w-full cursor-pointer h-80 lg:h-[420px] ">
             <Link key={id.length} to={`movie/${items.id}`}>
               <Star key={id.length} rating={items.vote_average} />
-              <div className="bg-gradient-to-tr from-black  w-full h-onehundred  absolute transition-all duration-500 ease-in-out hover:opacity-75"> </div>
-              <div className="absolute flex flex-col w-[450px]  ">
+              <div className="bg-gradient-to-tr from-black flex flex-col  w-full h-onehundred  absolute transition-all duration-500 ease-in-out hover:opacity-75"> </div>
+              <div className="absolute w-[450px]  ">
                 <p className="text-4xl lg:text-5xl  p-5  text-head   font-roboto font-bold">{items.original_title ? items.original_title : items.name} </p>
-                <p className="text-2xl  p-5  text-gray-100 lg:mt-32 mt-14  font-roboto font-bold">Overview</p>
+                <p className="text-2xl  p-5  text-gray-100 lg:mt-40 mt-20 translate-y-2  font-roboto font-bold">Overview</p>
                 <p className="overview text-sm  ml-5   line-clamp-3  text-gray-400   font-roboto font-medium">{items.overview}</p>
               </div>
-
               <LazyLoadImage
                 afterLoad={() => {
                   setLoaded(true);

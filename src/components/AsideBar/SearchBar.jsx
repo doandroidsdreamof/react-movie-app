@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { ReactSearchAutocomplete } from "react-search-autocomplete";
 import Data from "../../../Data";
 
-const SearchBar = () => {
+const SearchBar = (searchLogic) => {
   const [search, setSearch] = useState([]);
   const [query, setQuery] = useState();
   const [items, setItems] = useState();
@@ -62,7 +62,7 @@ const SearchBar = () => {
       item
     );
   };
-
+console.log(searchLogic.explorePage )
   const handleOnFocus = () => {
     console.log("Focused");
     setActive(!active)
@@ -80,7 +80,7 @@ const SearchBar = () => {
   return (
     <form className="flex items-center   justify-center w-full z-50 relative">
       <header className="App-header cursor-pointer">
-        <div className="w-72  px-2">
+        <div className={searchLogic.explorePage ? "w-96  px-2 " : "w-72  px-2"}>
           <ReactSearchAutocomplete styling={{ borderRadius: "5px", hoverBackgroundColor: "none", backgroundColor: "hsl(240, 1%, 20%)", color: "white", border: "0.01rem solid hsl(240, 1%, 50%)",boxShadow:"0px" }} maxResults={4} placeholder="Search..." items={items} onSearch={handleOnSearch} onHover={handleOnHover} onSelect={handleOnSelect} onFocus={handleOnFocus} autoFocus formatResult={formatResult} />
         </div>
       </header>
