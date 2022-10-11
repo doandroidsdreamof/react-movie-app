@@ -1,6 +1,10 @@
 import React from "react";
+import InfiniteScroll from 'react-infinite-scroll-component';
+import {useEffect,useState} from 'react'
 
-const ExploreLayout = (props) => {
+const ExploreLayout = ({props,page}) => {
+
+
   return (
     <div className="flex flex-col h-screen  bg-bg-color">
       <div className="flex flex-1 overflow-x-hidden ">
@@ -16,7 +20,29 @@ const ExploreLayout = (props) => {
               {props.filterInput}
             </div>
             <div className={`card-place justify-center mt-12  h-full w-full   grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4  gap-2  lg:gap-x-6 lg:gap-y-10 lg:px-20    px-6 md:px-10 `}>
-            {props.movies}</div>
+          
+           
+<InfiniteScroll
+          dataLength={page}
+          next={infiniteIncrease}
+          hasMore={true}
+          loader={<h4>Loading...</h4>}
+          
+        >
+
+
+    
+{props.movies}
+    
+     
+        
+        
+        
+         
+
+        </InfiniteScroll>
+           
+            </div>
           </div>
 
         </div>

@@ -17,57 +17,49 @@ import MovieExplore from '../components/Explore/MovieExplore.jsx'
  const [initialMovies,setInitialMovies] = useState([])
  const [page, setPage] = useState(1);
 
+ window.onLoad = () =>{
+   setPage(1)
+ }
 
 useEffect(() =>{
 
-fetch(data.requestExploreInitial + `&page=${page}`)
+fetch(data.requestExploreInitial + `${page.toString()}`)
 .then((res) => res.json())
 .then((get) => setInitialMovies([...initialMovies,...get.results]))
 .catch(err => {console.error(err)})
 
 },[page])
 
-const infiniteIncrease = () =>{
-   setPage(page < 1000 ? page + 1 : page)
+
+function infiniteIncrease (){
+  setPage(page < 1000 ? page + 1 : page)
 
 }
 
-console.log('here', initialMovies)
 
   return (
-    <section className=''>
-
-<InfiniteScroll
-          dataLength={page}
-          next={infiniteIncrease}
-          hasMore={true}
-          loader={<h4>Loading...</h4>}
-        >
+    <div className='border'>
   <ExploreLayout 
+   page={page}
    nav={<SideNav />}
    searchBar={<SearchBar explorePage={!searchLogic} />}
    filterInput={<FilterInput />}
    sortInput={<SortInput />}
-   movies={initialMovies.map((el, id) => (
-    <MovieExplore key={id} explore={el}
-    expolorePage={searchLogic}
-    
-    
-    />
-          ))
+   movies={
+  initialMovies.map((el, id) => (
+        <MovieExplore key={id} explore={el}
+        expolorePage={searchLogic}
         
         
-        }
-
-  
+        />
+              ))}
   />
-        </InfiniteScroll>
 
 
 
 
 
-  </section>
+  </div>
   )
 }
 
