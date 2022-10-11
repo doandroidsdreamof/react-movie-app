@@ -9,7 +9,7 @@ import Typography from '@mui/material/Typography';
 
 
 
-function Accordion(props) {
+function AccordionExplore(props) {
   const [expanded, setExpanded] = React.useState(false);
 
   const handleChange = (panel) => (event, isExpanded) => {
@@ -24,15 +24,11 @@ function Accordion(props) {
           aria-controls="panel1bh-content"
           id="panel1bh-header"
         >
-          <Typography sx={{ width: '33%', flexShrink: 0 }}>
-            General settings
-          </Typography>
           <Typography sx={{ color: '#d1d5db' }}>I am an accordion</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            Nulla facilisi. Phasellus sollicitudin nulla et quam mattis feugiat.
-            Aliquam eget maximus est, id dignissim quam.
+            {props.genresExplore}
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -40,4 +36,4 @@ function Accordion(props) {
   );
 }
 
-export default Accordion;
+export default AccordionExplore;
