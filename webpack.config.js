@@ -4,7 +4,6 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const Dotenv = require('dotenv-webpack');
-const ESLintPlugin = require('eslint-webpack-plugin');
 
 
 module.exports = {
@@ -22,9 +21,7 @@ module.exports = {
         },
         compress: true,
         port: 9000,
-        historyApiFallback: true,
-        hot: true,
-
+        historyApiFallback: true
     },
     module: {
 
@@ -59,14 +56,6 @@ module.exports = {
     plugins: [
         new MiniCssExtractPlugin(),
         new HtmlWebpackPlugin({ template: './src/index.html' }),
-        new ESLintPlugin(
-            {
-                failOnError: false,
-                emitWarning: false,
-                failOnWarning: false,
-            }
-
-        ),
         new Dotenv({
             systemvars: true,
         }),

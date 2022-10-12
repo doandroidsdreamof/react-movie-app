@@ -89,9 +89,9 @@ const SearchBar = (searchLogic) => {
     );
   };
   return (
-    <form className="flex items-center   justify-center w-full z-50 relative">
+    <form className="flex items-center     justify-center w-full z-50 relative">
       <header className="App-header cursor-pointer w-full">
-        <div className={searchLogic.explorePage ? "lg:w-[650px] md:w-[550px] w-ninty mx-auto  " : "w-72  px-2"}>
+        <div className={searchLogic ? "lg:w-[650px] md:w-[550px] w-ninty  z-50 mx-auto   " : "w-72  px-2"}>
 
         <ReactSearchAutocomplete styling={{ borderRadius: "15px", hoverBackgroundColor: "none", backgroundColor: "hsl(240, 1%, 20%)", color: "white", border: "0.12rem solid hsl(226, 80%, 66%)",boxShadow:"0px" }} maxResults={4} placeholder="Search..." items={items} onSearch={handleOnSearch} onHover={handleOnHover} onSelect={handleOnSelect} onFocus={handleOnFocus} autoFocus formatResult={formatResult} />
 

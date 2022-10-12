@@ -1,0 +1,12 @@
+{
+    "[javascript]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+    },
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+      },
+      "workbench.colorCustomizations": {
+        "editorError.foreground": "#000000"
+    }
+}

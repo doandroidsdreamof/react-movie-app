@@ -1,70 +1,69 @@
 {
-    "env": {
-      "browser": true,
-      "es2021": true,
-      "node": true,
-      "jest": true
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "node": true,
+    "jest": true
+  },
+  "parser": "@babel/eslint-parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
     },
-    "parser": "@babel/eslint-parser",
-    "parserOptions": {
-      "ecmaFeatures": {
-        "jsx": true
-      },
-      "requireConfigFile": false,
-      "ecmaVersion": 12,
-      "sourceType": "module",
-      "babelOptions": {
-        "presets": ["@babel/preset-react"]
-      }
-    },
-    "extends": [
-      "eslint:recommended",
-      "plugin:react/recommended",
-      "plugin:react/jsx-runtime",
-      "plugin:prettier/recommended",
-      "plugin:import/react"
-    ],
-    "plugins": ["react", "import"],
-    "settings": {
-      "react": {
-        "version": "detect"
-      },
-      "import/resolver": {
-        "node": {
-          "extensions": [".js", ".jsx"],
-          "moduleDirectory": ["node_modules", "src"]
-        }
-      }
-    },
-    "rules": {
-      "prettier/prettier": ["warn", { "singleQuote": true, "endOfLine": "auto"}],
-      "linebreak-style": ["warn", "windows"],
-      "react/react-in-jsx-scope": "off",
-      "quotes": ["error", "single", { "avoidEscape": true }],
-      "no-trailing-spaces": "warn",
-      "no-console": ["error", { "allow": ["warn","error"] }],
-      "react/jsx-uses-react": "error",   
-      "react/jsx-uses-vars": "error",
-      "no-unused-vars": [
-        "error",
-        {
-          "argsIgnorePattern": "^_"
-        }
-      ],
-      "react/no-unescaped-entities": "off",
-      "react/require-default-props": "error",
-      "sort-imports": [
-        "error",
-        {
-          "ignoreCase": true,
-          "ignoreDeclarationSort": true
-
-        }
-      ],
-      "import/no-unresolved": ["error", { "commonjs": true, "amd": true }],
-      "import/named": "error",
-      "import/namespace": "error",
-      "import/default": "error",
-      "import/export": "error"
+    "requireConfigFile": false,
+    "ecmaVersion": 12,
+    "sourceType": "module",
+    "babelOptions": {
+      "presets": ["@babel/preset-react"]
     }
-  }
+  },
+  "extends": [
+    "airbnb",
+    "plugin:prettier/recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:jsx-a11y/recommended"
+
+  ],
+  "plugins": ["react", "import","prettier"],
+  "settings": {
+    "react": {
+      "version": "detect"
+    },
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx"],
+        "moduleDirectory": ["node_modules", "src"]
+      }
+    }
+  },
+  "rules": {
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
+    ],
+    "react/jsx-filename-extension": [0],
+    "import/extensions": "off",
+    "react-hooks/exhaustive-deps":          "warn",
+    "react-hooks/rules-of-hooks":           "error",
+    "react/jsx-indent-props":               [2, 4],
+    "react/jsx-indent":                     [2, 4],
+    "react/jsx-one-expression-per-line":    [0],
+    "react/prefer-stateless-function":      [1],
+    "react/static-property-placement":      [1, "property assignment"],
+    "linebreak-style": ["warn", "windows"],
+    "react/jsx-uses-react": "warn",   
+    "react/jsx-uses-vars": "warn",
+    "react/react-in-jsx-scope": "off",
+    "no-unused-vars": [
+      "warn",
+      {
+        "argsIgnorePattern": "^_"
+      }
+    ]
+
+
+
+    }}
