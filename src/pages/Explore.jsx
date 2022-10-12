@@ -9,25 +9,27 @@ import SortInput from '../components/Explore/SortInput.jsx'
 import data from '../../Data'
 import MovieExplore from '../components/Explore/MovieExplore.jsx'
 
-function Explore() {
+function Explore({load}) {
     const [searchLogic, setSearchLogic] = useState(false)
 useEffect(() =>{
   setSearchLogic(true)
 
 
-},[])
+},[load])
  
 
     return (
-        <div className='h-full bg-bg-color'>
-            <ExploreLayout
+
+      
+      <ExploreLayout
                 logic={searchLogic}
                 nav={<SideNav />}
                 filterInput={<FilterInput />}
                 sortInput={<SortInput />}
                 movies={<MovieExplore  expolorePage={searchLogic} />}
             />
-        </div>
+
+  
     )
 }
 

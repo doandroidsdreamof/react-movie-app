@@ -13,7 +13,7 @@ const Movie = ({ data,explore,expolorePage }) => {
  
  
   return (
-    <div className=" ">
+    <div className="">
       <Link  to={`/movie/${data?.id || explore.id}`} ><LazyLoadImage afterLoad={() => {setLoaded(true)}} effect="opacity" className="object-cover hover:opacity-95 rounded-md transform  " src={`https://image.tmdb.org/t/p/w342/${data?.poster_path || explore.poster_path}`} alt={data?.title || explore.title} /></Link>
       <p className="white-space-normal text-xs md:text-sm font-bold flex justify-center items-center h-full text-center"></p>
       <div className={!loaded ? "swiper-lazy-preloader " : ""}></div>

@@ -13,7 +13,10 @@ import {useEffect,useState} from 'react'
 
 
 function App() {
-
+  const [load, setLoad] = useState(false)
+useEffect(() =>{
+  setLoad(true)
+},[])
 
 
   return (
@@ -32,7 +35,7 @@ function App() {
           </FormLayout>
         } />
         <Route path='/profile' element={<Profile />} />
-        <Route path='/explore' element={<Explore />} />
+        <Route load={load} path='/explore' element={<Explore />} />
         <Route path='/bookmark' element={<BookMark />} />
         <Route path='*' element={<Error />}/>
       </Routes>
