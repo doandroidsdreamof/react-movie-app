@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import PageLayout from "../components/Layouts/PageLayout.jsx";
 import SideNav from "../components/Navbar/SideNav.jsx";
 import Aside from "../components/AsideBar/Aside.jsx";
@@ -39,6 +39,25 @@ function infiniteIncrease (){
 
   return (
     <div className='border'>
+
+
+
+
+
+  </div>
+  )
+}
+
+export default Explore
+
+/*
+setPage(page < 1000 ? page + 1 : page)
+
+
+
+
+
+
   <ExploreLayout 
    page={page}
    nav={<SideNav />}
@@ -56,15 +75,4 @@ function infiniteIncrease (){
   />
 
 
-
-
-
-  </div>
-  )
-}
-
-export default Explore
-
-/*
-setPage(page < 1000 ? page + 1 : page)
 */
