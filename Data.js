@@ -1,6 +1,5 @@
 const apiKey = process.env.API_KEY
 
-
 const data = {
   requestPopular: `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=1&include_adult=false`,
   requestTopRated: `https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&language=en-US&page=1&include_adult=false`,
