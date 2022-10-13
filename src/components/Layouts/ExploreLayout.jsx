@@ -3,6 +3,7 @@ import InfiniteScroll from 'react-infinite-scroll-component'
 import data from '../../../Data'
 import MovieExplore from '../Explore/MovieExplore.jsx'
 import SearchBar from '../AsideBar/SearchBar.jsx'
+import { Card } from '@mui/material'
 
 
 
@@ -54,7 +55,7 @@ function ExploreLayout(props) {
                             <div
                                 className={`card-place   items-center   overflow-hidden mt-12 order-3 h-onehundred   w-full   grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4  gap-2   lg:px-32 lg:gap-0   px-6 md:px-10 `}
                             >
-                                {initialMovies.map((el, id) => (
+                               {initialMovies.map((el, id) => (
                                     <MovieExplore key={id} explore={el} />
                                 ))}
                             </div>

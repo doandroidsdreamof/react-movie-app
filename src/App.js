@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect,useState} from 'react';
 import Home from './pages/Home.jsx'
 import DetailPage from './pages/DetailPage.jsx'
 import SignIn from './pages/SignIn.jsx'
@@ -9,7 +9,8 @@ import FormLayout from './components/Layouts/FormLayout.jsx'
 import BookMark from './pages/BookMark.jsx'
 import Error from './pages/Error.jsx'
 import Explore from './pages/Explore.jsx'
-import {useEffect,useState} from 'react'
+import ActorPage from './pages/ActorPage.jsx'
+
 
 
 function App() {
@@ -37,6 +38,7 @@ useEffect(() =>{
         <Route path='/profile' element={<Profile />} />
         <Route load={load} path='/explore' element={<Explore />} />
         <Route path='/bookmark' element={<BookMark />} />
+        <Route path='actor/:person_id' element={<ActorPage />} />
         <Route path='*' element={<Error />}/>
       </Routes>
 

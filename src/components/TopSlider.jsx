@@ -1,7 +1,7 @@
 import React from 'react'
 import Star from './Rates/Star.jsx'
 import { useEffect, useState } from 'react'
-import { Navigation, Pagination, Keyboard, Autoplay, Lazy } from 'swiper'
+import { Navigation, Pagination, Keyboard, Autoplay } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { LazyLoadImage } from 'react-lazy-load-image-component'
 import { Link } from 'react-router-dom'

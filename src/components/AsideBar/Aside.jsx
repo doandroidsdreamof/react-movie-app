@@ -17,7 +17,6 @@ const Aside = ({ trendData,DetailPage,HomePage }) => {
       });
   }, [trendData]);
 
-  console.log(trendData)
 
 
   return (
