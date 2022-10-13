@@ -9,7 +9,6 @@ function ExploreLayout(props) {
     const [page, setPage] = useState(1)
 
     useEffect(() => {
-        setPage(1)
         fetch(`${data.requestExploreInitial}${page}`)
             .then((res) => res.json())
             .then((get) => setInitialMovies([...initialMovies, ...get.results]))
@@ -22,17 +21,19 @@ function ExploreLayout(props) {
         setPage(page < 1000 ? page + 1 : page)
     }
 
+    console.log('here =>', page)
+
     return (
-        <section className=" flex overflow flex-row bg-bg-color">
-            <div className=" w-fit h-full max-h-screen   flex flex-col flex-grow ">{props.nav}</div>
+        <section className=" flex overflow flex-row  bg-bg-color ">
+            <div className="  h-full max-h-screen   flex flex-col  ">{props.nav}</div>
             
-            <div className="flex flex-col overflow-hidden">
+            <div className="flex flex-col w-full overflow-hidden ">
  
  
-                <div className=" w-full  max-h-screen  bg-bg-color ">
+                <div className="w-full    max-h-screen border   bg-bg-color ">
       
           
-                    <div id="scrollableDiv" style={{ height: '100%', overflowY: 'scroll'}}>
+                    <div id="scrollableDiv" className='h-onehundred  overflow-y-scroll flex flex-col gap-y-10'>
                     <h1 className="bg-gradient-to-r mx-auto mt-3 from-star via-purple-400 to-purple-600 bg-clip-text text-4xl font-extrabold text-transparent sm:text-5xl">
                             Explore Movies
                         </h1>
