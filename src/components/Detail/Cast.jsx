@@ -2,7 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import data from "../../../Data";
 import { useState, useEffect } from "react";
-import fallBack from "../../assets/image/fallback-image-jpg.jpg";
+import fallBack from "../../assets/image/fallback-image.png";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const Cast = () => {

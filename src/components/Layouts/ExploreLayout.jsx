@@ -38,7 +38,7 @@ function ExploreLayout(props) {
                     <h1 className="bg-gradient-to-r mx-auto mt-3 from-star via-purple-400 to-purple-600 bg-clip-text text-4xl font-extrabold text-transparent sm:text-5xl ">
                             Explore Movies
                         </h1>
-                <SearchBar  expolorePage={props.logic}/>
+                <SearchBar  explorePage={props.logic}/>
                    
                             <div className="flex flex-col gap-y-5 px-6 md:px-0 md:flex-row justify-center md:gap-x-3 md:justify-center ">
                                 {props.sortInput}

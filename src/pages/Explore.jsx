@@ -4,7 +4,7 @@ import PageLayout from '../components/Layouts/PageLayout.jsx'
 import SideNav from '../components/Navbar/SideNav.jsx'
 import Aside from '../components/AsideBar/Aside.jsx'
 import ExploreLayout from '../components/Layouts/ExploreLayout.jsx'
-import FilterInput from '../components/Explore/FilterInput.jsx'
+import GenresExplore from '../components/Explore/GenresExplore.jsx'
 import SortInput from '../components/Explore/SortInput.jsx'
 import data from '../../Data'
 import MovieExplore from '../components/Explore/MovieExplore.jsx'
@@ -24,7 +24,7 @@ useEffect(() =>{
       <ExploreLayout
                 logic={searchLogic}
                 nav={<SideNav />}
-                filterInput={<FilterInput />}
+                filterInput={<GenresExplore />}
                 sortInput={<SortInput />}
                 movies={<MovieExplore  expolorePage={searchLogic} />}
             />

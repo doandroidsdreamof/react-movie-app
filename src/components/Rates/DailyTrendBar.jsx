@@ -2,6 +2,8 @@ import React from "react";
 import { AiFillStar } from "react-icons/ai";
 import ProgressBar from "react-customizable-progressbar";
 
+
+
 const DailyTrendBar = ({ dailyTrends,scale }) => {
   const starColor = "hsl(226, 100%, 66%)";
   const rating = dailyTrends !== '' ? (Math.round(dailyTrends * 100) / 100).toFixed(1) : '';
