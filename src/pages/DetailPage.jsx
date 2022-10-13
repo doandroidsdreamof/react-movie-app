@@ -13,8 +13,8 @@ const DetailPage = () => {
   let { id } = useParams();
   const [details, setDetails] = useState([]);
   const [similar, setSimilar] = useState([]);
-  const getById = `https://api.themoviedb.org/3/movie/${id}?` + data.requestSearchByID;
-  const getSimilarMovies = `https://api.themoviedb.org/3/movie/${id}/similar?` + data.requestSearchByIDSimilar;
+  let getById = `https://api.themoviedb.org/3/movie/${id}?` + data.requestSearchByID;
+  let getSimilarMovies = `https://api.themoviedb.org/3/movie/${id}/similar?` + data.requestSearchByIDSimilar;
 
   useEffect(() => {
     fetchDetails(getById);
@@ -31,7 +31,6 @@ const DetailPage = () => {
     }
   }
 
-//console.log(details)
 
   return (
     <>
