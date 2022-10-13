@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { LazyLoadImage } from 'react-lazy-load-image-component'
-
 import { Lazy } from 'swiper'
 import { Swiper } from 'swiper/react'
 import ReactPlayer from 'react-player/lazy'
@@ -22,6 +21,7 @@ function DetailCover({ passDetail }) {
     const [genre, setGenre] = useState(passDetail)
     const [open, setOpen] = useState(false)
     const [disable, setDisable] = useState(false)
+    const [image,setImage] = useState()
     const [url, setUrl] = useState([])
     let { id } = useParams()
     const urlBase = `https://api.themoviedb.org/3/movie/${id}`
@@ -34,6 +34,7 @@ function DetailCover({ passDetail }) {
                 console.error(err)
             })
             setGenre(passDetail)
+       
     }, [id])
 
     function handleClick() {
@@ -50,7 +51,10 @@ function DetailCover({ passDetail }) {
         }
     }
     const key = typeof url !== 'undefined' ? new Constructor(url.key) : ''
-
+    setTimeout(()=>{
+        setImage(fallBack)
+    
+    },1000)
     return (
         <Swiper className="mySwiper z-50  " modules={[Lazy]}>
             <div className="swiper-slide  h-fit w-full z-50">
@@ -104,11 +108,12 @@ function DetailCover({ passDetail }) {
                         setLoaded(true)
                     }}
                     className="object-cover -z-50  rounded-br-xl rounded-bl-xl   h-96 w-screen "
-                    src={`https://image.tmdb.org/t/p/original/${
+                    src={
                         passDetail.backdrop_path
-                            ? passDetail.backdrop_path
-                            : passDetail.poster_path || fallBack
-                    }`}
+                            ? `https://image.tmdb.org/t/p/original/${passDetail.backdrop_path}`
+                            : image
+                        
+                    }
                     alt={passDetail.title}
                 />
                 <ReactPlayer

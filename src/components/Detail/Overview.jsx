@@ -20,7 +20,6 @@ const Overview = () => {
       });
   }, [id]);
 
-  console.log("burası", detail);
 
   return (
  <section>

@@ -39,7 +39,7 @@ const StyledButton = styled('button')(
   padding: 12px;
   border-radius: 4px;
   text-align: left;
-  line-height: 1.5;
+  line-height: 1;
   background: ${theme.palette.mode === 'light' ? 'hsl(240, 1%, 20%)' : '#fff'};
   border: 1px solid ${theme.palette.mode === 'light' ? 'hsl(240, 1%, 20%)': grey[200]};
   color: ${theme.palette.mode === 'light' ? grey[300] : grey[900]};
@@ -77,11 +77,10 @@ const StyledListbox = styled('ul')(
   font-family: IBM Plex Sans, sans-serif;
   font-size: 0.875rem;
   box-sizing: border-box;
-  padding: 6px;
-  margin: 12px 0;
+  padding: 2px;
+  margin: 4px 0;
   min-width: 320px;
   border-radius: 12px;
-  overflow: auto;
   outline: 0px;
   background: ${theme.palette.mode === 'light' ? 'hsl(240, 1%, 20%)' : '#fff'};
   border: 1px solid ${theme.palette.mode === 'light' ? grey[700] : grey[200]};
@@ -143,10 +142,26 @@ const CustomSelect = React.forwardRef(function CustomSelect(props, ref) {
 
  function GenresExplore() {
   return (
-    <CustomSelect defaultValue={10}>
-      <StyledOption  value={10}>Genres</StyledOption>
-      <StyledOption value={20}>Top Rated</StyledOption>
-      <StyledOption value={30}>Most</StyledOption>
+    <CustomSelect defaultValue={1}>
+      <StyledOption value={1}>Genres</StyledOption>
+      <StyledOption value={2}>Adventure</StyledOption>
+      <StyledOption value={3}>Animation</StyledOption>
+      <StyledOption value={4}>Comedy</StyledOption>
+      <StyledOption value={5}>Crime</StyledOption>
+      <StyledOption value={6}>Documentary</StyledOption>
+      <StyledOption value={7}>Drama</StyledOption>
+      <StyledOption value={8}>Family</StyledOption>
+      <StyledOption value={9}>Fantasy</StyledOption>
+      <StyledOption value={10}>History</StyledOption>
+      <StyledOption value={11}>Horror</StyledOption>
+      <StyledOption value={12}>Music</StyledOption>
+      <StyledOption value={13}>Mystery</StyledOption>
+      <StyledOption value={14}>Romance</StyledOption>
+      <StyledOption value={15}>Science Fiction</StyledOption>
+      <StyledOption value={16}>TV Movie</StyledOption>
+      <StyledOption value={17}>Thriller</StyledOption>
+      <StyledOption value={18}>War</StyledOption>
+      <StyledOption value={19}>Western</StyledOption>
     </CustomSelect>
   );
 }

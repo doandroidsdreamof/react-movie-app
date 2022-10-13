@@ -34,13 +34,13 @@ function ExploreLayout(props) {
                 <div className="w-full    max-h-screen    bg-bg-color ">
       
           
-                    <div id="scrollableDiv" className='h-onehundred  overflow-y-scroll flex flex-col gap-y-7'>
+                    <div id="scrollableDiv" className='h-onehundred  bg-bg-color overflow-y-scroll flex flex-col gap-y-7'>
                     <h1 className="bg-gradient-to-r mx-auto mt-3 from-star via-purple-400 to-purple-600 bg-clip-text text-4xl font-extrabold text-transparent sm:text-5xl ">
                             Explore Movies
                         </h1>
                 <SearchBar  explorePage={props.logic}/>
                    
-                            <div className="flex flex-col gap-y-5 px-6 md:px-0 md:flex-row justify-center md:gap-x-3 md:justify-center ">
+                            <div className="flex flex-col  gap-y-5 px-6 md:px-0 md:flex-row justify-center md:gap-x-3 md:justify-center ">
                                 {props.sortInput}
                                 {props.filterInput}
                             </div>

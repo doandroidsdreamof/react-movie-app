@@ -17,15 +17,17 @@ const Aside = ({ trendData,DetailPage,HomePage }) => {
       });
   }, [trendData]);
 
+  console.log(trendData)
+
 
   return (
-    <div className={"  bg-nav relative  min-h-screen hidden font-roboto right-0 border-gray-800   lg:block w-[350px] pt-4 "}>
-      <div className=" flex flex-col w-onehundred  h-full">
+    <div className={"  bg-nav relative  min-h-screen hidden font-roboto right-0 border-gray-800   lg:block w-[350px]  "}>
+      <div className=" flex flex-col w-onehundred  h-full gap-y-3">
         <div className=" text-white mt-6 flex relative justify-center w-onehundred self-center">
           <SearchBar />
         </div>
-        <div className="w-[280px] relative  ">
-          <h3 className="font-roboto text-head font-bold text-2xl mt-2 ml-3 mb-2">{HomePage ? 'Top Three' : 'Similar Movies'}</h3>
+        <div className="w-[280px] relative ">
+          <h3 className="font-roboto text-head text-center font-normal text-2xl mt-2 ml-3 mb-5">{HomePage ? 'Daily Trending Movies' : 'Similar Movies'}</h3>
           {trend.map((trends, id) => (
             <>
               <MovieTrendingDaily key={id} trendData={trends} />

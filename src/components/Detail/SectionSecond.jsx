@@ -18,7 +18,7 @@ const SectionSecond = () => {
     Review: [{ id: 2 }, { name: "Review" }],
   });
 
-  console.log(categories);
+
   function handleChange(e) {
     switch (e) {
       case 0:
