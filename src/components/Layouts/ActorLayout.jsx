@@ -8,7 +8,7 @@ const ActorLayout = (props) => {
                 <div className="flex md:flex-row  flex-col overflow-hidden basis-9/12">
                     {props.actorDetail}
                 </div>
-                <h2 className="block text-2xl text-gray-300 translate-y-2 font-roboto font-base px-2 md:px-0 ">
+                <h2 className="block text-2xl text-gray-300 translate-y-2 font-roboto font-base px-2 md:px-0  md:overflow-y-auto  ">
                     Known For
                 </h2>
                 <div className="relative w-full grid grid-flow-col gap-3 overflow-x-auto h-fit mt-5 px-3 md:px-0 ">

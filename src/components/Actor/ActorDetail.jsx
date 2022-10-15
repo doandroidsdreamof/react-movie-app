@@ -19,14 +19,14 @@ const ActorDetail = ({ actorDetail }) => {
                 alt={actorDetail.name}
             />
 
-            <div className="flex   flex-col  gap-y-4 overflow-hidden  p-0 md:pt-0 md:p-5 md:w-seventy w-full  md:overflow-y-auto ">
+            <div className="flex   flex-col  gap-y-4 overflow-auto   p-0 md:pt-0 md:p-5 w-full ">
                 <h1 className="text-2xl text-gray-100 font-roboto font-medium  text-left uppercase px-3 md:px-0">
                     {actorDetail.name ? actorDetail.name : ''}
                 </h1>
                 <p className="text-gray-300 font-roboto text-xl mb-1 t text-left px-3 md:px-0">
                     Biography
                 </p>
-                <p className="text-gray-400 font-roboto text-xs md:text-sm leading-4 md:leading-1  text-justify md:text-left px-3 md:px-0">
+                <p className="text-gray-400 font-roboto text-xs md:text-sm leading-4 md:leading-1 lg:max-w-ninty max-w-none   text-justify  px-3 md:px-0">
                     <ReactReadMoreReadLess
                         charLimit={950}
                         readMoreText={'Read more ▼'}
