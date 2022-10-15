@@ -6,10 +6,10 @@ import React from 'react'
 
   return (
   <div className="flex flex-col  px-3 md:px-0">
-    <div className="text-lg text-gray-200 font-roboto">Birthday</div>
-    <div className="text-sm text-gray-400 font-roboto">{birthday}</div>
-    <div className="text-lg text-gray-200 font-roboto">Place Of Birth</div>
-    <div className="text-sm text-gray-400 font-roboto">{placeOfBirth}</div>
+    <div className="lg:text-lg text-sm text-gray-200 font-roboto">Birthday</div>
+    <div className="lg:text-sm text-xs text-gray-400 font-roboto">{birthday}</div>
+    <div className="lg:text-lg text-sm text-gray-200 font-roboto">Place Of Birth</div>
+    <div className="lg:text-sm text-xs text-gray-400 font-roboto">{placeOfBirth}</div>
   </div>
   
 

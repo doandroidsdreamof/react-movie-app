@@ -23,7 +23,7 @@ useEffect(() =>{
       
       <ExploreLayout
                 logic={searchLogic}
-                nav={<SideNav />}
+                sideNav={<SideNav />}
                 filterInput={<GenresExplore />}
                 sortInput={<SortInput />}
                 movies={<MovieExplore  expolorePage={searchLogic} />}

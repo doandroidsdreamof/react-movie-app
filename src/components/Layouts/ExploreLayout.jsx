@@ -27,7 +27,7 @@ function ExploreLayout(props) {
 
     return (
         <section className=" flex overflow flex-row  bg-bg-color ">
-            <div className="  h-full max-h-screen   flex flex-col  ">{props.nav}</div>
+            <div className="  h-full max-h-screen   flex flex-col  ">{props.sideNav}</div>
             
             <div className="flex flex-col w-full overflow-hidden ">
  

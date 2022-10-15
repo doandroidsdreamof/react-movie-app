@@ -1,7 +1,7 @@
 import React, {useEffect,useState} from 'react';
 import data from '../../../Data';
 import { useParams,Link } from "react-router-dom";
-
+import fallBackImage from '../../assets/image/fallback-image.png'
 
  const ActorMovies = () => {
     let { person_id } = useParams();
@@ -22,13 +22,13 @@ import { useParams,Link } from "react-router-dom";
     console.log(actorMovies)
 
   return (
-<div className="relative w-full flex gap-4 py-6 overflow-x-auto">
+<>
     {actorMovies.map((items,i) =>(
-        	<img className="h-36 aspect-video rounded-sm object-cover object-center dark:bg-gray-500 cursor-pointer" src={`https://image.tmdb.org/t/p/w500/${items.backdrop_path}`} alt={items.original_title} />
+        	<img className="h-36 aspect-video rounded-sm object-cover object-center dark:bg-gray-500 cursor-pointer" src={items.backdrop_path ? `https://image.tmdb.org/t/p/w500/${items.backdrop_path}` : fallBackImage} alt={items.original_title} />
 
     ))}
 
-</div>
+</>
   )
 }
 
