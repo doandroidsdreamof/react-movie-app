@@ -24,7 +24,27 @@ import fallBackImage from '../../assets/image/fallback-image.png'
   return (
 <>
     {actorMovies.map((items,i) =>(
-        	<img className="h-36 aspect-video rounded-sm object-cover object-center dark:bg-gray-500 cursor-pointer" src={items.backdrop_path ? `https://image.tmdb.org/t/p/w500/${items.backdrop_path}` : fallBackImage} alt={items.original_title} />
+
+
+<div className=" w-64  bg-card-second h-60 rounded-md duration-200 ease-in hover:animate-pulse">
+<img className=" aspect-video  rounded-sm  rounded-t-md h-fit w-full object-contain  cursor-pointer" src={items.backdrop_path ? `https://image.tmdb.org/t/p/w500/${items.backdrop_path}` : fallBackImage} alt={items.original_title} />
+  <div className="card-body">
+    <span className=" font-roboto text-sm ">
+      {items.title ? items.title.length > 20 ? items.title.substring(0, 20) + "..." : items.title : ''}
+    </span>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
 
     ))}
 
@@ -33,3 +53,6 @@ import fallBackImage from '../../assets/image/fallback-image.png'
 }
 
 export default ActorMovies
+
+
+

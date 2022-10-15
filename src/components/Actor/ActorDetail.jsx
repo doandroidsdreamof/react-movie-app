@@ -14,12 +14,12 @@ const ActorDetail = ({ actorDetail }) => {
     return (
         <>
             <img
-                className=" mx-auto md:mx-0 md:mt-0 rounded-md md:h-full  w-full object-cover p-4 md:p-0 md:object-contain md:w-auto "
+                className=" mx-auto md:mx-0  md:mt-0 rounded-md lg:h-full max-h-96 md:max-h-full w-full object-cover p-4 md:p-0 md:object-contain md:w-auto "
                 src={imagePath ? imagePath : fallBackImage}
                 alt={actorDetail.name}
             />
 
-            <div className="flex   flex-col  gap-y-4 overflow-hidden p-0 md:pt-0 md:p-5 md:w-seventy w-full">
+            <div className="flex   flex-col  gap-y-4 overflow-hidden  p-0 md:pt-0 md:p-5 md:w-seventy w-full  md:overflow-y-auto ">
                 <h1 className="text-2xl text-gray-100 font-roboto font-medium  text-left uppercase px-3 md:px-0">
                     {actorDetail.name ? actorDetail.name : ''}
                 </h1>
