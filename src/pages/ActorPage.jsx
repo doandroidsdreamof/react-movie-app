@@ -4,7 +4,7 @@ import data from '../../Data';
 import ActorLayout from "../components/Layouts/ActorLayout.jsx";
 import SideNav from "../components/Navbar/SideNav.jsx";
 import ActorDetail from '../components/Actor/ActorDetail.jsx'
-
+import ActorMovies from '../components/Actor/ActorMovies.jsx'
 
  const ActorPage = () => {
     let { person_id } = useParams();
@@ -12,7 +12,6 @@ import ActorDetail from '../components/Actor/ActorDetail.jsx'
     let urlBase = `https://api.themoviedb.org/3/person/${person_id}?`
 
     useEffect(()=>{
-
         fetch(urlBase + data.requestPeople)
         .then((res) => res.json())
         .then((get) => setActor(get))
@@ -30,6 +29,7 @@ import ActorDetail from '../components/Actor/ActorDetail.jsx'
     <ActorLayout
     sideNav={<SideNav />}
     actorDetail={<ActorDetail actorDetail={actor} />}
+    actorMovies={<ActorMovies />}
 
 
   />

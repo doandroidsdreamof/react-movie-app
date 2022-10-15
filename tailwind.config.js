@@ -90,6 +90,7 @@ module.exports = {
         'fortyFive': '45%',
         'forty': '40%',
         'thirty': '30%',
+        'twenty': '20%',
       },
       width: {
         'onehundred': '100%',

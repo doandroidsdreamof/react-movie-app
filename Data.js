@@ -18,6 +18,7 @@ const data = {
   requestPeople: `api_key=${apiKey}&language=en-US&page=1&include_adult=false`,
   requestActor: `api_key=${apiKey}&language=en-US`,
   requestSearchMovie: `api_key=${apiKey}&language=en-US`,
+  requestActorMovies: `api_key=${apiKey}&language=en-US`
 
 };
 
