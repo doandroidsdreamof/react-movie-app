@@ -1,7 +1,6 @@
 import React from 'react'
 
-  function SkeletonLoader () {
-
+ const SkeletonLoader = () => {
   return (
     <div className="flex flex-col  rounded  h-full  w-full animate-pulse ">
 	<div className="h-48 rounded-t bg-gray-500"></div>

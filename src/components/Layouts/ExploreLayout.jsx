@@ -39,7 +39,7 @@ function ExploreLayout(props) {
                 break
         }
     }
-console.log(initialMovies)
+
 
     return (
         <section className=" flex overflow flex-row  bg-bg-color ">
@@ -67,7 +67,7 @@ console.log(initialMovies)
                             scrollableTarget="scrollableDiv"
                         >
                             <div
-                                className={`   items-center   overflow-hidden mt-12 order-3 h-onehundred   w-full   grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4  gap-2   lg:px-24 lg:gap-0   px-2 md:px-10 `}
+                                className={`   items-center   overflow-hidden mt-12 order-3 h-onehundred   w-full   grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4     lg:px-32 gap-5   px-2 md:px-10 `}
                             >
                                 {initialMovies.map((el, id) => (
                                     <MovieExplore key={initialMovies.length} explore={el} />
