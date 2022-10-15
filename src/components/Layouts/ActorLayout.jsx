@@ -8,7 +8,7 @@ const ActorLayout = (props) => {
         <div className=" flex  order-1">{props.sideNav}</div>
         <div className="  flex   flex-col   order-2 justify-between  overflow-y-auto p-0 md:p-5">
           {props.actorDetail}
-          <div className=" h-fifty"></div>
+          <div className=" h-thirth"></div>
 
 
         </div>

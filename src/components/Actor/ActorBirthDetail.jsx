@@ -1,27 +1,18 @@
 import React from 'react'
 
- const ActorBirthDetail = () => {
+ const ActorBirthDetail = ({birthday,placeOfBirth}) => {
+
+
+
   return (
-<div className="stats bg-primary text-primary-content">
-  
-  <div className="stat">
-    <div className="stat-title">Account balance</div>
-    <div className="stat-value">$89,400</div>
-    <div className="stat-actions">
-      <button className="btn btn-sm btn-success">Add funds</button>
-    </div>
+  <div className="flex flex-col ">
+    <div className="text-lg text-gray-200 font-roboto">Birthday</div>
+    <div className="text-sm text-gray-400 font-roboto">{birthday}</div>
+    <div className="text-lg text-gray-200 font-roboto">Place Of Birth</div>
+    <div className="text-sm text-gray-400 font-roboto">{placeOfBirth}</div>
   </div>
   
-  <div className="stat">
-    <div className="stat-title">Current balance</div>
-    <div className="stat-value">$89,400</div>
-    <div className="stat-actions">
-      <button className="btn btn-sm">Withdrawal</button> 
-      <button className="btn btn-sm">deposit</button>
-    </div>
-  </div>
-  
-</div>
+
   )
 }
 
