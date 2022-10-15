@@ -15,7 +15,7 @@ const ActorDetail = ({ actorDetail }) => {
         <>
             <img
                 className=" mx-auto md:mx-0  md:mt-0 rounded-md lg:h-full max-h-96 md:max-h-full w-full object-cover p-4 md:p-0 md:object-contain md:w-auto "
-                src={imagePath ? imagePath : fallBackImage}
+                src={actorDetail.profile_path ? imagePath : fallBackImage}
                 alt={actorDetail.name}
             />
 
@@ -26,7 +26,7 @@ const ActorDetail = ({ actorDetail }) => {
                 <p className="text-gray-300 font-roboto text-xl mb-1 t text-left px-3 md:px-0">
                     Biography
                 </p>
-                <p className="text-gray-400 font-roboto text-xs md:text-sm leading-4 md:leading-1 lg:max-w-ninty max-w-none   text-justify  px-3 md:px-0">
+                <p className="text-gray-400 font-roboto text-xs md:text-sm leading-4 md:leading-1 lg:max-w-onehundred max-w-none lg:pr-4 md:pr-0  text-justify  px-3 md:px-0">
                     <ReactReadMoreReadLess
                         charLimit={950}
                         readMoreText={'Read more ▼'}

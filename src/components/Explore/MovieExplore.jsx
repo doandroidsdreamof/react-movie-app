@@ -12,15 +12,13 @@ import CardAnimation from './CardAnimation.jsx'
 const MovieExplore = ({ explore, expolorePage }) => {
     const [loaded, setLoaded] = useState(false)
 
-    useEffect(() => {}, [])
-    let a = React.version
-
-    console.log(a)
+    useEffect(() => {}, [explore])
+   
     const addElipsisTitle =
         explore?.title.length > 22 ? explore?.title.substring(0, 22) + '...' : explore?.title
 
     return (
-      <CardAnimation cards={    <div className="relative cursor-pointer  justify-center  h-fit flex w-full scale-75 md:scale-90 bg-card-second shadow-xl rounded-xl group  ">
+      <CardAnimation cards={    <div className="relative cursor-pointer   justify-center  h-fit flex w-full scale-90  bg-card-second shadow-xl rounded-xl group  ">
       <div className={loaded ? "" : "hidden"}>
           <Star explorePage={'explorePage'} rating={explore?.vote_average} />
       </div>
@@ -34,7 +32,7 @@ const MovieExplore = ({ explore, expolorePage }) => {
                       setLoaded(true)
                   }}
                   effect="blur"
-                  className="object-cover h-96 w-screen hover:opacity-95 rounded-md transform  "
+                  className="object-center h-96  w-screen hover:opacity-95 rounded-md   "
                   src={`https://image.tmdb.org/t/p/w342/${
                       explore.poster_path ? explore.poster_path : fallBack
                   }`}
@@ -45,11 +43,11 @@ const MovieExplore = ({ explore, expolorePage }) => {
           <div
               className={
                   loaded
-                      ? 'absolute overf bottom-0 left-0 right-0 rounded-b-md bg-white bg-opacity-50 backdrop-filter backdrop-blur-sm p-4 group-hover:py-6 duration-300'
+                      ? 'absolute  bottom-0 left-0 right-0 rounded-b-md bg-white bg-opacity-50 backdrop-filter backdrop-blur-sm p-4 group-hover:py-6 duration-300'
                       : 'hidden '
               }
           >
-              <h5 className="text-primary font-medium text-md font-roboto">
+              <h5 className="text-primary font-medium text-md font-roboto  line-clamp-1">
                   {addElipsisTitle}
               </h5>
           </div>

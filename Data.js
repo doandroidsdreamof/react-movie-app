@@ -10,7 +10,7 @@ const data = {
   requestDayTrending: ` https://api.themoviedb.org/3/trending/movie/day?api_key=${apiKey}&include_adult=false`,
   requestGenre: ` https://api.themoviedb.org/3/genre/movie/list?api_key=${apiKey}&language=en-US`,
   requestSearch: ` https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&language=en-US&page=1&include_adult=false`,
-  requestExploreInitial: `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=`,
+  requestExploreInitial: `https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&language=en-US&page=`,
   requestSearchByID: `api_key=${apiKey}&language=en-US`,
   requestSearchByIDSimilar: `api_key=${apiKey}&language=en-US&page=1`,
   requestVideo: `/videos?api_key=${apiKey}&language=en-US`,
@@ -18,7 +18,10 @@ const data = {
   requestPeople: `api_key=${apiKey}&language=en-US&page=1&include_adult=false`,
   requestActor: `api_key=${apiKey}&language=en-US`,
   requestSearchMovie: `api_key=${apiKey}&language=en-US`,
-  requestActorMovies: `api_key=${apiKey}&language=en-US`
+  requestActorMovies: `api_key=${apiKey}&language=en-US`,
+  requestTopRatedSort: `https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&language=en-US&page=`,
+  requestRecentSort: `  https://api.themoviedb.org/3/movie/upcoming?api_key=${apiKey}&language=en-US&page=`,
+  requestPopularSort: `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=`,
 
 };
 

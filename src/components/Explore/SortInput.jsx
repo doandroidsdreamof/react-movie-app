@@ -141,12 +141,13 @@ const CustomSelect = React.forwardRef(function CustomSelect(props, ref) {
   return <SelectUnstyled {...props} ref={ref} components={components} />;
 });
 
- function SortInput() {
+ function SortInput(prop) {
+
   return (
-    <CustomSelect defaultValue={10}>
+    <CustomSelect onChange={(e)=> prop.onChange(e)} defaultValue={10}>
       <StyledOption value={10}>Most Popular</StyledOption>
       <StyledOption value={20}>Top Rated</StyledOption>
-      <StyledOption value={30}>Most</StyledOption>
+      <StyledOption value={30}>Most Recent</StyledOption>
     </CustomSelect>
   );
 }

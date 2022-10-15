@@ -19,16 +19,14 @@ const ActorMovies = () => {
             })
     }, [person_id])
 
-    console.log(actorMovies)
 
     return (
         <>
             {actorMovies.map((items, i) => (
-                <Link to={`/movie/${items?.id}`}>
-                    <div className=" w-64  bg-card-second h-60 rounded-md duration-200 ease-in hover:animate-pulse">
+                <Link className=' w-fit ' to={`/movie/${items?.id}`}>
+                    <div key={i} className=" w-64   bg-card-second h-60 rounded-md duration-200 ease-in hover:animate-pulse">
                         <LazyLoadImage
-                            key={i}
-                            className=" aspect-video  rounded-sm  rounded-t-md h-fit w-full object-contain  cursor-pointer"
+                            className=" aspect-video  rounded-sm  rounded-t-md h-fit w-full object-cover  cursor-pointer"
                             src={
                                 items.backdrop_path
                                     ? `https://image.tmdb.org/t/p/w500/${items.backdrop_path}`

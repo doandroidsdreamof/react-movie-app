@@ -36,7 +36,7 @@ const DetailPage = () => {
     <>
       
     <PageLayout
-    nav={<SideNav />}
+    sideNav={<SideNav />}
     aside={<Aside DetailPage={"DetailPage"} trendData={getSimilarMovies} />}
     slider={ <DetailCover key={details.length} passDetail={details} />}
     detailPage={'detailPage'}
