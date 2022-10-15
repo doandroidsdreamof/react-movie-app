@@ -4,27 +4,28 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import 'react-lazy-load-image-component/src/effects/blur.css'
 import SkeletonLoader from './SkeletonLoader.jsx'
-import { Skeleton } from '@mui/material'
 import fallBack from '../../assets/image/fallback-image.png'
 import Star from '../Rates/CardStar.jsx'
 import CardAnimation from './CardAnimation.jsx'
 
-const MovieExplore = ({ explore, expolorePage }) => {
+const MovieExplore = ({ explore }) => {
     const [loaded, setLoaded] = useState(false)
 
     useEffect(() => {}, [explore])
+
+
    
     const addElipsisTitle =
         explore?.title.length > 22 ? explore?.title.substring(0, 22) + '...' : explore?.title
 
     return (
       <CardAnimation cards={    <div className="relative cursor-pointer   justify-center  h-fit flex w-full scale-90  bg-card-second shadow-xl rounded-xl group  ">
-      <div className={loaded ? "" : "hidden"}>
+      <div className={loaded  ? "" : "hidden"}>
           <Star explorePage={'explorePage'} rating={explore?.vote_average} />
       </div>
       <div className="relative rounded-xl bg-card-second w-full h-96">
-          <div className={loaded ? 'hidden' : ''}>
-              <SkeletonLoader />
+          <div className={loaded  ? 'hidden' : ''}>
+              <SkeletonLoader  />
           </div>
           <Link to={`/movie/${explore.id}`}>
               <LazyLoadImage
@@ -42,7 +43,7 @@ const MovieExplore = ({ explore, expolorePage }) => {
 
           <div
               className={
-                  loaded
+                  loaded 
                       ? 'absolute  bottom-0 left-0 right-0 rounded-b-md bg-white bg-opacity-50 backdrop-filter backdrop-blur-sm p-4 group-hover:py-6 duration-300'
                       : 'hidden '
               }

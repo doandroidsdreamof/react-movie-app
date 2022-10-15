@@ -29,5 +29,4 @@ useEffect(() =>{
 
 export default Explore
 
-// setPage(page < 1000 ? page + 1 : page)
 

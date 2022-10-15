@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState  } from 'react'
 import InfiniteScroll from 'react-infinite-scroll-component'
 import data from '../../../Data'
 import MovieExplore from '../Explore/MovieExplore.jsx'
 import SearchBar from '../AsideBar/SearchBar.jsx'
-import { Card } from '@mui/material'
 import GenresExplore from '../Explore/GenresExplore.jsx'
 import SortInput from '../Explore/SortInput.jsx'
 
@@ -11,7 +10,7 @@ function ExploreLayout(props) {
     const [initialMovies, setInitialMovies] = useState([])
     const [page, setPage] = useState(1)
     const [getData, setGetData] = useState(data.requestExploreInitial)
-    const [sortValue, setSortValue] = useState('')
+
 
     useEffect(() => {
         fetch(`${getData}${page}` + '&include_adult=false')
@@ -25,8 +24,8 @@ function ExploreLayout(props) {
     const infiniteIncrease = () => {
         setPage(page < 1000 ? page + 1 : page)
     }
-   async function onChangeSort(e) {
-        const inputValue = await e.target.innerText
+    function onChangeSort(e) {
+        const inputValue =  e.target.innerText
         setInitialMovies([])
         switch (inputValue) {
             case 'Top Rated':
@@ -40,8 +39,8 @@ function ExploreLayout(props) {
                 break
         }
     }
+console.log(initialMovies)
 
-    console.log(initialMovies)
     return (
         <section className=" flex overflow flex-row  bg-bg-color ">
             <div className="  h-full max-h-screen   flex flex-col  ">{props.sideNav}</div>
@@ -71,7 +70,7 @@ function ExploreLayout(props) {
                                 className={`   items-center   overflow-hidden mt-12 order-3 h-onehundred   w-full   grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4  gap-2   lg:px-24 lg:gap-0   px-2 md:px-10 `}
                             >
                                 {initialMovies.map((el, id) => (
-                                    <MovieExplore key={id} explore={el} />
+                                    <MovieExplore key={initialMovies.length} explore={el} />
                                 ))}
                             </div>
                         </InfiniteScroll>
