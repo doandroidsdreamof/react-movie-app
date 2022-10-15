@@ -1,6 +1,8 @@
 import React from "react";
 import { AiFillStar } from "react-icons/ai";
 
+
+
 const CardStar = ({rating,explorePage}) => {
   const starColor = "hsl(226, 100%, 66%)";
   return (
