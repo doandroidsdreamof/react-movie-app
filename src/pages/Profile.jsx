@@ -1,9 +1,9 @@
 import React from 'react'
 import SideNav from '../components/Navbar/SideNav.jsx'
-import PageLayout from '../components/Layouts/PageLayout.jsx'
+import ProfileAndBookmarkLayout from '../components/Layouts/ProfileAndBookmarkLayout.jsx'
 
 const Profile = () => {
-  return <PageLayout nav={<SideNav />} />
+  return <ProfileAndBookmarkLayout sideNav={<SideNav />} />
 }
 
 export default Profile
