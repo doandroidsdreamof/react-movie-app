@@ -27,6 +27,7 @@
     "dotenv": "^16.0.3",
     "dotenv-webpack": "^8.0.1",
     "flowbite-react": "^0.1.11",
+    "formik": "^2.2.9",
     "react": "^18.2.0",
     "react-customizable-progressbar": "^1.2.0",
     "react-dom": "^18.2.0",
