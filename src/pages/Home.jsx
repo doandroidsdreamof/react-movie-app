@@ -10,7 +10,7 @@ import data from "../../Data.js";
 const Home = () => {
   return (
     <PageLayout
-    SideNav={<SideNav />}
+    sideNav={<SideNav />}
       aside={<Aside  HomePage={"HomePage"} trendData={data.requestDayTrending} />}
       slider={<TopSlider sliderId="0" endpoint={data.requestWeekTrending} />}
       row={
