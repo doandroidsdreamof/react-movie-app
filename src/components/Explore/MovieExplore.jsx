@@ -11,7 +11,7 @@ import CardAnimation from './CardAnimation.jsx'
 const MovieExplore = ({ explore }) => {
     const [loaded, setLoaded] = useState(false)
 
-    useEffect(() => {}, [])
+    useEffect(() => {}, [explore])
 
 
    
@@ -19,7 +19,7 @@ const MovieExplore = ({ explore }) => {
         explore?.title.length > 22 ? explore?.title.substring(0, 22) + '...' : explore?.title
 
     return (
-      <CardAnimation cards={    <div className="relative cursor-pointer   justify-center  h-full flex w-full  bg-card-second shadow-xl rounded-xl group  ">
+      <CardAnimation cards={    <div className="relative cursor-pointer   justify-center    max-h-80 w-full  bg-card-second shadow-xl rounded-xl group  ">
       <div className={loaded  ? "" : "hidden"}>
           <Star explorePage={'explorePage'} rating={explore?.vote_average} />
       </div>
@@ -33,10 +33,9 @@ const MovieExplore = ({ explore }) => {
                       setLoaded(true)
                   }}
                   effect="blur"
-                  className="object-center h-fit  w-screen  hover:opacity-95 rounded-md   "
-                  src={`https://image.tmdb.org/t/p/w342/${
-                      explore.poster_path ? explore.poster_path : fallBack
-                  }`}
+                  className="object-cover h-80   w-screen  hover:opacity-95 rounded-md   "
+                  src={ explore.poster_path  ? `https://image.tmdb.org/t/p/w342/${ explore.poster_path}` : fallBack
+                  }
                   alt={explore?.title}
               />
           </Link>

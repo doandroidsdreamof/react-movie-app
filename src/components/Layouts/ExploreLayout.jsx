@@ -13,7 +13,7 @@ function ExploreLayout(props) {
 
 
     useEffect(() => {
-        fetch(`${getData}${page}` + '&include_adult=false')
+        fetch(`${getData}${page}`)
             .then((res) => res.json())
             .then((get) => setInitialMovies([...initialMovies, ...get.results]))
             .catch((err) => {
@@ -67,10 +67,12 @@ function ExploreLayout(props) {
                             scrollableTarget="scrollableDiv"
                         >
                             <div
-                                className={`   items-center   overflow-hidden mt-12 order-3 h-onehundred   w-full   grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4     lg:px-32 gap-5   px-2 md:px-10 `}
+                                className={`   items-center   overflow-hidden gap-y-10  mt-12 order-3 h-full   w-full   grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4     lg:px-32 gap-5   px-7 md:px-10 `}
                             >
                                 {initialMovies.map((el, id) => (
-                                    <MovieExplore key={initialMovies.length} explore={el} />
+                                    <>
+                                    <MovieExplore key={id} explore={el} />
+                                </>
                                 ))}
                             </div>
                         </InfiniteScroll>
