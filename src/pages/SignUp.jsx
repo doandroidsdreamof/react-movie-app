@@ -2,6 +2,10 @@ import React from 'react'
 import signImage from '../assets/image/register2.jpg'
 import { Link } from 'react-router-dom'
 import { useFormik } from 'formik'
+import { createUserWithEmailAndPassword } from 'firebase/auth'
+import { useEffect, useState } from 'react'
+import firebaseConfig from "../config";
+
 
 const validate = (values) => {
     const errors = {}
@@ -28,21 +32,30 @@ const validate = (values) => {
 }
 
 export const SignUp = () => {
+    const [password, setPassword] = useState('')
+    const [email, setEmail] = useState('')
+    const [firstName, setFirstName] = useState('')
+    const [lastName, setLastName] = useState('')
+
     const formik = useFormik({
         initialValues: {
             firstName: '',
-
             lastName: '',
-
             email: '',
+            password: '',
         },
 
         validate,
 
         onSubmit: (values) => {
-            alert(JSON.stringify(values, null, 2))
+            JSON.stringify(values, null, 2)
+            setPassword(values.password)
+            setFirstName(values.firstName)
+            setLastName(values.lastName)
+            setEmail(values.email)
         },
     })
+    console.log(password)
     return (
         <div className="relative container m-auto px-6  text-gray-500 md:px-12 xl:px-40">
             <div className="m-auto space-y-8 md:w-8/12 lg:w-full max-h-fit ">
@@ -64,10 +77,11 @@ export const SignUp = () => {
                             <form onSubmit={formik.handleSubmit} className="space-y-8">
                                 <div className="space-y-2">
                                     <div className="flex gap-x-3">
+                                        <label for="firsName" className="hidden"></label>
                                         <input
                                             type="text"
                                             name="firstName"
-                                            id="email"
+                                            id="firsName"
                                             placeholder="First Name"
                                             onChange={formik.handleChange}
                                             value={formik.values.firstName}
@@ -76,10 +90,11 @@ export const SignUp = () => {
       focus:ring-2 focus:ring-sky-300 focus:outline-none
       invalid:ring-2 invalid:ring-red-400"
                                         />
+                                        <label for="lastName" className="hidden"></label>
                                         <input
                                             type="text"
                                             name="lastName"
-                                            id="email"
+                                            id="lastName"
                                             placeholder="Last Name"
                                             onChange={formik.handleChange}
                                             value={formik.values.lastName}

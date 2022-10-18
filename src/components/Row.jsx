@@ -23,7 +23,7 @@ const Row = ({ endpoint, title }) => {
       <h2 className="text-2xl text-white ml-1 mb-2  mt-12 font-roboto">{title}</h2>
       <Swiper modules={[Navigation]}   navigation slidesPerGroup={2} scrollbar={{ draggable: true }} slidesPerView="auto" spaceBetween={10} className=" ">
         {movies.map((items, id) => (
-          <SwiperSlide key={id}  className="w-[180px]    h-[270px] p-1   transition duration-200 hover:scale-105 ease-in bg-blend-darken hover:bg-transparent rounded-md    cursor-pointer brightness-75 hover:brightness-100">
+          <SwiperSlide key={id}  className="w-[180px]    h-[270px] p-1   transition duration-200 hover:scale-105 ease-in bg-blend-darken hover:bg-transparent rounded-md    cursor-pointer ">
             <Movie data={items} />
             <CardStar rating={items.vote_average} />
 
