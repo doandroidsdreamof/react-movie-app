@@ -34,12 +34,11 @@ export const SignUp = () => {
     const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
 
-    useEffect(()=>{
+    useEffect(() => {
         setPassword('')
         setEmail('')
         setFirstName('')
         setLastName('')
-
     })
 
     const formik = useFormik({
@@ -60,7 +59,7 @@ export const SignUp = () => {
             setEmail(values.email)
         },
     })
-  
+
     return (
         <div className="relative container m-auto px-6  text-gray-500 md:px-12 xl:px-40">
             <div className="m-auto space-y-8 md:w-8/12 lg:w-full max-h-fit ">
