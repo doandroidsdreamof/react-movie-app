@@ -2,10 +2,7 @@ import React from 'react'
 import signImage from '../assets/image/register2.jpg'
 import { Link } from 'react-router-dom'
 import { useFormik } from 'formik'
-import { createUserWithEmailAndPassword } from 'firebase/auth'
 import { useEffect, useState } from 'react'
-import firebaseConfig from "../config";
-
 
 const validate = (values) => {
     const errors = {}
@@ -37,6 +34,14 @@ export const SignUp = () => {
     const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
 
+    useEffect(()=>{
+        setPassword('')
+        setEmail('')
+        setFirstName('')
+        setLastName('')
+
+    })
+
     const formik = useFormik({
         initialValues: {
             firstName: '',
@@ -55,7 +60,7 @@ export const SignUp = () => {
             setEmail(values.email)
         },
     })
-    console.log(password)
+  
     return (
         <div className="relative container m-auto px-6  text-gray-500 md:px-12 xl:px-40">
             <div className="m-auto space-y-8 md:w-8/12 lg:w-full max-h-fit ">
@@ -88,7 +93,7 @@ export const SignUp = () => {
                                             required
                                             className="block w-fifty px-4 py-2 rounded-md border bg-gray-200 border-gray-300 text-gray-600 transition duration-300
       focus:ring-2 focus:ring-sky-300 focus:outline-none
-      invalid:ring-2 invalid:ring-red-400"
+      invalid:ring-2 "
                                         />
                                         <label for="lastName" className="hidden"></label>
                                         <input
@@ -101,7 +106,7 @@ export const SignUp = () => {
                                             required
                                             className="block w-fifty px-4 py-2 rounded-md border bg-gray-200 border-gray-300 text-gray-600 transition duration-300
       focus:ring-2 focus:ring-sky-300 focus:outline-none
-      invalid:ring-2 invalid:ring-red-400"
+      invalid:ring-2"
                                         />
                                     </div>
                                 </div>
@@ -117,7 +122,7 @@ export const SignUp = () => {
                                         value={formik.values.email}
                                         className="block w-full px-4 py-3 rounded-md border bg-gray-200 border-gray-300 text-gray-600 transition duration-300
       focus:ring-2 focus:ring-sky-300 focus:outline-none
-      invalid:ring-2 invalid:ring-red-400"
+      invalid:ring-2 "
                                     />
                                     {formik.errors.email ? (
                                         <span className="text-red-600 font-roboto text-normal absolute m-0 flex">

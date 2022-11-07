@@ -1,8 +1,12 @@
 import React from 'react'
 import signImage from '../assets/image/sign-image2.jpg'
-import { Link } from 'react-router-dom'
+import { Link,useNavigate } from 'react-router-dom'
 import { useFormik } from 'formik'
-import { useEffect, useState } from 'react'
+import { useEffect, useState,useContext } from 'react'
+import * as Yup from 'yup';
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { auth} from '../firebase'
+import {AuthContext} from "../context/AuthContext"
 
 const validate = (values) => {
     const errors = {}
@@ -16,18 +20,56 @@ const validate = (values) => {
 }
 
 
+
+
 const SignIn = () => {
+    const [password, setPassword] = useState('')
+    const [email, setEmail] = useState('')
+    const [error, setError] = useState(false);
+    const navitage = useNavigate()
+    const auth = getAuth();
+    const {dispatch} = useContext(AuthContext)
+
+    const errors = {}
+
+    useEffect(() =>{
+
+    },[])
+
+
+
     const formik = useFormik({
         initialValues: {
             email: '',
+            password: '',
         },
 
         validate,
 
         onSubmit: (values) => {
           JSON.stringify(values, null, 2)
+          setPassword(values.password)
+          setEmail(values.email)
+          handleLogin(values)
+
         },
     })
+
+
+     function handleLogin (values) {
+        signInWithEmailAndPassword(auth, values.email, values.password)
+          .then((userCredential) => {
+            // Signed in
+            const user =  userCredential.user;
+            console.log(user)
+            dispatch({type:"LOGIN", payload:user})
+          
+          })
+          .catch((error) => {
+            setError(true);
+          });
+      };
+
     return (
         <div className="relative container   m-auto px-6 text-gray-500 md:px-12 xl:px-40">
             <div className="m-auto space-y-8 md:w-8/12 lg:w-full ">
@@ -58,7 +100,7 @@ const SignIn = () => {
                                         value={formik.values.email}
                                         className="block w-full px-4 py-3 rounded-md border bg-gray-200 border-gray-300 text-gray-600 transition duration-300
         focus:ring-2 focus:ring-sky-300 focus:outline-none
-        invalid:ring-2 invalid:ring-red-400"
+        invalid:ring-2 "
                                     />
                                     {formik.errors.email ? (
                                         <span className="text-red-600 font-roboto text-normal absolute translate-y-4 m-0 flex">
@@ -68,7 +110,7 @@ const SignIn = () => {
                                 </div>
                                 <div>
                                     <div className="flex items-center justify-between">
-                                        <label for="pwd" className="text-gray-700"></label>
+                                        <label for="password" className="text-gray-700"></label>
                                         <button className="p-2 -mr-2" type="reset">
                                             <span className="text-sm text-sky-500">
                                                 Forgot your password ?
@@ -77,14 +119,16 @@ const SignIn = () => {
                                     </div>
                                     <input
                                         type="password"
-                                        name="pwd"
-                                        id="pwd"
+                                        name="password"
+                                        id="password"
                                         placeholder="password"
                                         minLength="8"
+                                        onChange={formik.handleChange}
+                                        value={formik.values.password}
                                         required
                                         className="block w-full px-4  bg-gray-200 py-3 rounded-md border border-gray-300 text-gray-600 transition duration-300
                                             focus:ring-2 focus:ring-sky-300 focus:outline-none
-                                            invalid:ring-2 invalid:ring-red-400"
+                                            invalid:ring-2 "
                                     />
                                     <div className=" flex w-full mt-4 flex-row h-11   text-center justify-center">
                                         <button

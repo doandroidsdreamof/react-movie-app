@@ -25,7 +25,7 @@
     "plugin:jsx-a11y/recommended"
 
   ],
-  "plugins": ["react", "import","prettier"],
+  "plugins": ["react","unused-imports", "import","prettier"],
   "settings": {
     "react": {
       "version": "detect"
@@ -54,9 +54,10 @@
     "react/prefer-stateless-function":      [1],
     "react/static-property-placement":      [1, "property assignment"],
     "linebreak-style": ["warn", "windows"],
-    "react/jsx-uses-react": "warn",   
+    "react/jsx-uses-react": "warn",
     "react/jsx-uses-vars": "warn",
     "react/react-in-jsx-scope": "off",
+    "unused-imports/no-unused-imports": "warn",
     "no-unused-vars": [
       "warn",
       {
