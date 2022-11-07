@@ -1,3 +1,4 @@
+Simple React-TailwindCSS-Webpack Boilerplate
 
 
 npm install
