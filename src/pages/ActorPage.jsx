@@ -1,5 +1,5 @@
 import React, {useEffect,useState} from 'react';
-import { useParams,Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import data from '../../Data';
 import ActorLayout from "../components/Layouts/ActorLayout.jsx";
 import SideNav from "../components/Navbar/SideNav.jsx";
