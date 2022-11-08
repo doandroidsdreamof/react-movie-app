@@ -12,6 +12,7 @@ import DailyTrendBar from '../rates/DailyTrendBar.jsx'
 import GenresDetail from './GenresDetail.jsx'
 import data from '../../../Data'
 import fallBack from '../../assets/image/fallback-image.png'
+import DetailHead from './DetailHead.jsx'
 import SpinLoader from '../common/SpinLoader'
 import 'swiper/css'
 import 'swiper/css/lazy'
@@ -53,6 +54,8 @@ function DetailCover({ passDetail }) {
   setTimeout(() => {
     setImage(fallBack)
   }, 1000)
+
+  
   return (
     <Swiper className="mySwiper z-50  " modules={[Lazy]}>
       <div className="swiper-slide  h-fit w-full z-50">
@@ -72,10 +75,8 @@ function DetailCover({ passDetail }) {
           </div>
           <div className={open ? 'flex-col z-0    h-full flex ' : 'flex-col z-10   h-full flex '}>
             <DailyTrendBar scale="scale" dailyTrends={passDetail.vote_average} />
-            <h3 className="text-gray-50 order-2 relative bottom-3 ml-8 mt-auto -translate-y-8 text-2xl md:text-4xl z-50 font-roboto font-medium">
-              {passDetail.title}
-            </h3>
-              <GenresDetail key={genre.length} genresList={genre} />
+            <DetailHead title={passDetail.title} />
+            <GenresDetail key={genre.length} genresList={genre} />
             <div
               className={
                 open
