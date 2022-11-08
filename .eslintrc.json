@@ -19,13 +19,12 @@
   },
   "extends": [
     "airbnb",
-    "plugin:prettier/recommended",
+    "prettier",
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
     "plugin:jsx-a11y/recommended"
-
   ],
-  "plugins": ["react","unused-imports", "import","prettier","simple-import-sort"],
+  "plugins": ["react", "react-hooks", "unused-imports", "import", "prettier", "simple-import-sort"],
   "settings": {
     "react": {
       "version": "detect"
@@ -38,21 +37,17 @@
     }
   },
   "rules": {
-    "prettier/prettier": [
-      "error",
-      {
-        "endOfLine": "auto"
-      }
-    ],
-    "react/jsx-filename-extension": [0],
+    "prettier/prettier": ["off", { "singleQuote": true }],
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "import/extensions": "off",
-    "react-hooks/exhaustive-deps":          "warn",
-    "react-hooks/rules-of-hooks":           "error",
-    "react/jsx-indent-props":               [2, 4],
-    "react/jsx-indent":                     [2, 4],
-    "react/jsx-one-expression-per-line":    [0],
-    "react/prefer-stateless-function":      [1],
-    "react/static-property-placement":      [1, "property assignment"],
+    "react-hooks/exhaustive-deps": "warn",
+    "react-hooks/rules-of-hooks": "error",
+    "no-console": "warn",
+    "react/jsx-indent-props": [2, 4],
+    "react/jsx-indent": [2, 4],
+    "react/jsx-one-expression-per-line": [0],
+    "react/prefer-stateless-function": [1],
+    "react/static-property-placement": [1, "property assignment"],
     "linebreak-style": ["off"],
     "react/jsx-uses-react": "warn",
     "react/jsx-uses-vars": "warn",
@@ -62,19 +57,12 @@
       "error",
       {
         "groups": [
-          // `react` first, `next` second, then packages starting with a character
           ["^react$", "^next", "^[a-z]"],
-          // Packages starting with `@`
           ["^@"],
-          // Packages starting with `~`
           ["^~"],
-          // Imports starting with `../`
           ["^\\.\\.(?!/?$)", "^\\.\\./?$"],
-          // Imports starting with `./`
           ["^\\./(?=.*/)(?!/?$)", "^\\.(?!/?$)", "^\\./?$"],
-          // Style imports
           ["^.+\\.s?css$"],
-          // Side effect imports
           ["^\\u0000"]
         ]
       }
@@ -85,7 +73,5 @@
         "argsIgnorePattern": "^_"
       }
     ]
-
-
-
-    }}
+  }
+}

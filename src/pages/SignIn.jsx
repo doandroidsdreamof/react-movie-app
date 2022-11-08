@@ -1,30 +1,24 @@
 import React from 'react'
-import { Link, useNavigate } from 'react-router-dom'
-import { useFormik } from 'formik'
-import { useEffect, useState, useContext } from 'react'
-import * as Yup from 'yup'
-import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
-import { auth } from '../firebase'
-import { AuthContext } from '../context/AuthContext'
-import RegisterLink from '../components/Login/RegisterLink'
-import LoginWithGoogleButton from '../components/Login/LoginWithGoogleButton'
-import LoginImage from '../components/Login/LoginImage'
 
-const SignIn = () => {
+import LoginHead from '../components/Login/LoginHead'
+import LoginImage from '../components/Login/LoginImage'
+import LoginWithGoogleButton from '../components/Login/LoginWithGoogleButton'
+import RegisterLink from '../components/Login/RegisterLink'
+import PasswordReset from '../components/Login/PasswordReset'
+
+
+function SignIn() {
     return (
         <div className="relative container   m-auto px-6 text-gray-500 md:px-12 xl:px-40">
             <div className="m-auto space-y-8 md:w-8/12 lg:w-full ">
                 <div className="rounded-xl  bg-opacity-75 bg-input-card backdrop-blur-2xl  shadow-xl">
                     <div className="lg:grid lg:grid-cols-2">
                         <LoginImage />
-
                         <div className="p-6 sm:p-16">
-                            <h2 className="mb-8 text-2xl text-cyan-600 font-bold">
-                                Sign in to your account
-                            </h2>
+                            <LoginHead />
                             <form action="" className="space-y-8">
                                 <div className="space-y-2">
-                                    <label for="email" className="text-gray-700"></label>
+                                    <label htmlFor="email" className="text-gray-700" />
                                     <input
                                         type="email"
                                         name="email"
@@ -37,12 +31,8 @@ const SignIn = () => {
                                 </div>
                                 <div>
                                     <div className="flex items-center justify-between">
-                                        <label for="password" className="text-gray-700"></label>
-                                        <button className="p-2 -mr-2" type="reset">
-                                            <span className="text-sm text-sky-500">
-                                                Forgot your password ?
-                                            </span>
-                                        </button>
+                                        <label htmlFor="password" className="text-gray-700" />
+                                        <PasswordReset />
                                     </div>
                                     <input
                                         type="password"
