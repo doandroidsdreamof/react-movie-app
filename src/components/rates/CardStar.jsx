@@ -8,7 +8,7 @@ const CardStar = ({ rating, explorePage }) => {
         className={
           explorePage
             ? ' rounded-lg  h-6 p-3 top-5 right-2 absolute z-50 bg-star felex justify-center '
-            : ' rounded-lg  h-6 p-3 bottom-5 right-2 absolute z-50 bg-star felex justify-center '
+            : ' rounded-lg  h-6 p-3 bottom-5  right-2 absolute z-50 bg-star felex justify-center '
         }
       >
         <div className=" h-full flex flex-row text-center items-center">

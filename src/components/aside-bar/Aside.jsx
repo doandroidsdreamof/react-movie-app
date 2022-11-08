@@ -26,7 +26,7 @@ const Aside = ({ trendData,DetailPage,HomePage }) => {
           <SearchBar />
         </div>
         <div className="w-[280px] relative ">
-          <h3 className="font-roboto text-head text-center font-normal text-2xl mt-2 ml-3 mb-5">{HomePage ? 'Daily Trending Movies' : 'Similar Movies'}</h3>
+          <h3 className="font-roboto text-head text-center font-medium text-xl mt-2 ml-3 mb-5">{HomePage ? 'Daily Trending Movies' : 'Similar Movies'}</h3>
           {trend.map((trends, id) => (
             <>
               <MovieTrendingDaily key={id} trendData={trends} />
@@ -38,3 +38,16 @@ const Aside = ({ trendData,DetailPage,HomePage }) => {
   );
 };
 export default Aside;
+
+/*
+
+npm install
+
+
+npm run dev
+
+
+npm run build
+
+
+*/
