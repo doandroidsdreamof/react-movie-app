@@ -176,6 +176,8 @@ Start the server
 - [ ] Dark Mode
 - [ ] Logo
 - [ ] optimization
+- [ ] Follow / Unfollow && Messaging Functionality
+
 
 <!-- Contributing -->
 
