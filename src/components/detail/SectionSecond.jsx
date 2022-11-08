@@ -1,8 +1,11 @@
 import React from "react";
 import { useState } from "react";
+
 import { Tab } from "@headlessui/react";
-import Cast from "./Cast.jsx";
+
 import CastGrid from "../layouts/CastGrid.jsx";
+
+import Cast from "./Cast.jsx";
 import Overview from "./Overview.jsx";
 import Review from "./Review.jsx";
 
