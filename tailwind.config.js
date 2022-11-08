@@ -19,7 +19,7 @@ module.exports = {
         'input-focus': 'hsl(226, 100%, 66%)',
         'button-blue': 'hsl(226, 100%, 36%)'
       },
-      
+
       borderColor:{
         'bg-color': 'hsl(240, 7%, 9%)',
         'bg-second': 'hsl(225, 8%, 10%)',
@@ -46,8 +46,8 @@ module.exports = {
         'card-dark': 'hsl(225, 8%, 10%)',
         'nav': 'hsl(240, 7%, 9%)',
         'explore-input': 'hsl(240, 1%, 20%)',
-        
-  
+
+
 
       },
       padding: {
