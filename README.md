@@ -134,14 +134,14 @@ npm install -g npm
 Clone the project
 
 ```bash
-  git clone https://github.com/doandroidsdreamof/react-firebase-todo-list.git
+  git clone https://github.com/doandroidsdreamof/react-movie-app.git
 
 ```
 
 Go to the project directory
 
 ```bash
-  cd react-firebase-todo-list
+  cd react-movie-app
 ```
 
 Install dependencies
