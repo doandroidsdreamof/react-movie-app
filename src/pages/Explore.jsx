@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import SideNav from '../components/Navbar/SideNav.jsx'
-import ExploreLayout from '../components/Layouts/ExploreLayout.jsx'
+
+import ExploreLayout from '../components/layouts/ExploreLayout.jsx'
+import SideNav from '../components/navbar/SideNav.jsx'
 
 
 function Explore({load}) {
@@ -10,19 +11,19 @@ useEffect(() =>{
 
 
 },[load])
- 
+
 
     return (
 
-      
+
       <ExploreLayout
                expolorePage={searchLogic}
                 logic={searchLogic}
                 sideNav={<SideNav />}
-          
+
             />
 
-  
+
     )
 }
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import Star from './Rates/Star.jsx'
+import Star from './rates/Star.jsx'
 import { useEffect, useState } from 'react'
 import { Navigation, Pagination, Keyboard, Autoplay } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -84,7 +84,7 @@ const TopSlider = ({ endpoint }) => {
                                 }`}
                                 alt={items?.name}
                             />
-                  
+
                         </Link>
                     </SwiperSlide>
                 ))}

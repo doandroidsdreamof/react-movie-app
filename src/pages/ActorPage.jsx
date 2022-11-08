@@ -1,15 +1,16 @@
 import React, {useEffect,useState} from 'react';
 import { useParams } from "react-router-dom";
-import data from '../../Data';
-import ActorLayout from "../components/Layouts/ActorLayout.jsx";
-import SideNav from "../components/Navbar/SideNav.jsx";
-import ActorDetail from '../components/Actor/ActorDetail.jsx'
-import ActorMovies from '../components/Actor/ActorMovies.jsx'
 
- const ActorPage = () => {
-    let { person_id } = useParams();
+import data from '../../Data';
+import ActorDetail from '../components/actor/ActorDetail.jsx'
+import ActorMovies from '../components/actor/ActorMovies.jsx'
+import ActorLayout from "../components/layouts/ActorLayout.jsx";
+import SideNav from "../components/navbar/SideNav.jsx";
+
+ function ActorPage() {
+    const { person_id } = useParams();
     const [actor, setActor] = useState([]);
-    let urlBase = `https://api.themoviedb.org/3/person/${person_id}?`
+    const urlBase = `https://api.themoviedb.org/3/person/${person_id}?`
 
     useEffect(()=>{
         fetch(urlBase + data.requestPeople)

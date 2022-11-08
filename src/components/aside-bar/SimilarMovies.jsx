@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import DailyTrendBar from "../Rates/DailyTrendBar.jsx";
+import DailyTrendBar from "../rates/DailyTrendBar.jsx";
 import fallBack from '../../assets/image/fallback-image.png'
 
 const SimilarMovies = ({ similarData }) => {

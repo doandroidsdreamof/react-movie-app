@@ -1,7 +1,7 @@
 import React from 'react'
 
-import ProfileAndBookmarkLayout from "../components/Layouts/ProfileAndBookmarkLayout.jsx";
-import SideNav from "../components/Navbar/SideNav.jsx";
+import ProfileAndBookmarkLayout from "../components/layouts/ProfileAndBookmarkLayout.jsx";
+import SideNav from "../components/navbar/SideNav.jsx";
 
  function BookMark() {
   return (

@@ -2,9 +2,12 @@
     "[javascript]": {
         "editor.formatOnSave": false,
         "editor.defaultFormatter": "esbenp.prettier-vscode",
+
     },
+    "javascript.updateImportsOnFileMove.enabled": "prompt",
     "editor.codeActionsOnSave": {
-        "source.fixAll.eslint": true
+        "source.fixAll.eslint": true,
+
       },
       "workbench.colorCustomizations": {
         "editorError.foreground": "#000000"

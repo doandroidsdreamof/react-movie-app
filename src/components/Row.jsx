@@ -1,6 +1,6 @@
 import React from "react";
 import Movie from "./Movie.jsx";
-import CardStar from "./Rates/CardStar.jsx";
+import CardStar from "./rates/CardStar.jsx";
 import { useEffect, useState } from "react";
 import { Navigation } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";

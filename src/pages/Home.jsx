@@ -1,17 +1,18 @@
 import React from "react";
-import SideNav from "../components/Navbar/SideNav.jsx";
-import Aside from "../components/AsideBar/Aside.jsx";
-import Row from "../components/Row.jsx";
-import PageLayout from "../components/Layouts/PageLayout.jsx";
-import TopSlider from "../components/TopSlider.jsx";
-import RowLayout from "../components/Layouts/RowLayout.jsx";
-import data from "../../Data.js";
 
-const Home = () => {
+import data from "../../Data.js";
+import Aside from "../components/aside-bar/Aside.jsx";
+import PageLayout from "../components/layouts/PageLayout.jsx";
+import RowLayout from "../components/layouts/RowLayout.jsx";
+import SideNav from "../components/navbar/SideNav.jsx";
+import Row from "../components/Row.jsx";
+import TopSlider from "../components/TopSlider.jsx";
+
+function Home() {
   return (
     <PageLayout
     sideNav={<SideNav />}
-      aside={<Aside  HomePage={"HomePage"} trendData={data.requestDayTrending} />}
+      aside={<Aside  HomePage="HomePage" trendData={data.requestDayTrending} />}
       slider={<TopSlider sliderId="0" endpoint={data.requestWeekTrending} />}
       row={
         <RowLayout>
@@ -21,9 +22,9 @@ const Home = () => {
           <Row rowID="4" title="Up Comming" endpoint={data.requestPopular} />
         </RowLayout>
       }
-      homePage={'homePage'}
+      homePage="homePage"
     />
   );
-};
+}
 
 export default Home;

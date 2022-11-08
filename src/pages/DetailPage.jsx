@@ -1,20 +1,20 @@
-import React from "react";
-import SideNav from "../components/Navbar/SideNav.jsx";
-import Aside from "../components/AsideBar/Aside.jsx";
-import DetailCover from "../components/Detail/DetailCover.jsx";
-import SectionSecond from "../components/Detail/SectionSecond.jsx";
+import React, { useEffect,useState } from "react";
 import { useParams } from "react-router-dom";
-import { useState, useEffect } from "react";
+
 import data from "../../Data";
-import PageLayout from "../components/Layouts/PageLayout.jsx";
+import Aside from "../components/aside-bar/Aside.jsx";
+import DetailCover from "../components/detail/DetailCover.jsx";
+import SectionSecond from "../components/detail/SectionSecond.jsx";
+import PageLayout from "../components/layouts/PageLayout.jsx";
+import SideNav from "../components/navbar/SideNav.jsx";
 
 
-const DetailPage = () => {
-  let { id } = useParams();
+function DetailPage() {
+  const { id } = useParams();
   const [details, setDetails] = useState([]);
   const [similar, setSimilar] = useState([]);
-  let getById = `https://api.themoviedb.org/3/movie/${id}?` + data.requestSearchByID;
-  let getSimilarMovies = `https://api.themoviedb.org/3/movie/${id}/similar?` + data.requestSearchByIDSimilar;
+  const getById = `https://api.themoviedb.org/3/movie/${id}?${  data.requestSearchByID}`;
+  const getSimilarMovies = `https://api.themoviedb.org/3/movie/${id}/similar?${  data.requestSearchByIDSimilar}`;
 
   useEffect(() => {
     fetchDetails(getById);
@@ -33,22 +33,15 @@ const DetailPage = () => {
 
 
   return (
-    <>
-      
     <PageLayout
     sideNav={<SideNav />}
-    aside={<Aside DetailPage={"DetailPage"} trendData={getSimilarMovies} />}
+    aside={<Aside DetailPage="DetailPage" trendData={getSimilarMovies} />}
     slider={ <DetailCover key={details.length} passDetail={details} />}
-    detailPage={'detailPage'}
+    detailPage="detailPage"
     sectionSecond={<SectionSecond />}
   />
 
-
-
-      
-    </>
-
   );
-};
+}
 
 export default DetailPage;
