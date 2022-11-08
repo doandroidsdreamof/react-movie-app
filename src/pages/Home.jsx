@@ -2,11 +2,11 @@ import React from "react";
 
 import data from "../../Data.js";
 import Aside from "../components/aside-bar/Aside.jsx";
+import Row from "../components/home/Row.jsx";
+import TopSlider from "../components/home/TopSlider";
 import PageLayout from "../components/layouts/PageLayout.jsx";
 import RowLayout from "../components/layouts/RowLayout.jsx";
 import SideNav from "../components/navbar/SideNav.jsx";
-import Row from "../components/Row.jsx";
-import TopSlider from "../components/TopSlider.jsx";
 
 function Home() {
   return (

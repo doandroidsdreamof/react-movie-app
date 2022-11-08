@@ -2,7 +2,6 @@ import React from "react";
 import { AiFillStar } from "react-icons/ai";
 
 const CoverStar = ({coverRating}) => {
-  const starColor = "hsl(226, 100%, 66%)";
   const rating = coverRating !== '' ? (Math.round(coverRating * 100) / 100).toFixed(1) : '';
   return (
     <>
