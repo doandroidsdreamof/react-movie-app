@@ -110,6 +110,9 @@
 - Authentication
 - Comment Functionality
 - Bookmark Functionality
+- Autocomplete Functionality
+- Search Functionality
+- Sort Functionality
 - Reusable Components
 - Infinite Scroll
 - Lazy Loading
