@@ -55,7 +55,6 @@ function DetailCover({ passDetail }) {
     setImage(fallBack)
   }, 1000)
 
-  
   return (
     <Swiper className="mySwiper z-50  " modules={[Lazy]}>
       <div className="swiper-slide  h-fit w-full z-50">

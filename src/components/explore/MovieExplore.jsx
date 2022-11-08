@@ -44,7 +44,6 @@ function MovieExplore({ explore }) {
                 alt={explore?.title}
               />
             </Link>
-
             <div
               className={
                 loaded
@@ -52,7 +51,7 @@ function MovieExplore({ explore }) {
                   : 'hidden '
               }
             >
-              <h5 className="text-primary font-medium text-md font-roboto  line-clamp-1">
+              <h5 className="text-primary font-bold text-md font-roboto  line-clamp-1">
                 {addElipsisTitle}
               </h5>
             </div>

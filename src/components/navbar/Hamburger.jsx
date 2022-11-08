@@ -5,19 +5,14 @@ import { MdClose } from 'react-icons/md'
 const Hamburger = (props) => {
   const [toggle, setToggle] = useState(false)
 
-  useEffect(() => {}, [toggle])
-
-  const handleClick = () => {
-    setToggle(!toggle)
-    props.menuToggle()
-  }
+  useEffect(() => {}, [props.menuToggle])
 
   return (
-    <button onClick={handleClick}>
-      {toggle ? (
+    <button>
+      {props.menuToggle ? (
         <MdClose color={'white'} size={30} />
       ) : (
-        <GiHamburgerMenu className='' color={'white'} size={28} />
+        <GiHamburgerMenu className="" color={'white'} size={28} />
       )}
     </button>
   )

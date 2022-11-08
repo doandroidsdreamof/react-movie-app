@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 * {
   box-sizing: border-box;
   margin: 0;
@@ -21,7 +20,7 @@ li.active span {
   color: white;
 }
 li.active::after {
-  content: "";
+  content: '';
   background: #00d0ff;
   height: 100%;
   width: 5px;
@@ -30,8 +29,9 @@ li.active::after {
   top: 0;
 }
 
-.swiper-button-next,.swiper-button-prev {
-color:hsl(226, 100%, 66%);
+.swiper-button-next,
+.swiper-button-prev {
+  color: hsl(226, 100%, 66%);
 }
 /* circular-progress-bar */
 .indicator {
@@ -45,10 +45,7 @@ color:hsl(226, 100%, 66%);
   margin: 0 auto;
   user-select: none;
   color: white;
-
-
 }
-
 
 @media (max-width: 640px) {
   .all-hide {
@@ -61,24 +58,13 @@ color:hsl(226, 100%, 66%);
 }
 
 /* Hide scrollbar for IE, Edge and Firefox */
-.invisible-overflow  {
+.invisible-overflow {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
-
 }
-
-
-
 
 .react-player {
   position: absolute;
   top: 0;
   left: 0;
-
-
-
 }
-
-
-
-
