@@ -30,7 +30,7 @@ useEffect(() =>{
             <SignIn />
           </FormLayout>
         } />
-        <Route path='/signup' element={
+        <Route path='/register' element={
           <FormLayout>
             <SignUp />
           </FormLayout>

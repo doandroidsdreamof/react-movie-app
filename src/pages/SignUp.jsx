@@ -21,7 +21,7 @@ const SignUp = () => {
                             />
                         </div>
                         <div className="p-6 sm:p-16">
-                            <h2 className="mb-8 text-2xl text-cyan-900 font-bold">
+                            <h2 className="mb-8 text-2xl text-cyan-600 font-bold">
                                 Create Account
                             </h2>
                             <form className="space-y-4">

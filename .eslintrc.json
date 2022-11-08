@@ -32,7 +32,7 @@
     },
     "import/resolver": {
       "node": {
-        "extensions": [".js", ".jsx"],
+        "extensions": [".web.js", ".mjs", ".js", ".json", ".web.jsx", ".jsx"],
         "moduleDirectory": ["node_modules", "src"]
       }
     }
@@ -53,11 +53,32 @@
     "react/jsx-one-expression-per-line":    [0],
     "react/prefer-stateless-function":      [1],
     "react/static-property-placement":      [1, "property assignment"],
-    "linebreak-style": ["warn", "windows"],
+    "linebreak-style": ["off"],
     "react/jsx-uses-react": "warn",
     "react/jsx-uses-vars": "warn",
     "react/react-in-jsx-scope": "off",
     "unused-imports/no-unused-imports": "warn",
+    "simple-import-sort/imports": [
+      "warn",
+      {
+        "groups": [
+          // `react` first, `next` second, then packages starting with a character
+          ["^react$", "^next", "^[a-z]"],
+          // Packages starting with `@`
+          ["^@"],
+          // Packages starting with `~`
+          ["^~"],
+          // Imports starting with `../`
+          ["^\\.\\.(?!/?$)", "^\\.\\./?$"],
+          // Imports starting with `./`
+          ["^\\./(?=.*/)(?!/?$)", "^\\.(?!/?$)", "^\\./?$"],
+          // Style imports
+          ["^.+\\.s?css$"],
+          // Side effect imports
+          ["^\\u0000"]
+        ]
+      }
+    ],
     "no-unused-vars": [
       "warn",
       {

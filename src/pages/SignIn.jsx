@@ -7,6 +7,7 @@ import * as Yup from 'yup'
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
 import { auth } from '../firebase'
 import { AuthContext } from '../context/AuthContext'
+import RegisterLink from '../components/Login/RegisterLink'
 
 const SignIn = () => {
     return (
@@ -24,7 +25,7 @@ const SignIn = () => {
                             />
                         </div>
                         <div className="p-6 sm:p-16">
-                            <h2 className="mb-8 text-2xl text-cyan-900 font-bold">
+                            <h2 className="mb-8 text-2xl text-cyan-600 font-bold">
                                 Sign in to your account
                             </h2>
                             <form action="" className="space-y-8">
@@ -91,13 +92,8 @@ const SignIn = () => {
                                         <span className="text-white">Continue</span>
                                     </button>
                                 </div>
+                            <RegisterLink />
 
-                                <p className="border-t pt-6 text-sm">
-                                    Don't have an account ?
-                                    <Link to="/signup" className="text-sky-500  ml-2">
-                                        Sign up
-                                    </Link>
-                                </p>
                             </form>
                         </div>
                     </div>
