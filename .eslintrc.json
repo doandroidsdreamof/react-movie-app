@@ -25,7 +25,7 @@
     "plugin:jsx-a11y/recommended"
 
   ],
-  "plugins": ["react","unused-imports", "import","prettier"],
+  "plugins": ["react","unused-imports", "import","prettier","simple-import-sort"],
   "settings": {
     "react": {
       "version": "detect"
@@ -59,7 +59,7 @@
     "react/react-in-jsx-scope": "off",
     "unused-imports/no-unused-imports": "warn",
     "simple-import-sort/imports": [
-      "warn",
+      "error",
       {
         "groups": [
           // `react` first, `next` second, then packages starting with a character
