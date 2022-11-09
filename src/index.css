@@ -68,3 +68,8 @@ li.active::after {
   top: 0;
   left: 0;
 }
+
+.Toastify__toast {
+ z-index: 50;
+
+}

@@ -40,14 +40,14 @@ function RegisterInputs() {
       const notify =  () => toast.dark('register is successful')
       notify()
       navigate('/')
-      
+
     } catch (error) {
       console.error(error)
 
     }
   }
 
-  console.log(auth)
+
 
   return (
     <Formik

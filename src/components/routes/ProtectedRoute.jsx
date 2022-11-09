@@ -10,8 +10,6 @@ const ProtectedRoute = ({ children }) => {
   const [logic, setLogic] = useState(false)
   const location = useLocation();
 
-  console.log(location)
-
 
   onAuthStateChanged(auth, (user) => {
     if (user) {

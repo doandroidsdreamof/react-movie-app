@@ -17,11 +17,11 @@ import ProtectedRoute from './components/routes/ProtectedRoute'
 function App() {
   const [load, setLoad] = useState(false)
   const user = useAuth()
-  // console.log("🚀 ~ file: App.js ~ line 20 ~ App ~ user", user)
+
   useEffect(() => {
     setLoad(true)
   }, [])
-
+console.log(user.currentUser)
   return (
     <Routes>
       <Route exact path="/" element={<Home />} />
