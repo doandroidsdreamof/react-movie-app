@@ -25,7 +25,7 @@ function SideNav() {
   useEffect(() => {
     setError(false)
     setLogin(false)
-  }, [menu, error,login])
+  }, [menu, error, login])
 
   const handleClick = (e) => {
     const hideAll = document.querySelectorAll('.all-hide')

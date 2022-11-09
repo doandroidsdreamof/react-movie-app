@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import * as Yup from 'yup'
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 import RegisterGoogleButton from './RegisterGoogleButton'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import { doc, setDoc } from 'firebase/firestore'
 import { auth, db } from '../../firebase'
-import { createUserWithEmailAndPassword, GoogleAuthProvider,getAuth} from 'firebase/auth'
+import { createUserWithEmailAndPassword, GoogleAuthProvider, getAuth } from 'firebase/auth'
 import 'react-toastify/dist/ReactToastify.css'
 import { ToastContainer, toast } from 'react-toastify'
 import { injectStyle } from 'react-toastify/dist/inject-style'
-
 
 const SignupSchema = Yup.object().shape({
   firstName: Yup.string().min(2, 'Too Short!').max(50, 'Too Long!').required('Required'),
@@ -23,7 +22,7 @@ const SignupSchema = Yup.object().shape({
 
 function RegisterInputs() {
   const auth = getAuth()
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   const handleSubmit = async (values) => {
     try {
@@ -36,17 +35,13 @@ function RegisterInputs() {
         comments: [],
       })
       navigate('/')
-
-
     } catch (error) {
       console.log(error)
       injectStyle()
-      const notify =  () => toast.dark('register is unsuccessful')
+      const notify = () => toast.dark('register is unsuccessful')
       notify()
     }
   }
-
-
 
   return (
     <Formik
@@ -62,7 +57,7 @@ function RegisterInputs() {
       }}
     >
       <Form className="space-y-3">
-      <ToastContainer />
+        <ToastContainer />
         <div className="flex flex-row gap-x-2">
           <Field
             name="firstName"

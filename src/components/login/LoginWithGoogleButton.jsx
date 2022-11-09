@@ -1,28 +1,32 @@
 import React from 'react'
 
-import { AuthContext } from '../../context/AuthContext'
-import { getAuth, signInWithPopup, GoogleAuthProvider } from 'firebase/auth'
+import { getAuth, GoogleAuthProvider, linkWithPopup, signInWithPopup } from 'firebase/auth'
 import { useNavigate } from 'react-router-dom'
+import { auth, db } from '../../firebase'
+import { doc, setDoc, getDocs,collection } from 'firebase/firestore'
+import { AuthContext,useAuth } from '../../context/AuthContext'
 
 function LoginWithGoogleButton() {
   const auth = getAuth()
   const navigate = useNavigate()
+  const user = useAuth()
 
-  const handleLogin = async () => {
-    signInWithPopup(auth, new GoogleAuthProvider())
-      .then((result) => {
-        const credential = GoogleAuthProvider.credentialFromResult(result)
-        const token = credential.accessToken
-        const user = result.user
-        navigate('/')
+  const handleLogin = () => {
+    signInWithPopup(auth, new GoogleAuthProvider()).then(async (result) => {
+      let userRegisterBefore = false
+      const querySnapshot = await getDocs(db, 'users-data', user.currentUser?.uid)
+      setDoc(doc(db, 'users-data', user.currentUser?.uid), {
+        firstName:  user.currentUser?.displayName,
+        lastName: '',
+        avatarUrl: '',
+        bookmarks: [],
+        comments: [],
       })
-      .catch((error) => {
-        const errorCode = error.code
-        const errorMessage = error.message
-        const email = error.customData.email
-        const credential = GoogleAuthProvider.credentialFromError(error)
-        console.log(error)
-      })
+    })
+     navigate('/')
+    .catch((error) => {
+      console.log(error)
+    })
   }
 
   return (
