@@ -1,4 +1,4 @@
-import React, {useEffect,useState} from 'react';
+import React, {useEffect,useState,useContext} from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 import FormLayout from './components/layouts/FormLayout.jsx'
@@ -11,17 +11,19 @@ import Home from './pages/Home.jsx'
 import Profile from './pages/Profile.jsx'
 import SignIn from './pages/SignIn.jsx'
 import SignUp from './pages/SignUp.jsx'
-
+import { AuthProvider,useAuth } from './context/AuthContext'
 
 
 function App() {
   const [load, setLoad] = useState(false)
+  const user = useAuth()
 useEffect(() =>{
   setLoad(true)
 },[])
 
 
   return (
+
     <Routes>
       <Route exact path='/' element={<Home />} />
       <Route  path='movie/:id' element={<DetailPage />} />
@@ -41,6 +43,7 @@ useEffect(() =>{
       <Route path='actor/:person_id' element={<ActorPage />} />
       <Route path='*' element={<Error />}/>
     </Routes>
+
   )
 }
 
