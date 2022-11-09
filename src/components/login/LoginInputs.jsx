@@ -1,6 +1,5 @@
 import React from 'react'
 
-import LoginSubmitButton from "./LoginSubmitButton"
 import LoginWithGoogleButton from './LoginWithGoogleButton'
 
 function LoginInputs() {
@@ -30,7 +29,13 @@ invalid:ring-2 "
                                 invalid:ring-2 "
       />
       <LoginWithGoogleButton />
-      <LoginSubmitButton />
+      <button
+        type="submit"
+        className="w-full py-3 px-6 rounded-md bg-sky-600
+    focus:bg-sky-700 active:bg-sky-500"
+      >
+        <span className="text-white">Continue</span>
+      </button>
     </>
   )
 }

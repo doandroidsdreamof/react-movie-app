@@ -1,7 +1,6 @@
 import React from 'react'
 
 import LoginLink from '../components/register/LoginLink'
-import RegisterGoogleButton from '../components/register/RegisterGoogleButton'
 import RegisterImage from '../components/register/RegisterImage'
 import RegisterInputs from '../components/register/RegisterInputs'
 
@@ -15,7 +14,6 @@ function SignUp() {
             <h2 className="mb-8 text-2xl text-cyan-600 font-bold">Create Account</h2>
             <form className="space-y-4">
               <RegisterInputs />
-              <RegisterGoogleButton />
               <LoginLink />
             </form>
           </div>
