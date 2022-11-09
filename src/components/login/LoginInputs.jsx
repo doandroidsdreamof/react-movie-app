@@ -3,9 +3,18 @@ import React from 'react'
 import LoginWithGoogleButton from './LoginWithGoogleButton'
 
 function LoginInputs() {
+
+  /*
+        injectStyle()
+      const notify = () => toast.dark('Please fill out required fields')
+      notify()
+      <ToastContainer />
+      */
   return (
     <>
+
       <label htmlFor="email" className="text-gray-700" />
+
       <input
         type="email"
         name="email"

@@ -1,5 +1,5 @@
-import React, {useEffect,useState,useContext} from 'react';
-import { Route, Routes } from 'react-router-dom';
+import React, { useEffect, useState, useContext } from 'react'
+import { Route, Routes } from 'react-router-dom'
 
 import FormLayout from './components/layouts/FormLayout.jsx'
 import ActorPage from './pages/ActorPage.jsx'
@@ -11,41 +11,58 @@ import Home from './pages/Home.jsx'
 import Profile from './pages/Profile.jsx'
 import SignIn from './pages/SignIn.jsx'
 import SignUp from './pages/SignUp.jsx'
-import { AuthProvider,useAuth } from './context/AuthContext'
-
+import { AuthProvider, useAuth } from './context/AuthContext'
+import ProtectedRoute from './components/routes/ProtectedRoute'
 
 function App() {
   const [load, setLoad] = useState(false)
   const user = useAuth()
-useEffect(() =>{
-  setLoad(true)
-},[])
-
+  // console.log("🚀 ~ file: App.js ~ line 20 ~ App ~ user", user)
+  useEffect(() => {
+    setLoad(true)
+  }, [])
 
   return (
-
     <Routes>
-      <Route exact path='/' element={<Home />} />
-      <Route  path='movie/:id' element={<DetailPage />} />
-      <Route path='/login' element={
-        <FormLayout>
-          <SignIn />
-        </FormLayout>
-        } />
-      <Route path='/register' element={
-        <FormLayout>
-          <SignUp />
-        </FormLayout>
-        } />
-      <Route path='/profile' element={<Profile />} />
-      <Route load={load} path='/explore' element={<Explore />} />
-      <Route path='/bookmark' element={<BookMark />} />
-      <Route path='actor/:person_id' element={<ActorPage />} />
-      <Route path='*' element={<Error />}/>
+      <Route exact path="/" element={<Home />} />
+      <Route path="movie/:id" element={<DetailPage />} />
+      <Route
+        path="/login"
+        element={
+          <FormLayout>
+            <SignIn />
+          </FormLayout>
+        }
+      />
+      <Route
+        path="/register"
+        element={
+          <FormLayout>
+            <SignUp />
+          </FormLayout>
+        }
+      />
+      <Route
+        path="/profile"
+        element={
+          <ProtectedRoute>
+            <Profile />
+          </ProtectedRoute>
+        }
+      />
+      <Route load={load} path="/explore" element={<Explore />} />
+      <Route
+        path="/bookmark"
+        element={
+          <ProtectedRoute>
+            <BookMark />
+          </ProtectedRoute>
+        }
+      />
+      <Route path="actor/:person_id" element={<ActorPage />} />
+      <Route path="*" element={<Error />} />
     </Routes>
-
   )
 }
-
 
 export default App

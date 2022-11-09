@@ -8,6 +8,7 @@ import PageLayout from "../components/layouts/PageLayout.jsx";
 import RowLayout from "../components/layouts/RowLayout.jsx";
 import SideNav from "../components/navbar/SideNav.jsx";
 
+
 function Home() {
   return (
     <PageLayout
