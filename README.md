@@ -165,9 +165,9 @@ Start the server
 - [ ] Bookmark Functionality
 - [ ] Profile Settings
 - [ ] Form Validation
-- [ ] Authentication
+- [x] Authentication
 - [ ] Reauthentication
-- [ ] Alert Messages
+- [x] Alert Messages
 - [ ] Welcome Email
 - [ ] Tests
 - [ ] Allowing Users To Access Their Data

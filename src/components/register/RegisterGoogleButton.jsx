@@ -2,7 +2,7 @@ import React from 'react'
 import { getAuth, GoogleAuthProvider, linkWithPopup, signInWithPopup } from 'firebase/auth'
 import { useNavigate } from 'react-router-dom'
 import { auth, db } from '../../firebase'
-import { doc, setDoc, getDocs } from 'firebase/firestore'
+import { doc, setDoc, getDocs,collection } from 'firebase/firestore'
 import { AuthContext,useAuth } from '../../context/AuthContext'
 
 function RegisterGoogleButton() {
@@ -10,20 +10,19 @@ function RegisterGoogleButton() {
   const navigate = useNavigate()
   const user = useAuth()
 
-
   const registerWithGoogle = () => {
     signInWithPopup(auth, new GoogleAuthProvider()).then(async (result) => {
       let userRegisterBefore = false
       const querySnapshot = await getDocs(collection(db, 'users-data'))
-      setDoc(doc(db, 'users-data', user.user?.uid), {
-        firstName:  user.user?.displayName,
+      setDoc(doc(db, 'users-data', user.currentUser?.uid), {
+        firstName:  user.currentUser?.displayName,
         lastName: '',
         avatarUrl: '',
         bookmarks: [],
         comments: [],
       })
     })
-    navigate('/')
+     navigate('/')
     .catch((error) => {
       console.log(error)
     })
