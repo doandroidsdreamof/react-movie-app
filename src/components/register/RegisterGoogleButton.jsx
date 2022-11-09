@@ -17,7 +17,7 @@ function RegisterGoogleButton() {
       const querySnapshot = await getDocs(collection(db, 'users-data'))
       querySnapshot.forEach((doc) => {
         if (doc.id === user.uid) {
-          isStored = true
+          userRegisterBefore = true
         }
       })
       if (userRegisterBefore) return
