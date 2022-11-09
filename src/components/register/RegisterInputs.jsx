@@ -1,65 +1,83 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import * as Yup from 'yup'
 
 import RegisterGoogleButton from './RegisterGoogleButton'
+import { Formik, Form, Field,ErrorMessage } from 'formik'
+
+const SignupSchema = Yup.object().shape({
+  firstName: Yup.string().min(2, 'Too Short!').max(50, 'Too Long!').required('Required'),
+  lastName: Yup.string().min(2, 'Too Short!').max(50, 'Too Long!').required('Required'),
+  email: Yup.string().email('Invalid email').required('Required'),
+  password: Yup.string()
+    .required('No password provided.')
+    .min(6, 'Password is too short - should be 6 chars minimum.'),
+})
 
 function RegisterInputs() {
-  return (
-    <>
-      <div className="flex flex-row gap-x-2">
-        <label htmlFor="firsName" className="hidden" />
-        <input
-          type="text"
-          name="firstName"
-          id="firsName"
-          placeholder="First Name"
-          required
-          className="block w-fifty px-4 py-2 rounded-md border bg-gray-200 border-gray-300 text-gray-600 transition duration-300
-      focus:ring-2 focus:ring-sky-300 focus:outline-none "
-        />
-        <label htmlFor="lastName" className="hidden" />
-        <input
-          type="text"
-          name="lastName"
-          id="lastName"
-          placeholder="Last Name"
-          required
-          className="block w-fifty px-4 py-2 rounded-md border bg-gray-200 border-gray-300 text-gray-600 transition duration-300
-      focus:ring-2 focus:ring-sky-300 focus:outline-none"
-        />
-      </div>
+  const handleSubmit = async (values) => {
+    console.log('🚀 ~ file: RegisterInputs.jsx ~ line 27 ~ handleSubmit ~ values', values)
+  }
 
-      <label htmlFor="email" className="text-gray-700" />
-      <input
-        type="email"
-        name="email"
-        id="email"
-        placeholder="email"
-        required
-        className="block w-full px-4 py-3 rounded-md border bg-gray-200 border-gray-300 text-gray-600 transition duration-300
+  return (
+    <Formik
+      initialValues={{
+        firstName: '',
+        lastName: '',
+        email: '',
+        password: '',
+      }}
+      validationSchema={SignupSchema}
+      onSubmit={(values) => {
+        handleSubmit(values)
+      }}
+    >
+      <Form className="space-y-3">
+        <div className="flex flex-row gap-x-2">
+          <Field
+            name="firstName"
+            required
+            placeholder="First Name"
+            className="block w-fifty px-4 py-2 rounded-md border bg-gray-200 border-gray-300 text-gray-600 transition duration-300
+      focus:ring-2 focus:ring-sky-300 focus:outline-none "
+          />
+
+          <Field
+            name="lastName"
+            placeholder="Last Name"
+            required
+            className="block w-fifty px-4 py-2 rounded-md border bg-gray-200 border-gray-300 text-gray-600 transition duration-300
+      focus:ring-2 focus:ring-sky-300 focus:outline-none"
+          />
+        </div>
+        <label htmlFor="email" className="text-gray-700" />
+        <Field
+          name="email"
+          placeholder="email"
+          type="email"
+          className="block w-full px-4 py-3 rounded-md border bg-gray-200 border-gray-300 text-gray-600 transition duration-300
       focus:ring-2 focus:ring-sky-300 focus:outline-none
        "
-      />
-
-      <label htmlFor="pwd" className="text-gray-700 mb-2" />
-      <input
-        type="password"
-        name="pwd"
-        id="pwd"
-        placeholder="password"
-        minLength="8"
-        className="block w-full px-4  bg-gray-200 py-3 rounded-md border border-gray-300 text-gray-600 transition duration-300
+        />
+        <label htmlFor="password" className="text-gray-700 mb-2" />
+        <Field
+          name="password"
+          type="password"
+          required
+          placeholder="password"
+          className="block w-full px-4  bg-gray-200 py-3 rounded-md border border-gray-300 text-gray-600 transition duration-300
                                           focus:ring-2 focus:ring-sky-300 focus:outline-none
                                          "
-      />
-      <RegisterGoogleButton />
-      <button
-        type="submit"
-        className="w-full py-3 px-6 rounded-md bg-sky-600
+        />
+        <RegisterGoogleButton />
+        <button
+          type="submit"
+          className="w-full py-3 px-6 rounded-md bg-sky-600
                       focus:bg-sky-700 active:bg-sky-500"
-      >
-        <span className="text-white">Continue</span>
-      </button>
-    </>
+        >
+          <span className="text-white">Continue</span>
+        </button>
+      </Form>
+    </Formik>
   )
 }
 
