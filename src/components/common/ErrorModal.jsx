@@ -4,7 +4,7 @@ import { ToastContainer, toast } from 'react-toastify'
 import { injectStyle } from 'react-toastify/dist/inject-style'
 
 
- const ErrorModal = (props) => {
+const ErrorModal = (props) => {
 useEffect(()=>{
 if(props.error === true){
   injectStyle()
@@ -13,7 +13,6 @@ if(props.error === true){
 }
 },[props.error])
 
-console.log(props)
 
 
   return (

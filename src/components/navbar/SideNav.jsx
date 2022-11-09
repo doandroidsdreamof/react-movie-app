@@ -1,10 +1,10 @@
-import React, { useEffect,useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { AiFillHome } from 'react-icons/ai'
 import { BsBookmarkStarFill } from 'react-icons/bs'
 import { CgProfile } from 'react-icons/cg'
 import { HiOutlineLogin } from 'react-icons/hi'
 import { MdOutlineExplore } from 'react-icons/md'
-import { Link,useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { getAuth } from 'firebase/auth'
 import Tooltip from '@mui/material/Tooltip'
 
@@ -20,10 +20,9 @@ function SideNav() {
 
   const auth = getAuth()
 
-
-  useEffect(() => {}, [menu,auth.currentUser])
-
-
+  useEffect(() => {
+    setError(false)
+  }, [menu, error])
 
   const handleClick = (e) => {
     const hideAll = document.querySelectorAll('.all-hide')
@@ -39,10 +38,20 @@ function SideNav() {
     }
   }
 
-  const handleAuth = async (e) =>{
-console.log(e.innerHTML)
+  const handleProfile = (e) => {
+    if (auth.currentUser === null) {
+      setError(true)
+    } else {
+      navigate('/profile')
+    }
   }
-
+  const handleBookmark = (e) => {
+    if (auth.currentUser === null) {
+      setError(true)
+    } else {
+      navigate('/bookmark')
+    }
+  }
 
   return (
     <div
@@ -52,7 +61,7 @@ console.log(e.innerHTML)
           : ' bg-bg-color z-50  relative border-r border-r-gray-600 font-roboto left-0 md:w-[210px] min-h-screen  w-14 pt-4 '
       }
     >
-            <ErrorModal error={error} />
+      <ErrorModal error={error} />
       <div className="text-center  text-white p-6" />
       <ul className="mt-11 flex  gap-y-4 flex-col ">
         <Tooltip title="Menu" placement="right">
@@ -86,9 +95,9 @@ console.log(e.innerHTML)
             </li>
           </Tooltip>
         </Link>
-        <Link to="/bookmark">
+        <Link onClick={(e) => handleBookmark(e)}>
           <Tooltip title="Bookmark" placement="right">
-            <li onClick={(e) => handleAuth(e)}  className="active:bg-star hover:bg-gray-800 cursor-pointer md:justify-start px-4 h-12 flex items-center justify-center">
+            <li className="active:bg-star hover:bg-gray-800 cursor-pointer md:justify-start px-4 h-12 flex items-center justify-center">
               <BsBookmarkStarFill color="white" size={30} />
               <span className="all-hide ml-3 hidden md:hidden text-gray-400 font-semibold tracking-wide hover:text-white transition-colors">
                 Bookmark
@@ -96,9 +105,9 @@ console.log(e.innerHTML)
             </li>
           </Tooltip>
         </Link>
-        <Link  to="/profile">
+        <Link onClick={(e) => handleProfile(e)}>
           <Tooltip title="Profile" placement="right">
-            <li   onClick={(e) => handleAuth(e)} className="active:bg-star hover:bg-gray-800 cursor-pointer md:justify-start px-4 h-12 flex items-center justify-center">
+            <li className="active:bg-star hover:bg-gray-800 cursor-pointer md:justify-start px-4 h-12 flex items-center justify-center">
               <CgProfile color="white" size={30} />
               <span className="all-hide ml-3 hidden md:hidden  text-gray-400 font-semibold tracking-wide hover:text-white transition-colors">
                 Profile
