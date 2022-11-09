@@ -3,26 +3,20 @@ import { getAuth, GoogleAuthProvider, linkWithPopup, signInWithPopup } from 'fir
 import { useNavigate } from 'react-router-dom'
 import { auth, db } from '../../firebase'
 import { doc, setDoc, getDocs } from 'firebase/firestore'
-import { AuthContext } from '../../context/AuthContext'
+import { AuthContext,useAuth } from '../../context/AuthContext'
 
 function RegisterGoogleButton() {
   const auth = getAuth()
   const navigate = useNavigate()
+  const user = useAuth()
+
 
   const registerWithGoogle = () => {
     signInWithPopup(auth, new GoogleAuthProvider()).then(async (result) => {
-      const user = result.user
-      console.log('🚀 ~ file: RegisterGoogleButton.jsx ~ line 15 ~ signInWithPopup ~ user', user)
       let userRegisterBefore = false
       const querySnapshot = await getDocs(collection(db, 'users-data'))
-      querySnapshot.forEach((doc) => {
-        if (doc.id === user.uid) {
-          userRegisterBefore = true
-        }
-      })
-      if (userRegisterBefore) return
-      setDoc(doc(db, 'users-data', user.uid), {
-        firstName: user?.displayName,
+      setDoc(doc(db, 'users-data', user.user?.uid), {
+        firstName:  user.user?.displayName,
         lastName: '',
         avatarUrl: '',
         bookmarks: [],

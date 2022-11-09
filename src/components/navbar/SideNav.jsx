@@ -11,18 +11,21 @@ import Tooltip from '@mui/material/Tooltip'
 import DarkMode from './DarkMode.jsx'
 import Hamburger from './Hamburger'
 import ErrorModal from '../common/ErrorModal.jsx'
+import LoginErrorModal from '../common/LoginErrorModal.jsx'
 
 function SideNav() {
   const [menu, setMenu] = useState(true)
   const [toggle, setToggle] = useState(false)
   const [error, setError] = useState(false)
+  const [login, setLogin] = useState(false)
   const navigate = useNavigate()
 
   const auth = getAuth()
 
   useEffect(() => {
     setError(false)
-  }, [menu, error])
+    setLogin(false)
+  }, [menu, error,login])
 
   const handleClick = (e) => {
     const hideAll = document.querySelectorAll('.all-hide')
@@ -52,6 +55,13 @@ function SideNav() {
       navigate('/bookmark')
     }
   }
+  const handleLogin = (e) => {
+    if (auth.currentUser !== null) {
+      setLogin(true)
+    } else {
+      navigate('/login')
+    }
+  }
 
   return (
     <div
@@ -62,6 +72,7 @@ function SideNav() {
       }
     >
       <ErrorModal error={error} />
+      <LoginErrorModal login={login} />
       <div className="text-center  text-white p-6" />
       <ul className="mt-11 flex  gap-y-4 flex-col ">
         <Tooltip title="Menu" placement="right">
@@ -95,7 +106,7 @@ function SideNav() {
             </li>
           </Tooltip>
         </Link>
-        <Link onClick={(e) => handleBookmark(e)}>
+        <button onClick={(e) => handleBookmark(e)}>
           <Tooltip title="Bookmark" placement="right">
             <li className="active:bg-star hover:bg-gray-800 cursor-pointer md:justify-start px-4 h-12 flex items-center justify-center">
               <BsBookmarkStarFill color="white" size={30} />
@@ -104,8 +115,8 @@ function SideNav() {
               </span>
             </li>
           </Tooltip>
-        </Link>
-        <Link onClick={(e) => handleProfile(e)}>
+        </button>
+        <button onClick={(e) => handleProfile(e)}>
           <Tooltip title="Profile" placement="right">
             <li className="active:bg-star hover:bg-gray-800 cursor-pointer md:justify-start px-4 h-12 flex items-center justify-center">
               <CgProfile color="white" size={30} />
@@ -114,8 +125,8 @@ function SideNav() {
               </span>
             </li>
           </Tooltip>
-        </Link>
-        <Link to="/login">
+        </button>
+        <button onClick={(e) => handleLogin(e)}>
           <Tooltip title="Login" placement="right">
             <li className="active:bg-star hover:bg-gray-800 cursor-pointer md:justify-start px-4 h-12 flex items-center justify-center">
               <HiOutlineLogin color="white" size={30} />
@@ -124,7 +135,7 @@ function SideNav() {
               </span>
             </li>
           </Tooltip>
-        </Link>
+        </button>
         <Tooltip title="Dark mode" placement="right">
           <li className="active:bg-star hover:bg-gray-800 cursor-pointer md:justify-start px-4  h-12  flex items-center justify-center">
             <DarkMode />

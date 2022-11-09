@@ -28,22 +28,21 @@ function RegisterInputs() {
   const handleSubmit = async (values) => {
     try {
       const user = await createUserWithEmailAndPassword(auth, values.email, values.password)
-      setDoc(doc(db, 'users-data', user.uid), {
+      setDoc(doc(db, 'users-data', user.user?.uid), {
         firstName: values.firstName,
         lastName: values.lastName,
         avatarUrl: '',
         bookmarks: [],
         comments: [],
       })
-
-      injectStyle()
-      const notify =  () => toast.dark('register is successful')
-      notify()
       navigate('/')
 
-    } catch (error) {
-      console.error(error)
 
+    } catch (error) {
+      console.log(error)
+      injectStyle()
+      const notify =  () => toast.dark('register is unsuccessful')
+      notify()
     }
   }
 

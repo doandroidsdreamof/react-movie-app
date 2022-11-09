@@ -56,8 +56,8 @@ function DetailCover({ passDetail }) {
   }, 1000)
 
   return (
-    <Swiper className="mySwiper z-50  " modules={[Lazy]}>
-      <div className="swiper-slide  h-fit w-full z-50">
+    <Swiper className="mySwiper z-40  " modules={[Lazy]}>
+      <div className="swiper-slide  h-fit w-full z-40">
         <Tooltip title="Menu" placement="right">
           <PlayVideoButton disabledButton={key} handleClick={handleClick} />
         </Tooltip>
@@ -89,7 +89,7 @@ function DetailCover({ passDetail }) {
           className={
             loaded
               ? 'hidden '
-              : '  absolute m-auto  justify-center items-center flex z-50 w-full h-full'
+              : '  absolute m-auto  justify-center items-center flex z-40 w-full h-full'
           }
         >
           <SpinLoader />

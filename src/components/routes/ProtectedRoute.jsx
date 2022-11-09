@@ -19,7 +19,7 @@ const ProtectedRoute = ({ children }) => {
     }
   })
 
-  if (!user && logic === true || user.currentUser == null) {
+  if (auth.currentUser.uid === null) {
     return <Navigate to='/' />
   } else {
     return <>{children}</>
