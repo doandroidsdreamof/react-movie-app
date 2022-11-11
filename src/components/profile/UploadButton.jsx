@@ -7,11 +7,10 @@ const UploadButton = () => {
   }
   return (
     <>
-    <button  onClick={handleClick} className="btn btn-primary font-roboto">
-        Upload Profile Photo
-    <input className="hidden" ref={ref} type="file" />
-    </button>
-  
+      <button onClick={handleClick} className="btn btn-primary font-roboto ">
+        Upload Your Profile Photo
+        <input className="hidden" ref={ref} type="file" />
+      </button>
     </>
   )
 }
