@@ -12,21 +12,25 @@ function Profile() {
   const deleteModal = useRef(null)
 
   const deleteHandler = () => {
-    deleteModal.current.style.display = 'block'
+    deleteModal.current.style.display = 'flex'
+  }
+  const closeModalHandler = () => {
+    deleteModal.current.style.display = 'none'
   }
 
   return (
-    <section className="flex flex-col h-screen  overflow  bg-bg-color">
+    <section className="flex flex-col h-screen  overflow justify-center  bg-bg-color">
+
       <div className="flex flex-1 overflow-x-hidden   overflow-y-auto ">
         <div className="Side-nav  flex  order-1">
           <SideNav />
         </div>
         <div className="detail-second-section gap-y-6  invisible-overflow flex flex-col ml-3 md:ml-0  flex-1    order-2   overflow-y-auto">
           <UserTitle />
-          <DeleteAccountModal modalRef={deleteModal} />
           <div className="ml-6 flex-wrap space-y-4 flex flex-row justify-center items-center gap-x-6">
             <Avatar />
             <UploadButton />
+            <DeleteAccountModal closeHandler={closeModalHandler} modalRef={deleteModal} />
           </div>
           <div className=" flex  pr-3 flex-row justify-end relative mt-auto bottom-3  gap-x-12 ">
             <LogOutButton />
