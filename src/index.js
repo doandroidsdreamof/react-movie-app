@@ -6,14 +6,16 @@ import { ThemeProvider } from './context/ThemeContext'
 import { BrowserRouter } from 'react-router-dom'
 import { AuthProvider } from './context/AuthContext'
 import 'flowbite'
+import ReactDOM from "react-dom/client";
 
-ReactDom.render(
+
+const root = ReactDOM.createRoot(document.getElementById("app"));
+root.render(
   <React.StrictMode>
     <BrowserRouter>
       <AuthProvider>
         <App />
       </AuthProvider>
     </BrowserRouter>
-  </React.StrictMode>,
-  document.getElementById('app')
-)
+  </React.StrictMode>
+);
