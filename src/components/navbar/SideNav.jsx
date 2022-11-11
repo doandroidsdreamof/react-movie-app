@@ -1,17 +1,20 @@
 import React, { useEffect, useState } from 'react'
+import { getAuth } from 'firebase/auth'
 import { AiFillHome } from 'react-icons/ai'
 import { BsBookmarkStarFill } from 'react-icons/bs'
 import { CgProfile } from 'react-icons/cg'
 import { HiOutlineLogin } from 'react-icons/hi'
 import { MdOutlineExplore } from 'react-icons/md'
 import { Link, useNavigate } from 'react-router-dom'
-import { getAuth } from 'firebase/auth'
+
 import Tooltip from '@mui/material/Tooltip'
+
+import ErrorModal from '../common/ErrorModal.jsx'
+import LoginErrorModal from '../common/LoginErrorModal.jsx'
+import AvatarPicture from '../profile/AvatarPicture.jsx'
 
 import DarkMode from './DarkMode.jsx'
 import Hamburger from './Hamburger'
-import ErrorModal from '../common/ErrorModal.jsx'
-import LoginErrorModal from '../common/LoginErrorModal.jsx'
 
 function SideNav() {
   const [menu, setMenu] = useState(true)
@@ -144,6 +147,12 @@ function SideNav() {
             </span>
           </li>
         </Tooltip>
+        <li className="md:justify-start px-4 h-12 flex  items-center justify-center">
+          <AvatarPicture />
+          <span className="all-hide ml-3 hidden md:hidden  text-gray-400 font-semibold tracking-wide hover:text-white transition-colors">
+            Avatar
+          </span>
+        </li>
       </ul>
     </div>
   )

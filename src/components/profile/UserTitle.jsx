@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { AuthContext, useAuth } from '../../context/AuthContext'
-import Avatar from './Avatar'
+import Avatar from './AvatarPicture'
 
 const UserTitle = () => {
   const userName = useAuth()

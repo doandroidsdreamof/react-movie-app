@@ -163,8 +163,8 @@ Start the server
 
 - [ ] Comment Functionality
 - [ ] Bookmark Functionality
-- [ ] Profile Settings
-- [ ] Form Validation
+- [x] Profile Settings
+- [x] Form Validation
 - [x] Authentication
 - [ ] Reauthentication
 - [x] Alert Messages
@@ -177,7 +177,7 @@ Start the server
 - [ ] Logo
 - [ ] optimization
 - [ ] Follow / Unfollow && Messaging Functionality
-
+- [ ] Dashboard && Authorization
 
 <!-- Contributing -->
 
