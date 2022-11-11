@@ -43,14 +43,6 @@ function App() {
           </FormLayout>
         }
       />
-      <Route
-        path="/profile"
-        element={
-          <ProtectedRoute>
-            <Profile />
-          </ProtectedRoute>
-        }
-      />
       <Route load={load} path="/explore" element={<Explore />} />
       <Route
         path="/bookmark"

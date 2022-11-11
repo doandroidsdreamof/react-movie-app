@@ -12,6 +12,7 @@ import Tooltip from '@mui/material/Tooltip'
 import ErrorModal from '../common/ErrorModal.jsx'
 import LoginErrorModal from '../common/LoginErrorModal.jsx'
 import AvatarPicture from '../profile/AvatarPicture.jsx'
+import ProfileSettings from '../profile/ProfileSettings.jsx'
 
 import DarkMode from './DarkMode.jsx'
 import Hamburger from './Hamburger'
@@ -20,7 +21,9 @@ function SideNav() {
   const [menu, setMenu] = useState(true)
   const [toggle, setToggle] = useState(false)
   const [error, setError] = useState(false)
+  const [dropdown, setDropDown] = useState(false)
   const [login, setLogin] = useState(false)
+  const [anchorEl, setAnchorEl] = React.useState(null)
   const navigate = useNavigate()
 
   const auth = getAuth()
@@ -48,7 +51,8 @@ function SideNav() {
     if (auth.currentUser === null) {
       setError(true)
     } else {
-      navigate('/profile')
+      setDropDown(!dropdown)
+      setAnchorEl(e.currentTarget)
     }
   }
   const handleBookmark = (e) => {
@@ -65,7 +69,6 @@ function SideNav() {
       navigate('/login')
     }
   }
-
   return (
     <div
       className={
@@ -120,14 +123,13 @@ function SideNav() {
           </Tooltip>
         </button>
         <button onClick={(e) => handleProfile(e)}>
-          <Tooltip title="Profile" placement="right">
             <li className="active:bg-star hover:bg-gray-800 cursor-pointer md:justify-start px-4 h-12 flex items-center justify-center">
               <CgProfile color="white" size={30} />
+              <ProfileSettings anchorEl={anchorEl} clickHandler={dropdown} />
               <span className="all-hide ml-3 hidden md:hidden  text-gray-400 font-semibold tracking-wide hover:text-white transition-colors">
-                Profile
+                Account
               </span>
             </li>
-          </Tooltip>
         </button>
         <button onClick={(e) => handleLogin(e)}>
           <Tooltip title="Login" placement="right">
