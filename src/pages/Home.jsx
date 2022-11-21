@@ -1,19 +1,18 @@
-import React from "react";
+import React from 'react'
 
-import data from "../../Data.js";
-import Aside from "../components/aside-bar/Aside.jsx";
-import Row from "../components/home/Row.jsx";
-import TopSlider from "../components/home/TopSlider";
-import PageLayout from "../components/layouts/PageLayout.jsx";
-import RowLayout from "../components/layouts/RowLayout.jsx";
-import SideNav from "../components/navbar/SideNav.jsx";
-
+import data from '../../Data.js'
+import Aside from '../components/aside-bar/Aside.jsx'
+import Row from '../components/home/Row.jsx'
+import TopSlider from '../components/home/TopSlider'
+import PageLayout from '../components/layouts/PageLayout.jsx'
+import RowLayout from '../components/layouts/RowLayout.jsx'
+import SideNav from '../components/navbar/SideNav.jsx'
 
 function Home() {
   return (
     <PageLayout
-    sideNav={<SideNav />}
-      aside={<Aside  HomePage="HomePage" trendData={data.requestDayTrending} />}
+      sideNav={<SideNav />}
+      aside={<Aside HomePage="HomePage" trendData={data.requestDayTrending} />}
       slider={<TopSlider sliderId="0" endpoint={data.requestWeekTrending} />}
       row={
         <RowLayout>
@@ -25,7 +24,7 @@ function Home() {
       }
       homePage="homePage"
     />
-  );
+  )
 }
 
-export default Home;
+export default Home

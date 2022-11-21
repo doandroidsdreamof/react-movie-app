@@ -15,11 +15,8 @@ import AvatarPicture from '../profile/AvatarPicture.jsx'
 import ProfileSettings from '../profile/ProfileSettings.jsx'
 
 import DarkMode from './DarkMode.jsx'
-import Hamburger from './Hamburger'
 
 function SideNav() {
-  const [menu, setMenu] = useState(true)
-  const [toggle, setToggle] = useState(false)
   const [error, setError] = useState(false)
   const [dropdown, setDropDown] = useState(false)
   const [login, setLogin] = useState(false)
@@ -31,8 +28,7 @@ function SideNav() {
   useEffect(() => {
     setError(false)
     setLogin(false)
-  }, [menu, error, login])
-
+  }, [error, login])
 
   const handleProfile = (e) => {
     if (auth.currentUser === null) {
@@ -59,9 +55,7 @@ function SideNav() {
   return (
     <div
       className={
-        menu
-          ? ' bg-nav z-50 border-r border-r-gray-600 relative font-roboto left-0   min-h-screen w-14 pt-4  '
-          : ' bg-bg-color z-50  relative border-r border-r-gray-600 font-roboto left-0 md:w-[210px] min-h-screen  w-14 pt-4 '
+        ' bg-nav z-50 border-r border-r-gray-600 relative font-roboto left-0   min-h-screen w-14 pt-4  '
       }
     >
       <ErrorModal error={error} />
@@ -72,9 +66,6 @@ function SideNav() {
           <Tooltip title="Home" placement="right">
             <li className="active:bg-star hover:bg-gray-800 cursor-pointer md:justify-start px-4 h-12 flex items-center justify-center ">
               <AiFillHome color="white" size={30} />
-              <span className="all-hide ml-3 hidden md:hidden  text-gray-400 font-semibold tracking-wide hover:text-white transition-colors">
-                Home
-              </span>
             </li>
           </Tooltip>
         </Link>
@@ -82,9 +73,6 @@ function SideNav() {
           <Tooltip title="Explore" placement="right">
             <li className="active:bg-star hover:bg-gray-800 cursor-pointer md:justify-start px-4 h-12 flex  items-center justify-center">
               <MdOutlineExplore color="white" size={30} />
-              <span className="all-hide ml-3 hidden md:hidden  text-gray-400 font-semibold tracking-wide hover:text-white transition-colors">
-                Explore
-              </span>
             </li>
           </Tooltip>
         </Link>
@@ -92,44 +80,31 @@ function SideNav() {
           <Tooltip title="Bookmark" placement="right">
             <li className="active:bg-star hover:bg-gray-800 cursor-pointer md:justify-start px-4 h-12 flex items-center justify-center">
               <BsBookmarkStarFill color="white" size={30} />
-              <span className="all-hide ml-3 hidden md:hidden text-gray-400 font-semibold tracking-wide hover:text-white transition-colors">
-                Bookmark
-              </span>
             </li>
           </Tooltip>
         </button>
         <button className="profile-icon" onClick={(e) => handleProfile(e)}>
-          <li className=" active:bg-star hover:bg-gray-800 cursor-pointer md:justify-start px-4 h-12 flex items-center justify-center">
-            <CgProfile color="white" size={30} />
-            <ProfileSettings anchorEl={anchorEl} clickHandler={dropdown} />
-            <span className="all-hide ml-3 hidden md:hidden  text-gray-400 font-semibold tracking-wide hover:text-white transition-colors">
-              Account
-            </span>
-          </li>
+        <Tooltip title="Profile" placement="right">
+            <li className="active:bg-star hover:bg-gray-800 cursor-pointer md:justify-start px-4 h-12 flex items-center justify-center">
+              <CgProfile color="white" size={30} />
+              <ProfileSettings anchorEl={anchorEl} clickHandler={dropdown} />
+            </li>
+          </Tooltip>
         </button>
         <button onClick={(e) => handleLogin(e)}>
           <Tooltip title="Login" placement="right">
             <li className="active:bg-star hover:bg-gray-800 cursor-pointer md:justify-start px-4 h-12 flex items-center justify-center">
               <HiOutlineLogin color="white" size={30} />
-              <span className="all-hide ml-3 hidden md:hidden  text-gray-400 font-semibold tracking-wide hover:text-white transition-colors">
-                Login
-              </span>
             </li>
           </Tooltip>
         </button>
         <Tooltip title="Dark mode" placement="right">
           <li className="active:bg-star hover:bg-gray-800 cursor-pointer md:justify-start px-4  h-12  flex items-center justify-center">
             <DarkMode />
-            <span className="all-hide ml-2 mt-1 hidden md:hidden translate-x-1  text-gray-400 font-semibold tracking-wide hover:text-white transition-colors">
-              Dark Mode
-            </span>
           </li>
         </Tooltip>
         <li className="md:justify-start px-4 h-12 flex  items-center justify-center">
           <AvatarPicture />
-          <span className="all-hide ml-3 hidden md:hidden  text-gray-400 font-semibold tracking-wide hover:text-white transition-colors">
-            Avatar
-          </span>
         </li>
       </ul>
     </div>

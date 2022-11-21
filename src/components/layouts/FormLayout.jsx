@@ -1,11 +1,10 @@
 import React from 'react'
 
-const FormLayout = ({children}) => {
+const FormLayout = ({ children }) => {
   return (
-    <div className='bg-input-bg min-h-screen w-screen   overflow-hidden flex justify-center'>
-        {children}
-
-        </div>
+    <div className="bg-input-bg min-h-screen w-screen   overflow-hidden flex justify-center">
+      {children}
+    </div>
   )
 }
 

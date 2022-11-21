@@ -14,6 +14,7 @@ function Movie({ data }) {
 
     return (
       <div className="flex justify-center   h-full " >
+
         <div
                 className={
                     loaded

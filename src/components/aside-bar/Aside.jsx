@@ -39,15 +39,3 @@ const Aside = ({ trendData,DetailPage,HomePage }) => {
 };
 export default Aside;
 
-/*
-
-npm install
-
-
-npm run dev
-
-
-npm run build
-
-
-*/
