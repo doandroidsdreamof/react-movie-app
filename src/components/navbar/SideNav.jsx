@@ -33,19 +33,6 @@ function SideNav() {
     setLogin(false)
   }, [menu, error, login])
 
-  const handleClick = (e) => {
-    const hideAll = document.querySelectorAll('.all-hide')
-    setToggle(!toggle)
-    setMenu(!menu)
-    for (const x in hideAll) {
-      if (menu === false) {
-        hideAll[x].style.display = 'none'
-      }
-      if (menu === true) {
-        hideAll[x].style.display = 'block'
-      }
-    }
-  }
 
   const handleProfile = (e) => {
     if (auth.currentUser === null) {
@@ -81,17 +68,6 @@ function SideNav() {
       <LoginErrorModal login={login} />
       <div className="text-center  text-white p-6" />
       <ul className="mt-11 flex  gap-y-4 flex-col ">
-        <Tooltip title="Menu" placement="right">
-          <li
-            onClick={(e) => handleClick(e)}
-            className="active:bg-star hover:bg-gray-800 cursor-pointer md:justify-start px-4 h-12 hidden md:flex items-center justify-center translate-y-2"
-          >
-            <Hamburger menuToggle={toggle} />
-            <span className="all-hide ml-3 hidden md:hidden  text-gray-400 font-semibold tracking-wide hover:text-white transition-colors">
-              Close Menu
-            </span>
-          </li>
-        </Tooltip>
         <Link to="/">
           <Tooltip title="Home" placement="right">
             <li className="active:bg-star hover:bg-gray-800 cursor-pointer md:justify-start px-4 h-12 flex items-center justify-center ">
@@ -122,14 +98,14 @@ function SideNav() {
             </li>
           </Tooltip>
         </button>
-        <button onClick={(e) => handleProfile(e)}>
-            <li className="active:bg-star hover:bg-gray-800 cursor-pointer md:justify-start px-4 h-12 flex items-center justify-center">
-              <CgProfile color="white" size={30} />
-              <ProfileSettings anchorEl={anchorEl} clickHandler={dropdown} />
-              <span className="all-hide ml-3 hidden md:hidden  text-gray-400 font-semibold tracking-wide hover:text-white transition-colors">
-                Account
-              </span>
-            </li>
+        <button className="profile-icon" onClick={(e) => handleProfile(e)}>
+          <li className=" active:bg-star hover:bg-gray-800 cursor-pointer md:justify-start px-4 h-12 flex items-center justify-center">
+            <CgProfile color="white" size={30} />
+            <ProfileSettings anchorEl={anchorEl} clickHandler={dropdown} />
+            <span className="all-hide ml-3 hidden md:hidden  text-gray-400 font-semibold tracking-wide hover:text-white transition-colors">
+              Account
+            </span>
+          </li>
         </button>
         <button onClick={(e) => handleLogin(e)}>
           <Tooltip title="Login" placement="right">
