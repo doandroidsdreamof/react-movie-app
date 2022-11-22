@@ -1,5 +1,6 @@
 import React from 'react'
 
+
 const PageLayout = (props) => {
   return (
     <main className="flex flex-col h-screen  overflow  bg-bg-color">
@@ -33,3 +34,5 @@ const PageLayout = (props) => {
 }
 
 export default PageLayout
+
+
