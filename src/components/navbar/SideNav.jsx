@@ -13,15 +13,18 @@ import ErrorModal from '../common/ErrorModal.jsx'
 import LoginErrorModal from '../common/LoginErrorModal.jsx'
 import AvatarPicture from '../profile/AvatarPicture.jsx'
 import ProfileSettings from '../profile/ProfileSettings.jsx'
+import SignOutModal from '../common/SignOutModal.jsx'
 
 import DarkMode from './DarkMode.jsx'
 
 import AlertDialog from '../profile/AlertDialog.jsx'
+import signOutUser from '../../utils/signOut.js'
 
 function SideNav() {
   const [error, setError] = useState(false)
   const [dropdown, setDropDown] = useState(false)
   const [login, setLogin] = useState(false)
+  const [out, setOut] = useState(false)
   const [anchorEl, setAnchorEl] = React.useState(null)
   const [open, setOpen] = React.useState(false)
   const navigate = useNavigate()
@@ -55,14 +58,21 @@ function SideNav() {
       navigate('/login')
     }
   }
+
+  const handleLogout = () => {
+    signOutUser()
+    navigate('/')
+    setOut(true)
+  }
+
   return (
     <div
       className={
         ' bg-nav z-50 border-r border-r-gray-600 relative font-roboto left-0   min-h-screen w-14 pt-4  '
       }
     >
-            <AlertDialog open={open} openMenu={(e) => setOpen(true)}  closeMenu={(e) => setOpen(false)}  />
-
+      <AlertDialog open={open} openMenu={(e) => setOpen(true)} closeMenu={(e) => setOpen(false)} />
+      <SignOutModal out={out} />
       <ErrorModal error={error} />
       <LoginErrorModal login={login} />
       <div className="text-center  text-white p-6" />
@@ -89,10 +99,15 @@ function SideNav() {
           </Tooltip>
         </button>
         <button className="profile-icon" onClick={(e) => handleProfile(e)}>
-            <li className="active:bg-star hover:bg-gray-800 cursor-pointer md:justify-start px-4 h-12 flex items-center justify-center">
-              <CgProfile color="white" size={30} />
-              <ProfileSettings openDel={(e) => setOpen(true)} anchorEl={anchorEl} clickHandler={dropdown} />
-            </li>
+          <li className="active:bg-star hover:bg-gray-800 cursor-pointer md:justify-start px-4 h-12 flex items-center justify-center">
+            <CgProfile color="white" size={30} />
+            <ProfileSettings
+              openDel={(e) => setOpen(true)}
+              anchorEl={anchorEl}
+              clickHandler={dropdown}
+              handleLogout={handleLogout}
+            />
+          </li>
         </button>
         <button onClick={(e) => handleLogin(e)}>
           <Tooltip title="Login" placement="right">

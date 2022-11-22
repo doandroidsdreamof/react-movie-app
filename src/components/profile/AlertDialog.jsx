@@ -25,7 +25,7 @@ import DialogTitle from '@mui/material/DialogTitle';
         aria-describedby="alert-dialog-description"
       >
         <DialogTitle id="alert-dialog-title">
-          {"Use Google's location service?"}
+          {"Danger Zone!"}
         </DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">

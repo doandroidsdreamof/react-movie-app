@@ -1,14 +1,17 @@
-import  React, {useState,useEffect} from 'react'
+import React from 'react'
+import { useNavigate } from 'react-router-dom'
+
 import Menu from '@mui/material/Menu'
 import MenuItem from '@mui/material/MenuItem'
-import AlertDialog from './AlertDialog'
+
+
+
 
 function ProfileSettings(props) {
 
 
   return (
-    <>
-      <Menu
+    <Menu
         sx={{
           color: 'dark',
         }}
@@ -25,11 +28,10 @@ function ProfileSettings(props) {
           horizontal: 'left',
         }}
       >
-        <MenuItem>Logout</MenuItem>
-        <MenuItem onClick={(e) => props.openDel()}>Delete Account</MenuItem>
-        <MenuItem>Upload Avatar</MenuItem>
-      </Menu>
-    </>
+      <MenuItem onClick={(e) => props.handleLogout()}>Logout</MenuItem>
+      <MenuItem onClick={(e) => props.openDel()}>Delete Account</MenuItem>
+      <MenuItem>Upload Avatar</MenuItem>
+    </Menu>
   )
 }
 
