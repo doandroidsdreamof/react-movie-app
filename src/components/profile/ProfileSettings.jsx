@@ -1,9 +1,9 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-
+import { useRef, useState } from "react";
 import Menu from '@mui/material/Menu'
 import MenuItem from '@mui/material/MenuItem'
-
+import Button from '@mui/material/Button';
 
 
 
@@ -30,7 +30,10 @@ function ProfileSettings(props) {
       >
       <MenuItem onClick={(e) => props.handleLogout()}>Logout</MenuItem>
       <MenuItem onClick={(e) => props.openDel()}>Delete Account</MenuItem>
-      <MenuItem>Upload Avatar</MenuItem>
+      <MenuItem  component="label"  >
+      Upload Avatar
+      <input hidden accept="image/*" multiple type="file" />
+      </MenuItem>
     </Menu>
   )
 }
