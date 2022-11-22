@@ -11,7 +11,6 @@ import Tooltip from '@mui/material/Tooltip'
 
 import ErrorModal from '../common/ErrorModal.jsx'
 import LoginErrorModal from '../common/LoginErrorModal.jsx'
-import AvatarPicture from '../profile/AvatarPicture.jsx'
 import ProfileSettings from '../profile/ProfileSettings.jsx'
 import SignOutModal from '../common/SignOutModal.jsx'
 
@@ -68,7 +67,7 @@ function SideNav() {
   return (
     <div
       className={
-        ' bg-nav z-50 border-r border-r-gray-600 relative font-roboto left-0   min-h-screen w-14 pt-4  '
+        ' bg-nav  z-50 border-r border-r-gray-600 relative font-roboto left-0   min-h-screen w-14 pt-4  '
       }
     >
       <AlertDialog open={open} openMenu={(e) => setOpen(true)} closeMenu={(e) => setOpen(false)} />
@@ -76,7 +75,7 @@ function SideNav() {
       <ErrorModal error={error} />
       <LoginErrorModal login={login} />
       <div className="text-center  text-white p-6" />
-      <ul className="mt-11 flex  gap-y-4 flex-col ">
+      <ul className="mt-20 flex  gap-y-4 flex-col ">
         <Link to="/">
           <Tooltip title="Home" placement="right">
             <li className="active:bg-star hover:bg-gray-800 cursor-pointer md:justify-start px-4 h-12 flex items-center justify-center ">
@@ -121,9 +120,6 @@ function SideNav() {
             <DarkMode />
           </li>
         </Tooltip>
-        <li className="md:justify-start px-4 h-12 flex  items-center justify-center">
-          <AvatarPicture />
-        </li>
       </ul>
     </div>
   )

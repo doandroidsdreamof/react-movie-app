@@ -10,14 +10,11 @@ function RegisterGoogleButton() {
   const navigate = useNavigate()
   const user = useAuth()
 
-  const registerWithGoogle = () => {
+  const registerWithGoogle = async () => {
     signInWithPopup(auth, new GoogleAuthProvider()).then(async (result) => {
-      let userRegisterBefore = false
-      const querySnapshot = await getDocs(db, 'users-data')
       setDoc(doc(db, 'users-data', user.currentUser?.uid), {
         firstName:  user.currentUser?.displayName,
         lastName: '',
-        avatarUrl: '',
         bookmarks: [],
         comments: [],
       })

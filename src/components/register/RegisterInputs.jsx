@@ -30,7 +30,6 @@ function RegisterInputs() {
       setDoc(doc(db, 'users-data', user.user?.uid), {
         firstName: values.firstName,
         lastName: values.lastName,
-        avatarUrl: '',
         bookmarks: [],
         comments: [],
       })
