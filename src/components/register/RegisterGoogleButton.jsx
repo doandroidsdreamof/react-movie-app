@@ -8,18 +8,21 @@ import { AuthContext,useAuth } from '../../context/AuthContext'
 function RegisterGoogleButton() {
   const auth = getAuth()
   const navigate = useNavigate()
-  const user = useAuth()
+  // const user = useAuth()
 
   const registerWithGoogle = async () => {
     signInWithPopup(auth, new GoogleAuthProvider()).then(async (result) => {
-      setDoc(doc(db, 'users-data', user.currentUser?.uid), {
-        firstName:  user.currentUser?.displayName,
+      const user = result.user;
+      const ref = await doc(db, 'users-data',user.currentUser?.uid);
+      console.log("🚀 ~ file: RegisterGoogleButton.jsx ~ line 16 ~ signInWithPopup ~ user", user)
+      setDoc(ref, {
+        firstName: 'valis',
         lastName: '',
         bookmarks: [],
         comments: [],
       })
     })
-     navigate('/')
+    //  navigate('/')
     .catch((error) => {
       console.log(error)
     })
