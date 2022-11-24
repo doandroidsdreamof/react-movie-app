@@ -8,10 +8,15 @@ const InvalidLogin = (props) => {
 useEffect(()=>{
 if(props.error === true){
   injectStyle()
-  const notify = () => toast.dark('Login Unsuccessful.')
+  const notify = () => toast.dark('Login unsuccessful.')
   notify()
 }
-},[props.error])
+if(props.ok === true){
+  injectStyle()
+  const notify = () => toast.dark('Login successful.')
+  notify()
+}
+},[props.error, props.ok])
 
 
 

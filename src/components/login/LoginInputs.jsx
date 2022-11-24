@@ -12,6 +12,7 @@ function LoginInputs() {
   const [password,setPassword] = useState('')
   const [email,setEmail] = useState('')
   const [error,setError] = useState(false)
+  const [ok,setOk] = useState(false)
   const navigate = useNavigate()
 
 
@@ -22,6 +23,7 @@ function LoginInputs() {
     e.preventDefault()
     try {
       await signInWithEmailAndPassword(auth, email, password);
+      setOk(true)
       navigate('/')
     } catch (error) {
     console.log("🚀 ~ file: LoginInputs.jsx ~ line 16 ~ logInWithEmailAndPassword ~ error", error)
@@ -32,7 +34,7 @@ function LoginInputs() {
 
   return (
     <>
-        <InvalidLogin error={error} />
+        <InvalidLogin ok={ok} error={error} />
       <label htmlFor="email" className="text-gray-700" />
 
       <input

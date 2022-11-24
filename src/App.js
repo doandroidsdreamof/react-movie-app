@@ -14,11 +14,13 @@ import { AuthProvider, useAuth } from './context/AuthContext'
 import ProtectedRoute from './components/routes/ProtectedRoute'
 import { collection, getDocs, setDoc, doc, getDoc,updateDoc } from 'firebase/firestore'
 import { db, auth } from './firebase'
+import { getAdditionalUserInfo} from "firebase/auth"
+
 
 function App() {
   const [load, setLoad] = useState(false)
   const user = useAuth()
-  console.log("🚀 ~ file: App.js ~ line 21 ~ App ~ user", user.currentUser)
+  console.log("🚀 ~ file: App.js ~ line 21 ~ App ~ user", user)
 
   useEffect(() => {
     setLoad(true)
