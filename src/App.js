@@ -18,30 +18,14 @@ import { db, auth } from './firebase'
 function App() {
   const [load, setLoad] = useState(false)
   const user = useAuth()
-  //  console.log("🚀 ~ file: App.js ~ line 21 ~ App ~ user", user.currentUser)
+  console.log("🚀 ~ file: App.js ~ line 21 ~ App ~ user", user.currentUser)
 
   useEffect(() => {
     setLoad(true)
   }, [])
 
-  async function x() {
-    const docRef = doc(db, 'users-data', user.currentUser.uid)
-    const userData = await getDoc(docRef)
-    if (userData.exists()) {
-      console.log('Document data:', userData.data())
-      setDoc(doc(db, 'users-data', user.currentUser?.uid), {
-        firstName: 'bu da tamam',
-        lastName: '',
-        bookmarks: [],
-        comments: [],
-      })
-    } else {
-      //  console.log('No such document!')
-      return
-    }
-  }
 
-  x()
+
 
   return (
     <Routes>

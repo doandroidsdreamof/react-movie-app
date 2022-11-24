@@ -1,18 +1,45 @@
-import React from 'react'
+import React,{useState} from 'react'
 
 import LoginWithGoogleButton from './LoginWithGoogleButton'
+import {getAuth,signInWithPopup,signInWithEmailAndPassword,createUserWithEmailAndPassword,sendPasswordResetEmail,signOut } from 'firebase/auth';
+import InvalidLogin from '../common/InvalidLogin'
+import {useNavigate} from 'react-router-dom'
+
+
 
 function LoginInputs() {
+  const auth = getAuth()
+  const [password,setPassword] = useState('')
+  const [email,setEmail] = useState('')
+  const [error,setError] = useState(false)
+  const navigate = useNavigate()
+
+
+
+  const logInWithEmailAndPassword = async (e) => {
+    console.log("🚀 ~ file: LoginInputs.jsx ~ line 20 ~ logInWithEmailAndPassword ~ password", password)
+    console.log("🚀 ~ file: LoginInputs.jsx ~ line 20 ~ logInWithEmailAndPassword ~ email", email)
+    e.preventDefault()
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      navigate('/')
+    } catch (error) {
+    console.log("🚀 ~ file: LoginInputs.jsx ~ line 16 ~ logInWithEmailAndPassword ~ error", error)
+     setError(true)
+
+    }
+  };
 
   return (
     <>
-
+        <InvalidLogin error={error} />
       <label htmlFor="email" className="text-gray-700" />
 
       <input
         type="email"
         name="email"
         id="email"
+        onChange={(e) => setEmail(e.target.value)}
         placeholder="email"
         className="block w-full px-4 py-3 rounded-md border bg-gray-200 border-gray-300 text-gray-600 transition duration-300
 focus:ring-2 focus:ring-sky-300 focus:outline-none
@@ -24,6 +51,7 @@ invalid:ring-2 "
         type="password"
         name="password"
         id="password"
+        onChange={(e) => setPassword(e.target.value)}
         placeholder="password"
         minLength="8"
         required
@@ -33,6 +61,7 @@ invalid:ring-2 "
       />
       <LoginWithGoogleButton />
       <button
+        onClick={(e) => logInWithEmailAndPassword(e)}
         type="submit"
         className="w-full py-3 px-6 rounded-md bg-sky-600
     focus:bg-sky-700 active:bg-sky-500"

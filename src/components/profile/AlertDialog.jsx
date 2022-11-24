@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import Button from '@mui/material/Button'
 import Dialog from '@mui/material/Dialog'
 import DialogActions from '@mui/material/DialogActions'
@@ -7,11 +7,19 @@ import DialogContentText from '@mui/material/DialogContentText'
 import DialogTitle from '@mui/material/DialogTitle'
 import { getAuth, reauthenticateWithCredential, deleteUser, EmailAuthProvider } from 'firebase/auth'
 import { useAuth } from '../../context/AuthContext'
+import InvalidPassword from '../common/InvalidPassword'
 
 function AlertDialog(props) {
   const auth = getAuth()
   const user = auth.currentUser
-   console.log("🚀 ~ file: AlertDialog.jsx ~ line 13 ~ AlertDialog ~ user", user)
+  const [password, setPassword] = useState('')
+  const [error, setError] = useState(false)
+  const [ok, setOk] = useState(false)
+
+  useEffect(() =>{
+
+  setError(false)
+  },[error])
 
   const handleClickOpen = () => {
     props.openMenu()
@@ -21,21 +29,24 @@ function AlertDialog(props) {
     props.closeMenu()
   }
 
-  async function deleteAccount() {
-    deleteUser(user).then(() => {
-    console.log("🚀 ~ file: AlertDialog.jsx ~ line 26 ~ deleteUser ~ user", user)
-
-    }).catch((error) => {
-    console.log("🚀 ~ file: AlertDialog.jsx ~ line 29 ~ deleteUser ~ error", error)
-
-
-    });
-
-
+  function deleteAccount() {
+    const credential = EmailAuthProvider.credential(auth.currentUser.email, password)
+    const result = reauthenticateWithCredential(auth.currentUser, credential)
+    deleteUser(user)
+      .then(() => {
+        console.log('🚀 ~ file: AlertDialog.jsx ~ line 31 ~ deleteUser ~ user', user)
+        handleClose()
+        setOk(true)
+      })
+      .catch((error) => {
+        console.log('🚀 ~ file: AlertDialog.jsx ~ line 33 ~ deleteUser ~ error', error)
+        setError(true)
+      })
   }
 
   return (
     <div>
+      <InvalidPassword ok={ok} error={error} />
       <Dialog
         open={props.open}
         onClose={handleClose}
@@ -58,6 +69,7 @@ function AlertDialog(props) {
             placeholder="password"
             minLength="8"
             required
+            onChange={(e) => setPassword(e.target.value)}
             className="block w-full px-4 mt-2  bg-gray-200 py-2 rounded-md border border-gray-300 text-gray-600 transition duration-300
                                 focus:ring-2 focus:ring-sky-300 focus:outline-none
                                 invalid:ring-2 "

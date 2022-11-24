@@ -33,6 +33,9 @@ function RegisterInputs() {
         bookmarks: [],
         comments: [],
       })
+      injectStyle()
+      const notify = () => toast.dark('register is successful')
+      notify()
       navigate('/')
     } catch (error) {
       console.log(error)
