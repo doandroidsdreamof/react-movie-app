@@ -28,18 +28,20 @@ const BookmarkButton = () => {
   }
 
 
+
+
   const updateBookmarks = async () => {
     const ref = doc(db, 'users-data', user.currentUser?.uid)
     if (isActive === true) {
       await setDoc(ref, {
-        firstName: user.currentUser?.displayName || user.currentUser,
+        firstName: user.currentUser?.displayName,
         lastName: '',
         bookmarks: [id],
         comments: [],
       })
     } else {
       await updateDoc(ref, {
-        firstName: user.currentUser?.displayName || user.currentUser,
+        firstName: user.currentUser?.displayName,
         lastName: '',
         bookmarks: [],
         comments: [],

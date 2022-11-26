@@ -37,6 +37,10 @@ function RegisterInputs() {
         comments: [],
       })
 
+      updateProfile(auth.currentUser, {
+        displayName:  values.firstName,
+      })
+
       injectStyle()
       const notify = () => toast.dark('register is successful')
       notify()
