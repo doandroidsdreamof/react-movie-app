@@ -1,11 +1,11 @@
 import React from 'react'
 
-import ProfileAndBookmarkLayout from "../components/layouts/ProfileAndBookmarkLayout.jsx";
+import BookmarkLayout from "../components/layouts/BookmarkLayout.jsx";
 import SideNav from "../components/navbar/SideNav.jsx";
 
  function BookMark() {
   return (
-    <ProfileAndBookmarkLayout
+    <BookmarkLayout
         sideNav={<SideNav />}
 
     />

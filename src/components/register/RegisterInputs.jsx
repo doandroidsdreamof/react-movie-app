@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect,useRef } from 'react'
 import * as Yup from 'yup'
 import { useNavigate } from 'react-router-dom'
 
@@ -6,7 +6,7 @@ import RegisterGoogleButton from './RegisterGoogleButton'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import { doc, setDoc } from 'firebase/firestore'
 import { auth, db } from '../../firebase'
-import { createUserWithEmailAndPassword, GoogleAuthProvider, getAuth } from 'firebase/auth'
+import { createUserWithEmailAndPassword, GoogleAuthProvider, getAuth, updateProfile } from 'firebase/auth'
 import 'react-toastify/dist/ReactToastify.css'
 import { ToastContainer, toast } from 'react-toastify'
 import { injectStyle } from 'react-toastify/dist/inject-style'
@@ -23,16 +23,20 @@ const SignupSchema = Yup.object().shape({
 function RegisterInputs() {
   const auth = getAuth()
   const navigate = useNavigate()
+  const ref = useRef(null);
+
 
   const handleSubmit = async (values) => {
     try {
       const user = await createUserWithEmailAndPassword(auth, values.email, values.password)
-      setDoc(doc(db, 'users-data', user.user?.uid), {
+      const ref = doc(db, 'users-data', user.user?.uid)
+      setDoc(ref, {
         firstName: values.firstName,
         lastName: values.lastName,
         bookmarks: [],
         comments: [],
       })
+
       injectStyle()
       const notify = () => toast.dark('register is successful')
       notify()
@@ -44,6 +48,7 @@ function RegisterInputs() {
       notify()
     }
   }
+
 
   return (
     <Formik
@@ -64,6 +69,7 @@ function RegisterInputs() {
           <Field
             name="firstName"
             required
+            innerRef={ref}
             placeholder="First Name"
             className="block w-fifty px-4 py-2 rounded-md border bg-gray-200 border-gray-300 text-gray-600 transition duration-300
       focus:ring-2 focus:ring-sky-300 focus:outline-none "
