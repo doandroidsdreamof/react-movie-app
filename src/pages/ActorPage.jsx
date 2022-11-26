@@ -23,8 +23,7 @@ import SideNav from "../components/navbar/SideNav.jsx";
     },[person_id])
 
 
-//  https://api.themoviedb.org/3/person/popular?api_key=<<api_key>>&language=en-US&page=1 known for
-// `https://api.themoviedb.org/3/person/${person_id}/movie_credits?`
+
 
   return (
     <ActorLayout

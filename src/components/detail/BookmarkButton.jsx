@@ -22,6 +22,8 @@ getData()
     if (docSnap.exists()) {
       let bookMarks = docSnap.data().bookmarks;
       let search = bookMarks.filter((current,i) => current === id ? setIsActive(true) : setIsActive(false))
+      console.log("🚀 ~ file: BookmarkButton.jsx ~ line 24 ~ getData ~ bookMarks", search)
+
     } else {
       setIsActive(false)
     }

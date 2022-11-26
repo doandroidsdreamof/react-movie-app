@@ -15,6 +15,7 @@ const data = {
   requestRecentSort: `  https://api.themoviedb.org/3/movie/upcoming?api_key=${apiKey}&language=en-US&page=`,
   requestPopularSort: `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=`,
   requestSortByGenre: `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&page=`,
+  requestDiscover:   `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&page=`,
   requestSearchByID: `api_key=${apiKey}&language=en-US`,
   requestSearchByIDSimilar: `api_key=${apiKey}&language=en-US&page=1`,
   requestVideo: `/videos?api_key=${apiKey}&language=en-US`,
@@ -22,7 +23,9 @@ const data = {
   requestPeople: `api_key=${apiKey}&language=en-US&page=1&include_adult=false`,
   requestActor: `api_key=${apiKey}&language=en-US`,
   requestSearchMovie: `api_key=${apiKey}&language=en-US`,
-  requestActorMovies: `api_key=${apiKey}&language=en-US`,
+  requestActorMovies: `api_key=${apiKey}&language=en-US`
+
+
 
 
 };

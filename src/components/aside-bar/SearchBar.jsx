@@ -19,7 +19,6 @@ const SearchBar = (searchLogic) => {
       const response = await fetch(`${Data.requestSearch}&query=${queryValue}`)
       const getData = await response.json()
       const passData = await getData.results.sort()
-      // console.log("getData => ", passData);
       setSearch([...passData])
       let parseData = [{}]
       search.map(function (item) {
@@ -40,7 +39,6 @@ const SearchBar = (searchLogic) => {
 
     console.log(
       'handleOnSearch =>',
-
       string,
       results
     )

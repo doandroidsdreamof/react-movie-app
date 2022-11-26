@@ -162,17 +162,17 @@ Start the server
 ## :compass: Roadmap
 
 - [ ] Comment Functionality
-- [ ] Bookmark Functionality
+- [x] Bookmark Functionality
 - [x] Profile Settings
 - [x] Form Validation
 - [x] Authentication
-- [ ] Reauthentication
+- [x] Reauthentication
 - [x] Alert Messages
 - [ ] Welcome Email
 - [ ] Tests
 - [ ] Allowing Users To Access Their Data
 - [ ] PWA Functionality
-- [ ] Notification
+- [x] Notification
 - [ ] Dark Mode
 - [ ] Logo
 - [ ] optimization
