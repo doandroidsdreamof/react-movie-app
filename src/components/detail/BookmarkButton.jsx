@@ -2,7 +2,7 @@ import React from 'react'
 import { BsBookmarkHeart, BsBookmarkHeartFill } from 'react-icons/bs'
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import { doc, updateDoc, setDoc, getDoc } from 'firebase/firestore'
+import { doc, updateDoc, setDoc, getDoc,  arrayUnion, arrayRemove } from 'firebase/firestore'
 import { AuthProvider, useAuth } from '../../context/AuthContext'
 import { db, auth } from '../../firebase'
 
@@ -11,39 +11,36 @@ const BookmarkButton = () => {
   const { id } = useParams()
   const user = useAuth()
 
-  useEffect(() => {}, [
-
-
-
-  ])
+  useEffect(() => {
+setIsActive(false)
+getData()
+  }, [id])
 
   async function getData() {
     const docRef = doc(db, 'users-data', user.currentUser?.uid)
     const docSnap = await getDoc(docRef)
     if (docSnap.exists()) {
-      console.log('Document data:', docSnap.data())
+      let bookMarks = docSnap.data().bookmarks;
+      let search = bookMarks.filter((current,i) => current === id ? setIsActive(true) : setIsActive(false))
     } else {
-      console.log('No such document!')
+      setIsActive(false)
     }
   }
 
-
-
-
   const updateBookmarks = async () => {
     const ref = doc(db, 'users-data', user.currentUser?.uid)
-    if (isActive === true) {
-      await setDoc(ref, {
+    if (isActive !== true) {
+      await updateDoc(ref, {
         firstName: user.currentUser?.displayName,
         lastName: '',
-        bookmarks: [id],
+        bookmarks: arrayUnion(id),
         comments: [],
       })
     } else {
       await updateDoc(ref, {
         firstName: user.currentUser?.displayName,
         lastName: '',
-        bookmarks: [],
+        bookmarks: arrayRemove(id),
         comments: [],
       })
     }
