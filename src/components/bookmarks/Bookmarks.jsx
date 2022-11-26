@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { LazyLoadImage } from 'react-lazy-load-image-component'
 import { Link } from 'react-router-dom'
-
 import fallBack from '../../assets/image/fallback-image.png'
 
 import 'react-lazy-load-image-component/src/effects/opacity.css'
@@ -28,7 +27,7 @@ function Bookmarks ({ data }) {
                         setLoaded(true)
                     }}
                     effect="opacity"
-                    className="object-fill hover:opacity-95 rounded-md   "
+                    className="object-cover max-h-72 hover:opacity-95 rounded-md   "
                     src={`https://image.tmdb.org/t/p/w342/${
                         data.poster_path ? data.poster_path : fallBack
                     }`}
