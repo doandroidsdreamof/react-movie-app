@@ -4,7 +4,6 @@ import OptionUnstyled, { optionUnstyledClasses } from '@mui/base/OptionUnstyled'
 import PopperUnstyled from '@mui/base/PopperUnstyled';
 import { styled } from '@mui/system';
 
-// light dark olacak //
 
 
 const blue = {
@@ -37,7 +36,7 @@ const StyledButton = styled('button')(
   min-height: calc(1.5em + 22px);
   min-width: 320px;
   padding: 12px;
-  border-radius: 4px;
+  border-radius: 12px;
   text-align: left;
   line-height: 1.5;
   background: ${theme.palette.mode === 'light' ? 'hsl(240, 1%, 20%)' : '#fff'};
@@ -93,7 +92,7 @@ const StyledOption = styled(OptionUnstyled)(
   ({ theme }) => `
   list-style: none;
   padding: 8px;
-  border-radius: 8px;
+  border-radius: 12px;
   cursor: default;
 
   &:last-of-type {
@@ -105,12 +104,12 @@ const StyledOption = styled(OptionUnstyled)(
     color: ${theme.palette.mode === 'light' ? blue[100] : blue[900]};
   }
 
-  &.${optionUnstyledClasses.highlighted} {
+  &.${optionUnstyledClasses.highdarked} {
     background-color: ${theme.palette.mode === 'light' ? grey[800] : grey[100]};
     color: ${theme.palette.mode === 'light' ? grey[300] : grey[900]};
   }
 
-  &.${optionUnstyledClasses.highlighted}.${optionUnstyledClasses.selected} {
+  &.${optionUnstyledClasses.highdarked}.${optionUnstyledClasses.selected} {
     background-color: ${theme.palette.mode === 'light' ? blue[900] : blue[100]};
     color: ${theme.palette.mode === 'light' ? blue[100] : blue[900]};
   }
@@ -131,14 +130,14 @@ const StyledPopper = styled(PopperUnstyled)`
 `;
 
 const CustomSelect = React.forwardRef(function CustomSelect(props, ref) {
-  const components = {
-    Root: StyledButton,
-    Listbox: StyledListbox,
-    Popper: StyledPopper,
-    ...props.components,
+  const slots = {
+    root: StyledButton,
+    listbox: StyledListbox,
+    popper: StyledPopper,
+    ...props.slots,
   };
 
-  return <SelectUnstyled {...props} ref={ref} components={components} />;
+  return <SelectUnstyled {...props} ref={ref} slots={slots} />;
 });
 
  function SortInput(prop) {

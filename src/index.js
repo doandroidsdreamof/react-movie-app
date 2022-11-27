@@ -13,9 +13,11 @@ const root = ReactDOM.createRoot(document.getElementById("app"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
+    <ThemeProvider>
       <AuthProvider>
         <App />
       </AuthProvider>
+      </ThemeProvider>
     </BrowserRouter>
   </React.StrictMode>
 );

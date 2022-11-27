@@ -22,7 +22,7 @@ function Row({ endpoint, title }) {
 
   return (
     <>
-      <h2 className="text-2xl text-white ml-1 mb-2  mt-12 font-roboto">{title}</h2>
+      <h2 className="text-4xl text-star font-bold dark:text-white ml-1 mb-2  mt-12 font-roboto">{title}</h2>
       <Swiper
         modules={[Navigation]}
         navigation
@@ -35,7 +35,7 @@ function Row({ endpoint, title }) {
         {movies.map((items, id) => (
           <SwiperSlide
             key={id}
-            className="w-[180px]  h-[270px]    transition duration-200 hover:scale-105 ease-in bg-blend-darken hover:bg-transparent rounded-md    cursor-pointer "
+            className="w-[180px]  h-[270px] transition duration-200 hover:scale-105 ease-in bg-blend-darken hover:bg-transparent rounded-md    cursor-pointer "
           >
             <Movie data={items} />
             <CardStar rating={items.vote_average} />

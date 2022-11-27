@@ -64,6 +64,8 @@ function SideNav() {
     setOut(true)
   }
 
+
+
   return (
     <div
       className={
@@ -116,7 +118,7 @@ function SideNav() {
           </Tooltip>
         </button>
         <Tooltip title="Dark mode" placement="right">
-          <li className="active:bg-star hover:bg-gray-800 cursor-pointer md:justify-start px-4  h-12  flex items-center justify-center">
+          <li  className="active:bg-star hover:bg-gray-800 cursor-pointer md:justify-start px-4  h-12  flex items-center justify-center">
             <DarkMode />
           </li>
         </Tooltip>

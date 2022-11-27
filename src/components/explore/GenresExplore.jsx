@@ -3,8 +3,6 @@ import SelectUnstyled, { selectUnstyledClasses } from '@mui/base/SelectUnstyled'
 import OptionUnstyled, { optionUnstyledClasses } from '@mui/base/OptionUnstyled';
 import PopperUnstyled from '@mui/base/PopperUnstyled';
 import { styled } from '@mui/system';
-// light dark olacak //
-
 
 const blue = {
   100: '#DAECFF',
@@ -36,15 +34,17 @@ const StyledButton = styled('button')(
   min-height: calc(1.5em + 22px);
   min-width: 320px;
   padding: 12px;
-  border-radius: 4px;
+  border-radius: 12px;
   text-align: left;
-  line-height: 1;
-  background: ${theme.palette.mode === 'light' ? 'hsl(240, 1%, 20%)' : '#fff'};
-  border: 1px solid ${theme.palette.mode === 'light' ? 'hsl(240, 1%, 20%)': grey[200]};
+  line-height: 1.5;
+  background: ${theme.palette.mode === 'light' ? 'hsl(240, 1%, 20%)'  : '#fff'};
+  border: 1px solid ${theme.palette.mode === 'light' ? grey[700] : grey[200]};
   color: ${theme.palette.mode === 'light' ? grey[300] : grey[900]};
+
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 120ms;
+
   &:hover {
     background: ${theme.palette.mode === 'light' ? grey[800] : grey[50]};
     border-color: ${theme.palette.mode === 'light' ? grey[600] : grey[300]};
@@ -58,14 +58,12 @@ const StyledButton = styled('button')(
   &.${selectUnstyledClasses.expanded} {
     &::after {
       content: '▴';
-      transform:scale(1.5);
     }
   }
 
   &::after {
     content: '▾';
     float: right;
-    transform:scale(1.5);
   }
   `,
 );
@@ -75,33 +73,32 @@ const StyledListbox = styled('ul')(
   font-family: IBM Plex Sans, sans-serif;
   font-size: 0.875rem;
   box-sizing: border-box;
-  padding: 2px;
+  padding: 6px;
   margin: 12px 0;
-  max-height: 400px;
   min-width: 320px;
   border-radius: 12px;
   overflow: auto;
   outline: 0px;
-  background: ${theme.palette.mode === 'light' ? 'hsl(240, 1%, 20%)' : '#fff'};
+  background: ${theme.palette.mode === 'light' ? 'hsl(240, 1%, 20%)'  : '#fff'};
   border: 1px solid ${theme.palette.mode === 'light' ? grey[700] : grey[200]};
   color: ${theme.palette.mode === 'light' ? grey[300] : grey[900]};
+  box-shadow: 0px 4px 30px ${theme.palette.mode === 'light' ? grey[900] : grey[200]};
   `,
 );
 
 const StyledOption = styled(OptionUnstyled)(
   ({ theme }) => `
   list-style: none;
-  padding: 6px;
+  padding: 8px;
   border-radius: 8px;
   cursor: default;
-
 
   &:last-of-type {
     border-bottom: none;
   }
 
   &.${optionUnstyledClasses.selected} {
-    background-color: ${theme.palette.mode === 'light' ? blue[900] : blue[100]};
+    background-color: ${theme.palette.mode === 'light' ? 'hsl(240, 1%, 20%)'  : blue[100]};
     color: ${theme.palette.mode === 'light' ? blue[100] : blue[900]};
   }
 
@@ -131,15 +128,16 @@ const StyledPopper = styled(PopperUnstyled)`
 `;
 
 const CustomSelect = React.forwardRef(function CustomSelect(props, ref) {
-  const components = {
-    Root: StyledButton,
-    Listbox: StyledListbox,
-    Popper: StyledPopper,
-    ...props.components,
+  const slots = {
+    root: StyledButton,
+    listbox: StyledListbox,
+    popper: StyledPopper,
+    ...props.slots,
   };
 
-  return <SelectUnstyled {...props} ref={ref} components={components} />;
+  return <SelectUnstyled {...props} ref={ref} slots={slots} />;
 });
+
 
  function GenresExplore(prop) {
 
