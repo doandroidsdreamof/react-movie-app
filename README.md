@@ -163,7 +163,7 @@ Start the server
 
 - [ ] Comment Functionality
 - [x] Bookmark Functionality
-- [ ] Social Media Share
+- [x] Social Media Share
 - [x] Profile Settings
 - [x] Form Validation
 - [x] Authentication

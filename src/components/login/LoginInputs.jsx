@@ -1,40 +1,45 @@
-import React,{useState} from 'react'
+import React, { useState } from 'react'
 
 import LoginWithGoogleButton from './LoginWithGoogleButton'
-import {getAuth,signInWithPopup,signInWithEmailAndPassword,createUserWithEmailAndPassword,sendPasswordResetEmail,signOut } from 'firebase/auth';
+import {
+  getAuth,
+  signInWithPopup,
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+  sendPasswordResetEmail,
+  signOut,
+} from 'firebase/auth'
 import InvalidLogin from '../common/InvalidLogin'
-import {useNavigate} from 'react-router-dom'
-
-
+import { useNavigate } from 'react-router-dom'
 
 function LoginInputs() {
   const auth = getAuth()
-  const [password,setPassword] = useState('')
-  const [email,setEmail] = useState('')
-  const [error,setError] = useState(false)
-  const [ok,setOk] = useState(false)
+  const [password, setPassword] = useState('')
+  const [email, setEmail] = useState('')
+  const [error, setError] = useState(false)
+  const [ok, setOk] = useState(false)
   const navigate = useNavigate()
 
-
-
   const logInWithEmailAndPassword = async (e) => {
-    console.log("🚀 ~ file: LoginInputs.jsx ~ line 20 ~ logInWithEmailAndPassword ~ password", password)
-    console.log("🚀 ~ file: LoginInputs.jsx ~ line 20 ~ logInWithEmailAndPassword ~ email", email)
+    console.log(
+      '🚀 ~ file: LoginInputs.jsx ~ line 20 ~ logInWithEmailAndPassword ~ password',
+      password
+    )
+    console.log('🚀 ~ file: LoginInputs.jsx ~ line 20 ~ logInWithEmailAndPassword ~ email', email)
     e.preventDefault()
     try {
-      await signInWithEmailAndPassword(auth, email, password);
+      await signInWithEmailAndPassword(auth, email, password)
       setOk(true)
       navigate('/')
     } catch (error) {
-    console.log("🚀 ~ file: LoginInputs.jsx ~ line 16 ~ logInWithEmailAndPassword ~ error", error)
-     setError(true)
-
+      console.log('🚀 ~ file: LoginInputs.jsx ~ line 16 ~ logInWithEmailAndPassword ~ error', error)
+      setError(true)
     }
-  };
+  }
 
   return (
     <>
-        <InvalidLogin ok={ok} error={error} />
+      <InvalidLogin ok={ok} error={error} />
       <label htmlFor="email" className="text-gray-700" />
 
       <input
