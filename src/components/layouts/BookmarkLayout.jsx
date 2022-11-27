@@ -49,7 +49,7 @@ const BookmarkLayout = (props) => {
   }
 
   return (
-    <section className="flex flex-col h-screen  overflow bg-lm-bg-color  dark:bg-bg-color">
+    <section className="flex flex-col h-screen  overflow bg-lm-bg dark:bg-bg-color ">
       <div className="flex flex-1 overflow-x-hidden   overflow-y-auto ">
         <div className="Side-nav  flex  order-1">{props.sideNav}</div>
         <div className=" invisible-overflow flex  flex-1 flex-col  order-2   overflow-y-auto">

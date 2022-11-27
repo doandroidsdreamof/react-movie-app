@@ -44,7 +44,7 @@ const SectionSecond = () => {
             handleChange(e);
           }}
         >
-          <Tab.List className="flex space-x-1 rounded-xl bg-card-second p-1 ">
+          <Tab.List className="flex space-x-1 rounded-xl bg-bg-color-radio dark:bg-card-second p-1 ">
             {Object.keys(categories).map((category) => (
               <Tab key={category} className={({ selected }) => classNames(" overview w-full rounded-lg py-2.5 text-sm font-medium leading-5 font-roboto text-gray-700", "ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2", selected ? "bg-white shadow" : "text-blue-100 hover:bg-white/[0.12] hover:text-white")}>
                 {category}

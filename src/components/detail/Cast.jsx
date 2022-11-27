@@ -27,11 +27,11 @@ const Cast = () => {
   return (
     <>
       {casts.map((actor, i) => (
- <Link to={`/actor/${actor.id}`} className="flex items-center relative bg-card-second p-3 w-full  rounded-lg overflow-hidden shadow  cursor-pointer duration-200 ease-in hover:animate-pulse ">
+ <Link to={`/actor/${actor.id}`} className="flex items-center relative bg-gray-100 dark:bg-card-second p-3 w-full  rounded-lg overflow-hidden shadow  cursor-pointer duration-200 ease-in hover:animate-pulse ">
  <LazyLoadImage key={i} className="lg:w-16 lg:h-16  md:w-12 md:h-12  w-8 h-8  rounded-full object-cover bg-gray-100 text-[10px] text-center flex justify-center" src={actor.profile_path ? `${imagePath}${actor?.profile_path}` : fallBack  } alt={actor?.original_name}/>
  <div className="ml-3">
-   <p className="font-medium text-gray-100">{actor?.original_name}</p>
-   <p className="text-sm text-gray-400   line-clamp-1">Character name {actor?.character.length > 20 ? actor?.character.substring(0, 20) + "..." : actor?.character}</p>
+   <p className="font-medium text-gray-800 dark:text-gray-100">{actor?.original_name}</p>
+   <p className="text-sm text-gray-600 dark:text-gray-400   line-clamp-1">Character name {actor?.character.length > 20 ? actor?.character.substring(0, 20) + "..." : actor?.character}</p>
  </div>
  </Link>
 
@@ -42,16 +42,3 @@ const Cast = () => {
 
 export default Cast;
 
-/*
-  function getBio(){
-    let bioId = casts.map((el) => el.name);
-    const baseUrlBio = `https://api.themoviedb.org/3/search/${bioId}?`;
-    fetch(baseUrlBio + data.requestPeople)
-    .then((res) => res.json())
-    .then((get) => setBio(get))
-    .catch((err) => {
-      console.error(err);
-    });
-    console.log('burası', bioId)
-  }
-*/

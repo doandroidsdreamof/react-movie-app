@@ -173,7 +173,7 @@ Start the server
 - [ ] Allowing Users To Access Their Data
 - [ ] PWA Functionality
 - [x] Notification
-- [ ] Dark Mode
+- [x] Dark Mode
 - [ ] Logo
 - [ ] optimization
 - [ ] Follow / Unfollow && Messaging Functionality

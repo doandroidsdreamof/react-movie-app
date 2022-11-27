@@ -3,7 +3,7 @@ import React from 'react'
 
 const PageLayout = (props) => {
   return (
-    <main className="flex flex-col h-screen  overflow bg-bg-color">
+    <main className="flex flex-col h-screen  overflow bg-lm-bg dark:bg-bg-color">
       <div className="flex flex-1 overflow-x-hidden   overflow-y-auto ">
         <div className="Side-nav  flex  order-1">{props.sideNav}</div>
         <div

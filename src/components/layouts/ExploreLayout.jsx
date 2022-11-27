@@ -56,12 +56,12 @@ function ExploreLayout(props) {
   }
 
   return (
-    <section className=" flex  flex-row bg-bg-color ">
-      <div className="   max-h-screen      flex flex-col  ">{props.sideNav}</div>
-      <div className="w-full    max-h-screen  bg-bg-color ">
+    <section className=" flex  flex-row bg-lm-bg dark:bg-bg-color ">
+      <div className="   max-h-screen      flex flex-color  ">{props.sideNav}</div>
+      <div className="w-full    max-h-screen bg-lm-bg dark:bg-bg-color">
         <div
           id="scrollableDiv"
-          className="h-onehundred bg-bg-color   overflow-y-scroll flex flex-col gap-y-7"
+          className="h-onehundred bg-lm-bg dark:bg-bg-color overflow-y-scroll flex flex-col gap-y-7"
         >
           <h1 className="bg-gradient-to-r mx-auto mt-3 from-star via-purple-400 to-purple-600 bg-clip-text text-4xl font-extrabold text-transparent sm:text-5xl ">
             Explore Movies

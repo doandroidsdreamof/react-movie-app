@@ -20,7 +20,7 @@ const Aside = ({ trendData,DetailPage,HomePage }) => {
 
 
   return (
-    <div className={"  bg-nav relative  min-h-screen hidden font-roboto right-0 border-gray-800   lg:block w-[350px]  "}>
+    <div className={" bg-nav relative  min-h-screen hidden font-roboto right-0 border-gray-800   lg:block w-[350px]  "}>
       <div className=" flex flex-col w-onehundred  h-full gap-y-3">
         <div className=" text-white mt-6 flex relative justify-center w-onehundred self-center">
           <SearchBar />
