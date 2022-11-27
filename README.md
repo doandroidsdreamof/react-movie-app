@@ -163,20 +163,18 @@ Start the server
 
 - [ ] Comment Functionality
 - [x] Bookmark Functionality
+- [ ] Social Media Share
 - [x] Profile Settings
 - [x] Form Validation
 - [x] Authentication
 - [x] Reauthentication
 - [x] Alert Messages
-- [ ] Welcome Email
 - [ ] Tests
-- [ ] Allowing Users To Access Their Data
 - [ ] PWA Functionality
 - [x] Notification
 - [x] Dark Mode
 - [ ] Logo
 - [ ] optimization
-- [ ] Follow / Unfollow && Messaging Functionality
 - [ ] Dashboard && Authorization
 
 <!-- Contributing -->

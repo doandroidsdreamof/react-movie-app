@@ -7,7 +7,7 @@ import CastGrid from "../layouts/CastGrid.jsx";
 
 import Cast from "./Cast.jsx";
 import Overview from "./Overview.jsx";
-import Review from "./Review.jsx";
+import Comments from "./Comments.jsx";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -18,7 +18,7 @@ const SectionSecond = () => {
   let [categories] = useState({
     Overview: [{ id: 0 }, { name: "Overview" }],
     Cast: [{ id: 1 }, { name: "Cast" }],
-    Review: [{ id: 2 }, { name: "Review" }],
+    Comments: [{ id: 2 }, { name: "Comments" }],
   });
 
 
@@ -61,7 +61,7 @@ const SectionSecond = () => {
           <Cast />
         </CastGrid>
       ) : logic === 2 ? (
-        <Review />
+        <Comments />
       ) : (
         <CastGrid>
           <Cast />

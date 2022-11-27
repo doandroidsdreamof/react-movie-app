@@ -9,7 +9,6 @@ const Overview = () => {
   let { id } = useParams();
   const baseUrl = `https://api.themoviedb.org/3/movie/${id}?`;
 
-  // data.requestSearchByID
 
   useEffect(() => {
     fetch(baseUrl + data.requestSearchMovie)
