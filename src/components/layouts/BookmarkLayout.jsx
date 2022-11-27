@@ -54,7 +54,7 @@ const BookmarkLayout = (props) => {
         <div className="Side-nav  flex  order-1">{props.sideNav}</div>
         <div className=" invisible-overflow flex  flex-1 flex-col  order-2   overflow-y-auto">
           <div className={`w-onehundred mr-auto text-center left-0 relative px-3 md:px-8 h-full `}>
-            <h1 className="text-4xl mb-5 sm:text-4xl mt-12  md:text-6xls bg-clip-text font-extrabold text-transparent  bg-gradient-to-r from-green-300 via-blue-500 to-purple-600">
+            <h1 className="text-4xl mb-9 sm:text-4xl mt-12  md:text-6xl bg-clip-text font-extrabold text-transparent  bg-gradient-to-r from-green-300 via-blue-500 to-purple-600">
               Bookmarks
             </h1>
             <div

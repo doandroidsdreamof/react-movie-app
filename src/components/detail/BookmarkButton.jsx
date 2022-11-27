@@ -47,10 +47,10 @@ getData()
       })
     }
   }
-
   return (
     <>
       <button
+        disabled={user.currentUser == null}
         onClick={() => {
           setIsActive(!isActive)
           updateBookmarks()

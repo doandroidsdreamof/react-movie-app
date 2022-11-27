@@ -22,7 +22,7 @@ function RegisterGoogleButton() {
         comments: [],
       })
     })
-    //  navigate('/')
+     navigate('/')
     .catch((error) => {
       console.log(error)
     })
