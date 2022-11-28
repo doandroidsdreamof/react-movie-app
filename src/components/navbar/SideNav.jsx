@@ -91,7 +91,7 @@ function SideNav() {
     >
       <AlertDialog open={open} openMenu={(e) => setOpen(true)} closeMenu={(e) => setOpen(false)} />
       <div className="text-center  text-white p-6" />
-      <ul className="mt-20 flex  gap-y-4 flex-col ">
+      <ul className="mt-0 sm:mt-20 flex  gap-y-4 flex-col ">
         <Link to="/">
           <Tooltip title="Home" placement="right">
             <li className="active:bg-star hover:bg-gray-800 cursor-pointer md:justify-start px-4 h-12 flex items-center justify-center ">
