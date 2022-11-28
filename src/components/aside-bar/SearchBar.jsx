@@ -48,11 +48,10 @@ const SearchBar = (searchLogic) => {
   }
 
   const handleOnHover = (result) => {
-    /* console.log(
+       console.log(
       "handleOnHover =>",
-
       result
-    );*/
+    );
   }
 
   const handleOnSelect = (item) => {
@@ -65,10 +64,9 @@ const SearchBar = (searchLogic) => {
     navigate(`/movie/${item.id}`)
   }
   const handleOnFocus = () => {
-    //console.log("Focused");
     setActive(!active)
   }
-  //console.log("items out of scope =>", items);
+
 
   const formatResult = (item) => {
     const addElipsis = item.name.length > 20 ? item.name.substring(0, 20) + '...' : item.name
@@ -90,12 +88,12 @@ const SearchBar = (searchLogic) => {
   }
 
   return (
-    <form className="flex items-center     justify-center w-full z-40 relative">
+    <form className="flex items-center mx-auto     justify-center w-full md:w-full z-40 relative">
       <header className="App-header cursor-pointer w-full">
         <div
           className={
             searchLogic.explorePage
-              ? 'lg:w-[650px] md:w-[550px] w-ninty  z-50 mx-auto  '
+              ? 'lg:w-[650px] md:w-[550px] w-full  z-50 mx-auto  '
               : 'w-72  px-2'
           }
         >

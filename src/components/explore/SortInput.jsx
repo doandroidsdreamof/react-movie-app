@@ -34,7 +34,7 @@ const StyledButton = styled('button')(
   font-size: 0.875rem;
   box-sizing: border-box;
   min-height: calc(1.5em + 22px);
-  min-width: 320px;
+  min-width: 280px;
   padding: 12px;
   border-radius: 12px;
   text-align: left;
@@ -56,7 +56,7 @@ const StyledButton = styled('button')(
     outline: 3px solid ${theme.palette.mode === 'light' ? blue[500] : blue[200]};
   }
 
-  &.${selectUnstyledClasses.expanded} {
+  &.${selectUnstyledClasses.expanded} {300px
     &::after {
       content: '▴';
       transform:scale(1.5);
@@ -78,7 +78,7 @@ const StyledListbox = styled('ul')(
   box-sizing: border-box;
   padding: 6px;
   margin: 12px 0;
-  min-width: 320px;
+  min-width: 280px;
   border-radius: 12px;
   overflow: auto;
   outline: 0px;
