@@ -86,12 +86,12 @@ function SideNav() {
   return (
     <div
       className={
-        ' bg-nav  z-50 border-r border-r-gray-600 relative font-roboto left-0   min-h-screen w-14 pt-4  '
+        ' bg-nav  z-50 border-r border-r-gray-600 relative font-roboto left-0   min-h-screen w-14   '
       }
     >
       <AlertDialog open={open} openMenu={(e) => setOpen(true)} closeMenu={(e) => setOpen(false)} />
-      <div className="text-center  text-white p-6" />
-      <ul className="mt-0 sm:mt-20 flex  gap-y-4 flex-col ">
+      <div className="text-center  text-white  " />
+      <ul className="mt-0 flex  gap-y-4 flex-col h-full justify-center  ">
         <Link to="/">
           <Tooltip title="Home" placement="right">
             <li className="active:bg-star hover:bg-gray-800 cursor-pointer md:justify-start px-4 h-12 flex items-center justify-center ">

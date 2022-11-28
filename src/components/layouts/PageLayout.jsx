@@ -24,7 +24,7 @@ const PageLayout = (props) => {
             }
           >
             <div className="top-slider w-screen md:w-full  ">{props.slider}</div>
-            {props.row ? <div className="row-layout border-2  w-screen sm:w-full  ">{props.row}</div> : <></>}
+            {props.row ? <div className="row-layout   w-screen sm:w-full  ">{props.row}</div> : <></>}
             {props.sectionSecond}
           </div>
         </div>
