@@ -4,7 +4,6 @@ import { createTheme, ThemeProvider, styled } from '@mui/material/styles'
 
 const DarkMode = () => {
   const { theme, setTheme } = React.useContext(ThemeContext)
-  console.log('🚀 ~ file: DarkMode.jsx ~ line 8 ~ DarkMode ~ theme', theme)
   function handleDark() {
     setTheme(theme === 'light' ? 'dark' : 'light')
   }

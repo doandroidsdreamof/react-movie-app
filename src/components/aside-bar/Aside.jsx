@@ -21,11 +21,11 @@ const Aside = ({ trendData,DetailPage,HomePage }) => {
 
   return (
     <div className={" bg-nav relative  min-h-screen hidden font-roboto right-0 border-gray-800   lg:block w-[350px]  "}>
-      <div className=" flex flex-col w-onehundred  h-full gap-y-3">
-        <div className=" text-white mt-6 flex relative justify-center w-onehundred self-center">
+      <div className=" flex flex-col w-onehundred  h-full gap-y-6">
+        <div className=" text-white mt-8 flex relative justify-center w-onehundred self-center">
           <SearchBar />
         </div>
-        <div className="w-[280px] relative ">
+        <div className="w-[280px] relative  ">
           <h3 className="font-roboto text-head text-center font-medium text-xl mt-2 ml-3 mb-5">{HomePage ? 'Daily Trending Movies' : 'Similar Movies'}</h3>
           {trend.map((trends, id) => (
             <>

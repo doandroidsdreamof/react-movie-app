@@ -20,14 +20,14 @@ import { getAdditionalUserInfo} from "firebase/auth"
 function App() {
   const [load, setLoad] = useState(false)
   const user = useAuth()
-  // console.log("🚀 ~ file: App.js ~ line 21 ~ App ~ user", user)
+  console.log("🚀 ~ file: App.js ~ line 21 ~ App ~ user", user.currentUser.displayName)
 
   useEffect(() => {
     setLoad(true)
   }, [])
 
 
-  
+
   return (
     <Routes>
       <Route exact path="/" element={<Home />} />
