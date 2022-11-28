@@ -18,6 +18,11 @@ import DarkMode from './DarkMode.jsx'
 
 import AlertDialog from '../profile/AlertDialog.jsx'
 import signOutUser from '../../utils/signOut.js'
+import 'react-toastify/dist/ReactToastify.css'
+import { ToastContainer, toast } from 'react-toastify'
+import { injectStyle } from 'react-toastify/dist/inject-style'
+
+
 
 function SideNav() {
   const [error, setError] = useState(false)

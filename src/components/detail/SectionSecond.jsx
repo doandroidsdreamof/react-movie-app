@@ -37,7 +37,7 @@ const SectionSecond = () => {
   }
 
   return (
-    <div className="w-full  flex flex-col h-fit pb-10">
+    <div className="md:w-full w-screen  flex flex-col h-fit pb-10">
       <div className="w-full  mt-4 max-w-md px-2 sm:px-0 mx-auto relative top-0 ">
         <Tab.Group
           onChange={(e) => {

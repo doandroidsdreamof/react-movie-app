@@ -3,7 +3,7 @@ import React from 'react'
 
 const PageLayout = (props) => {
   return (
-    <main className="flex flex-col h-screen  overflow bg-lm-bg dark:bg-bg-color">
+    <main className="flex flex-col h-screen   overflow bg-lm-bg dark:bg-bg-color">
       <div className="flex flex-1 overflow-x-hidden   overflow-y-auto ">
         <div className="Side-nav  flex  order-1">{props.sideNav}</div>
         <div
@@ -23,7 +23,7 @@ const PageLayout = (props) => {
                 : `w-onehundred mr-auto left-0 relative px-0  `
             }
           >
-            <div className="top-slider w-full">{props.slider}</div>
+            <div className="top-slider w-screen md:w-full  ">{props.slider}</div>
             {props.row ? <div className="row-layout  ">{props.row}</div> : <></>}
             {props.sectionSecond}
           </div>

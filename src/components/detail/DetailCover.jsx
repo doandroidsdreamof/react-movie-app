@@ -56,7 +56,7 @@ function DetailCover({ passDetail }) {
   }, 1000)
 
   return (
-    <Swiper className="mySwiper z-40  " modules={[Lazy]}>
+    <Swiper className="mySwiper z-40   " modules={[Lazy]}>
       <div className="swiper-slide  h-fit w-full z-40">
         <Tooltip title="Menu" placement="right">
           <PlayVideoButton disabledButton={key} handleClick={handleClick} />

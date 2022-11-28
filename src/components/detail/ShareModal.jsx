@@ -37,7 +37,7 @@ import { injectStyle } from 'react-toastify/dist/inject-style'
 
 function ShareModal(prop) {
   const theme = useTheme()
-  const fullScreen = useMediaQuery(theme.breakpoints.down('md'))
+  const fullScreen = useMediaQuery(theme.breakpoints.down('320px'))
   const [copy, setCopy] = useState(false)
 
   const handleClose = () => {
@@ -52,47 +52,47 @@ function ShareModal(prop) {
 
   return (
     <>
-      <div>
-        <Dialog open={prop.open} onClose={handleClose} aria-labelledby="responsive-dialog-title">
-          <div className="w-full flex flex-row justify-between items-center">
-            <DialogTitle id="responsive-dialog-title">Share</DialogTitle>
-            <CloseIcon className="cursor-pointer ml-auto mr-3" onClick={handleClose} />
+      <div className=''>
+        <Dialog  open={prop.open} onClose={handleClose} aria-labelledby="responsive-dialog-title">
+          <div className=" flex flex-row sm:w-96 w-full  mx-auto justify-between  items-center">
+            <DialogTitle className='translate-x-2' id="responsive-dialog-title">Share</DialogTitle>
+            <CloseIcon className="cursor-pointer ml-auto mr-4 sm:mr-7 sm:translate-x-0" onClick={handleClose} />
           </div>
-          <DialogContent className=" w-96 ">
+          <DialogContent className=" sm:w-96 w-full">
             <div className="flex flex-col gap-y-4  w-full ">
-              <div className="flex flex-row gap-x-4 m-auto  w-full justify-between  ">
+              <div className="flex flex-row sm:gap-x-4 gap-x-2 m-auto   w-full justify-between  ">
                 <TwitterShareButton url={window.location.href}>
-                  <TwitterIcon size={50} round={true} />
+                  <TwitterIcon size={45} round={true} />
                 </TwitterShareButton>
                 <FacebookShareButton url={window.location.href}>
-                  <FacebookIcon size={50} round={true} />
+                  <FacebookIcon size={45} round={true} />
                 </FacebookShareButton>
                 <LinkedinShareButton url={window.location.href}>
-                  <LinkedinIcon size={50} round={true} />
+                  <LinkedinIcon size={45} round={true} />
                 </LinkedinShareButton>
                 <TelegramShareButton url={window.location.href}>
-                  <TelegramIcon size={50} round={true} />
+                  <TelegramIcon size={45} round={true} />
                 </TelegramShareButton>
               </div>
-              <div className="flex flex-row gap-x-4 m-auto  w-full justify-between">
+              <div className="flex flex-row sm:gap-x-4 gap-x-2 m-auto  w-full justify-between">
                 <WhatsappShareButton url={window.location.href}>
-                  <WhatsappIcon size={50} round={true} />
+                  <WhatsappIcon size={45} round={true} />
                 </WhatsappShareButton>
                 <RedditShareButton url={window.location.href}>
-                  <RedditIcon size={50} round={true} />
+                  <RedditIcon size={45} round={true} />
                 </RedditShareButton>
                 <PinterestShareButton url={window.location.href}>
-                  <PinterestIcon size={50} round={true} />
+                  <PinterestIcon size={45} round={true} />
                 </PinterestShareButton>
                 <EmailShareButton url={window.location.href}>
-                  <EmailIcon size={50} round={true} />
+                  <EmailIcon size={45} round={true} />
                 </EmailShareButton>
               </div>
-              <div className="flex flex-row gap-x-3">
+              <div className="flex flex-row gap-x-4  w-full">
                 <input
                   type="text"
                   value={window.location.href}
-                  className="input input-bordered input-info bg-gray-200 w-full max-w-xs"
+                  className="input input-bordered mr-auto input-info bg-gray-200 w-full max-w-sm"
                 />
 
                 <Button onClick={copyToClipBoard} variant="contained">
