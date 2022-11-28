@@ -8,8 +8,9 @@ const LoginErrorModal = (props) => {
 useEffect(()=>{
 if(props.login === true){
   injectStyle()
-  const notify = () => toast.dark('You are already logged in')
-  notify()
+  toast.dark('You are already logged in', {
+    toastId: 4,
+  })
 }
 },[props.login])
 

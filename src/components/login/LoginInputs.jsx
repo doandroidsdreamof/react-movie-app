@@ -21,18 +21,13 @@ function LoginInputs() {
   const navigate = useNavigate()
 
   const logInWithEmailAndPassword = async (e) => {
-    console.log(
-      '🚀 ~ file: LoginInputs.jsx ~ line 20 ~ logInWithEmailAndPassword ~ password',
-      password
-    )
-    console.log('🚀 ~ file: LoginInputs.jsx ~ line 20 ~ logInWithEmailAndPassword ~ email', email)
     e.preventDefault()
     try {
       await signInWithEmailAndPassword(auth, email, password)
       setOk(true)
       navigate('/')
     } catch (error) {
-      console.log('🚀 ~ file: LoginInputs.jsx ~ line 16 ~ logInWithEmailAndPassword ~ error', error)
+      console.error(error)
       setError(true)
     }
   }
@@ -41,7 +36,6 @@ function LoginInputs() {
     <>
       <InvalidLogin ok={ok} error={error} />
       <label htmlFor="email" className="text-gray-700" />
-
       <input
         type="email"
         name="email"

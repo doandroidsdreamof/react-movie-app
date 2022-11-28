@@ -22,8 +22,8 @@ const Overview = () => {
 
   return (
  <section>
-     <div className="w-full px-1  h-full flex flex-col flex-wrap sm:px-5 md:px-10 lg:px-14 mt-8 gap-y-12">
-<div className="translate-x-2  gap-y-12 flex flex-col border-2 border-red-800 ">
+     <div className="w-full px-2  h-full flex flex-col flex-wrap sm:px-5 md:px-10 lg:px-14 mt-8 gap-y-12">
+<div className="translate-x-2  gap-y-12 px-2 flex flex-col  ">
 <div className="">
     <h3 className="italic font-roboto font-medium text-black dark:text-white text-xl block text-center">{detail.tagline ? <blockquote><q>{detail.tagline}</q></blockquote> : <></>}</h3>
       </div>

@@ -47,7 +47,9 @@ function ShareModal(prop) {
   const copyToClipBoard = async () => {
     navigator.clipboard.writeText(window.location.href)
     injectStyle()
-    toast.dark('Link copied to clipboard.')
+    toast.dark('Link copied to clipboard.', {
+      toastId: 5,
+    })
   }
 
   return (

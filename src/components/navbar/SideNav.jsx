@@ -22,8 +22,6 @@ import 'react-toastify/dist/ReactToastify.css'
 import { ToastContainer, toast } from 'react-toastify'
 import { injectStyle } from 'react-toastify/dist/inject-style'
 
-
-
 function SideNav() {
   const [error, setError] = useState(false)
   const [dropdown, setDropDown] = useState(false)
@@ -43,6 +41,10 @@ function SideNav() {
   const handleProfile = (e) => {
     if (auth.currentUser === null) {
       setError(true)
+      injectStyle()
+      toast.dark('please login or register to use this feature', {
+        toastId: 2,
+      })
     } else {
       setDropDown(!dropdown)
       setAnchorEl(e.currentTarget)
@@ -51,6 +53,10 @@ function SideNav() {
   const handleBookmark = (e) => {
     if (auth.currentUser === null) {
       setError(true)
+      injectStyle()
+      toast.dark('please login or register to use this feature', {
+        toastId: 1,
+      })
     } else {
       navigate('/bookmark')
     }
@@ -58,6 +64,10 @@ function SideNav() {
   const handleLogin = (e) => {
     if (auth.currentUser !== null) {
       setLogin(true)
+      injectStyle()
+      toast.dark('You are already logged in', {
+        toastId: 4,
+      })
     } else {
       navigate('/login')
     }
@@ -67,9 +77,11 @@ function SideNav() {
     signOutUser()
     navigate('/')
     setOut(true)
+    injectStyle()
+    toast.dark('logged out successfully', {
+      toastId: 3,
+    })
   }
-
-
 
   return (
     <div
@@ -78,9 +90,6 @@ function SideNav() {
       }
     >
       <AlertDialog open={open} openMenu={(e) => setOpen(true)} closeMenu={(e) => setOpen(false)} />
-      <SignOutModal out={out} />
-      <ErrorModal error={error} />
-      <LoginErrorModal login={login} />
       <div className="text-center  text-white p-6" />
       <ul className="mt-20 flex  gap-y-4 flex-col ">
         <Link to="/">
@@ -123,7 +132,7 @@ function SideNav() {
           </Tooltip>
         </button>
         <Tooltip title="Dark mode" placement="right">
-          <li  className="active:bg-star hover:bg-gray-800 cursor-pointer md:justify-start px-4  h-12  flex items-center justify-center">
+          <li className="active:bg-star hover:bg-gray-800 cursor-pointer md:justify-start px-4  h-12  flex items-center justify-center">
             <DarkMode />
           </li>
         </Tooltip>

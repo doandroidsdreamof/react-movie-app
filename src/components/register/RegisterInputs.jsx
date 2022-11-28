@@ -42,13 +42,17 @@ function RegisterInputs() {
       })
 
       injectStyle()
-      const notify = () => toast.dark('register is successful')
+      const notify = () => toast.dark('register is successful',{
+        toastId: 6,
+      })
       notify()
       navigate('/')
     } catch (error) {
       console.log(error)
       injectStyle()
-      const notify = () => toast.dark('register is unsuccessful')
+      const notify = () => toast.dark('register is unsuccessful',{
+        toastId: 7,
+      })
       notify()
     }
   }
@@ -68,7 +72,6 @@ function RegisterInputs() {
       }}
     >
       <Form className="space-y-3">
-        <ToastContainer />
         <div className="flex flex-row gap-x-2">
           <Field
             name="firstName"

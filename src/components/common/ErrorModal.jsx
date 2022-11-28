@@ -8,15 +8,15 @@ const ErrorModal = (props) => {
 useEffect(()=>{
 if(props.error === true){
   injectStyle()
-  const notify = () => toast.dark('please login or register to use this feature')
-  notify()
+toast.dark('please login or register to use this feature')
+
 }
 },[props.error])
 
 
 
   return (
-    <ToastContainer />
+   <></>
   )
 }
 
