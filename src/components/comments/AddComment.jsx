@@ -1,10 +1,18 @@
 import * as React from 'react'
+import Button from '@mui/material/Button';
+
 
 const AddComment = () => {
   return (
-    <div className="border-2 border-white flex justify-center">
-      <h1 className="font-roboto text-2xl text-white">Comments</h1>
-      <textarea className="textarea textarea-info w-seventy" placeholder="Comment..."></textarea>
+    <div className="mt-8 flex  justify-center w-fifty mx-auto items-center flex-col gap-y-2   text-left">
+        <textarea
+          className="textarea textarea-info w-full  mx-auto"
+          placeholder="Comment..."
+        ></textarea>
+        <div className='flex-start  mr-auto' >
+        <Button variant="contained">Comment</Button>
+        </div>
+
     </div>
   )
 }
