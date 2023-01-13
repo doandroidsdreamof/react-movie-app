@@ -141,7 +141,7 @@ function SideNav() {
             <DarkMode />
           </li>
         </Tooltip>
-        <li className=" flex px-2 items-center justify-center">
+        <li className=" flex  items-center justify-center">
           <Avatar />
         </li>
       </ul>

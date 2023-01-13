@@ -1,12 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const CommentEdit = () => {
+  const [toggle, setToggle] = useState(false)
+
   return (
     <>
       <button
+        onClick={(e) => setToggle(!toggle)}
         id="dropdownComment1Button"
-        data-dropdown-toggle="dropdownComment1"
-        className="inline-flex items-center p-2 text-sm font-medium text-center text-gray-400 bg-white rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-50 "
+        className=" items-center p-2 text-sm font-medium text-center text-gray-400 bg-white rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-50 "
         type="button"
       >
         <svg
@@ -22,21 +24,26 @@ const CommentEdit = () => {
       </button>
       <div
         id="dropdownComment1"
-        className="hidden z-10 w-36 bg-white rounded divide-y divide-gray-100 shadow "
+        className={
+          toggle
+            ? 'absolute right-0 z-10 w-36 bg-white rounded divide-y divide-gray-100 shadow '
+            : 'hidden z-10 w-36 bg-white rounded divide-y divide-gray-100 shadow '
+        }
       >
         <ul
           className="py-1 text-sm text-gray-700 "
           aria-labelledby="dropdownMenuIconHorizontalButton"
         >
           <li>
-            <span className="block py-2 px-4 hover:bg-gray-100 ">
-              Edit
+            <span onClick={(e) => setToggle(false)} className="block cursor-pointer py-2 px-4 hover:bg-gray-100 ">
+              Close
             </span>
           </li>
           <li>
-            <span  className="block py-2 px-4 hover:bg-gray-100 ">
-              Remove
-            </span>
+            <span className="block cursor-pointer py-2 px-4 hover:bg-gray-100 ">Edit</span>
+          </li>
+          <li>
+            <span className="block cursor-pointer py-2 px-4 hover:bg-gray-100 ">Remove</span>
           </li>
         </ul>
       </div>

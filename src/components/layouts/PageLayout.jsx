@@ -20,7 +20,7 @@ const PageLayout = (props) => {
             className={
               props.homePage
                 ? `w-onehundred mr-auto  left-0 relative px-3 md:px-8 `
-                : `w-onehundred mr-auto left-0 relative px-0  `
+                : `w-fit mr-auto left-0 relative px-0   `
             }
           >
             <div className="top-slider w-screen md:w-full  ">{props.slider}</div>
