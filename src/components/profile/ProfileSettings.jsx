@@ -26,7 +26,7 @@ function ProfileSettings(props) {
     >
       <MenuItem onClick={(e) => props.handleLogout()}>Logout</MenuItem>
       <MenuItem onClick={(e) => props.openDel()}>Delete Account</MenuItem>
-      <UploadImage />
+      <UploadImage  />
     </Menu>
   )
 }

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import { getAuth } from 'firebase/auth'
 import { AiFillHome } from 'react-icons/ai'
 import { BsBookmarkStarFill } from 'react-icons/bs'
@@ -6,6 +6,7 @@ import { CgProfile } from 'react-icons/cg'
 import { HiOutlineLogin } from 'react-icons/hi'
 import { MdOutlineExplore } from 'react-icons/md'
 import { Link, useNavigate } from 'react-router-dom'
+import { AuthProvider, useAuth, AuthContext } from '../../context/AuthContext'
 
 import Tooltip from '@mui/material/Tooltip'
 
@@ -30,11 +31,14 @@ function SideNav() {
   const [out, setOut] = useState(false)
   const [anchorEl, setAnchorEl] = React.useState(null)
   const [open, setOpen] = React.useState(false)
+  const [avatar, setAvatar] = React.useState(false)
   const navigate = useNavigate()
+  const user = useContext(AuthContext)
 
   const auth = getAuth()
 
   useEffect(() => {
+
     setError(false)
     setLogin(false)
   }, [error, login])
@@ -138,8 +142,8 @@ function SideNav() {
           </li>
         </Tooltip>
         <li className=" flex px-2 items-center justify-center">
-            <Avatar />
-          </li>
+          <Avatar />
+        </li>
       </ul>
     </div>
   )
