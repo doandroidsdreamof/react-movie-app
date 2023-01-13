@@ -1,14 +1,34 @@
-import React, { useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
+import { getAuth } from 'firebase/auth'
+import { collection, doc, setDoc, Timestamp, query, where, getDocs } from 'firebase/firestore'
+import { useParams } from 'react-router-dom'
+import { v4 as uuidv4 } from 'uuid'
 
-const CommentEdit = () => {
+import { AuthContext } from '../../context/AuthContext'
+import { db } from '../../firebase'
+import CommentForm from '../comments/CommentForm'
+import Comment from '../comments/Comment'
+import ReplyComment from '../comments/ReplyComment'
+
+
+const CommentEdit = ({userID}) => {
+  console.log("🚀 ~ file: CommentEdit.jsx:15 ~ CommentEdit ~ userID", userID)
   const [toggle, setToggle] = useState(false)
+  const user = useContext(AuthContext)
+  const auth = getAuth()
+
+
 
   return (
     <>
       <button
         onClick={(e) => setToggle(!toggle)}
         id="dropdownComment1Button"
-        className=" items-center p-2 text-sm font-medium text-center text-gray-400 bg-white rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-50 "
+        className={
+             userID === auth?.currentUser?.uid
+            ? ' inline-flex items-center p-2 text-sm font-medium text-center text-gray-400 bg-white rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-50 '
+            : 'hidden'
+        }
         type="button"
       >
         <svg
@@ -35,7 +55,10 @@ const CommentEdit = () => {
           aria-labelledby="dropdownMenuIconHorizontalButton"
         >
           <li>
-            <span onClick={(e) => setToggle(false)} className="block cursor-pointer py-2 px-4 hover:bg-gray-100 ">
+            <span
+              onClick={(e) => setToggle(false)}
+              className="block cursor-pointer py-2 px-4 hover:bg-gray-100 "
+            >
               Close
             </span>
           </li>

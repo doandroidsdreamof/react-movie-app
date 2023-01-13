@@ -19,7 +19,6 @@ const Avatar = () => {
 
 
 
-console.log(user?.currentUser?.photoURL)
   return (
     <div className="avatar">
       <div className="w-8 h-8 border-2 border-gray-300 rounded-full">
