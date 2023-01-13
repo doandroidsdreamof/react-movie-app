@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect, useContext } from 'react'
 import AvatarDefault from '../../assets/image/avatar-default-2.jpg'
 import { AuthProvider, useAuth, AuthContext } from '../../context/AuthContext'
 
-const CommentHeader = ({ date, userName, photoURL }) => {
+const CommentHeader = ({ date, userName, avatarURL }) => {
   const user = useContext(AuthContext)
 
   return (
@@ -11,9 +11,7 @@ const CommentHeader = ({ date, userName, photoURL }) => {
         <img
           className="mr-2 w-6 h-6 rounded-full"
           src={
-            user?.currentUser?.photoURL === null || user?.currentUser?.photoURL === undefined
-              ? AvatarDefault
-              : user?.currentUser?.photoURL
+            avatarURL ? avatarURL : AvatarDefault
           }
           alt={userName}
         />
@@ -21,7 +19,7 @@ const CommentHeader = ({ date, userName, photoURL }) => {
       </p>
       <p className="text-sm text-gray-600 ">
         <time className="text-xs" pubdate datetime="2022-02-08" title="February 8th, 2022">
-          Feb. 8, 2022
+         {date}
         </time>
       </p>
     </div>

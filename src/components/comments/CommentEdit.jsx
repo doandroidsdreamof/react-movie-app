@@ -10,14 +10,11 @@ import CommentForm from '../comments/CommentForm'
 import Comment from '../comments/Comment'
 import ReplyComment from '../comments/ReplyComment'
 
-
-const CommentEdit = ({userID}) => {
-  console.log("🚀 ~ file: CommentEdit.jsx:15 ~ CommentEdit ~ userID", userID)
+const CommentEdit = ({ userID }) => {
+  console.log('🚀 ~ file: CommentEdit.jsx:15 ~ CommentEdit ~ userID', userID)
   const [toggle, setToggle] = useState(false)
   const user = useContext(AuthContext)
   const auth = getAuth()
-
-
 
   return (
     <>
@@ -25,7 +22,7 @@ const CommentEdit = ({userID}) => {
         onClick={(e) => setToggle(!toggle)}
         id="dropdownComment1Button"
         className={
-             userID === auth?.currentUser?.uid
+          userID === auth?.currentUser?.uid
             ? ' inline-flex items-center p-2 text-sm font-medium text-center text-gray-400 bg-white rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-50 '
             : 'hidden'
         }

@@ -13,8 +13,9 @@ import ReplyComment from '../comments/ReplyComment'
 const CommentsLayout = () => {
   const { id } = useParams()
   const [userComments, setUserComments] = useState([])
+  console.log("🚀 ~ file: CommentsLayout.jsx:16 ~ CommentsLayout ~ userComments", userComments)
 
-  
+
   useEffect(() => {
     getData()
   }, [])

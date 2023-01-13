@@ -1,8 +1,16 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
+import { AuthContext } from '../../context/AuthContext'
+
 
 const CommentReplyButton = () => {
+  const user = useContext(AuthContext)
+
+
+  //
   return (
-    <div className="flex items-center mt-4 space-x-4">
+    <div
+
+    className={user?.currentUser !== null ? "flex items-center mt-4 space-x-4" : "hidden"}>
     <button type="button" className="flex items-center text-sm text-gray-500 hover:underline ">
       <svg
         aria-hidden="true"
