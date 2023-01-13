@@ -7,7 +7,7 @@ import CastGrid from "../layouts/CastGrid.jsx";
 
 import Cast from "./Cast.jsx";
 import Overview from "./Overview.jsx";
-import Comments from "./Comments.jsx";
+import CommentsLayout from "../layouts/CommentsLayout.jsx";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -37,7 +37,7 @@ const SectionSecond = () => {
   }
 
   return (
-    <div className="md:w-full w-screen  flex flex-col h-fit pb-10">
+    <div className="w-full  flex flex-col h-fit pb-10">
       <div className="w-full  mt-4 max-w-md px-2 sm:px-0 mx-auto relative top-0 ">
         <Tab.Group
           onChange={(e) => {
@@ -54,14 +54,15 @@ const SectionSecond = () => {
           <Tab.Panels className="mt-2"></Tab.Panels>
         </Tab.Group>
       </div>
+      {/* <Overview /> => logic === 0 */}
       {logic === 0 ? (
-        <Overview />
+        <CommentsLayout />
       ) : logic === 1 ? (
         <CastGrid>
           <Cast />
         </CastGrid>
       ) : logic === 2 ? (
-        <Comments />
+        <CommentsLayout />
       ) : (
         <CastGrid>
           <Cast />

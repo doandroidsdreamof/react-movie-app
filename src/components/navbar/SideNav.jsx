@@ -13,6 +13,7 @@ import ErrorModal from '../common/ErrorModal.jsx'
 import LoginErrorModal from '../common/LoginErrorModal.jsx'
 import ProfileSettings from '../profile/ProfileSettings.jsx'
 import SignOutModal from '../common/SignOutModal.jsx'
+import Avatar from './Avatar.jsx'
 
 import DarkMode from './DarkMode.jsx'
 
@@ -136,6 +137,9 @@ function SideNav() {
             <DarkMode />
           </li>
         </Tooltip>
+        <li className=" flex px-2 items-center justify-center">
+            <Avatar />
+          </li>
       </ul>
     </div>
   )
