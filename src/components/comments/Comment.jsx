@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect,useContext } from 'react';
 import { collection, getDocs } from 'firebase/firestore';
 
 import { db } from '../../firebase';
 import { useParams } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
+import { AuthContext } from '../../context/AuthContext';
 
 import CommentEdit from './CommentEdit';
 import CommentHeader from './CommentHeader';
@@ -12,14 +13,15 @@ import CommentText from './CommentText';
 import ReplyComment from './ReplyComment';
 import ReplyCommentForm from './ReplyCommentForm';
 
-function Comment({ items }) {
+function Comment({ items,renderForm }) {
   const [reply, setReply] = useState([]);
   const [replyToggle, setReplyToggle] = useState(false);
   const { id } = useParams();
+  const contextEdit = useContext(AuthContext);
 
   useEffect(() => {
     getReply();
-  }, [replyToggle]);
+  }, [replyToggle,contextEdit.edit]);
 
   async function getReply() {
     try {
@@ -38,6 +40,7 @@ function Comment({ items }) {
   }
   function handleReplyToggle() {
     setReplyToggle(!replyToggle);
+
   }
 
   return (
@@ -56,13 +59,13 @@ function Comment({ items }) {
             avatarURL={items?.photoURL}
             key={uuidv4()}
           />
-          <CommentEdit key={uuidv4()} userID={items?.userID} />
+          <CommentEdit  reply={false} key={uuidv4()} userID={items?.userID} />
         </div>
         <CommentText key={uuidv4()} commentValue={items?.text} />
         <CommentReplyButton
           key={uuidv4()}
           nested={false}
-          replyToggle={(e) => handleReplyToggle()}
+          replyToggle={(e) => handleReplyToggle(false)}
         />
       </article>
       <ReplyCommentForm
@@ -72,7 +75,7 @@ function Comment({ items }) {
         key={uuidv4()}
       />
       {reply.map((data, index) => (
-        <ReplyComment userID={items?.userID} replyComments={data} key={data.postID} />
+        <ReplyComment     userID={items?.userID} replyComments={data} key={data.postID} />
       ))}
     </>
   );

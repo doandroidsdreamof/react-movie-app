@@ -6,11 +6,9 @@ import { AuthContext } from '../../context/AuthContext'
 function CommentHeader({ date, userName, avatarURL }) {
   const user = useContext(AuthContext)
 
-useEffect(() =>{
 
-},[avatarURL])
   return (
-    <div className="flex items-center">
+    <div className="flex items-center flex-row ">
       <p className="inline-flex items-center mr-3 text-xs text-gray-900 ">
         <img
           className="mr-2 w-6 h-6 rounded-full"
@@ -21,7 +19,7 @@ useEffect(() =>{
         />
         {userName}
       </p>
-      <p className="text-sm text-gray-600 ">
+      <p className="text-xs text-gray-600 ">
         <time className="text-xs"  dateTime={date} title={date}>
           {date}
         </time>

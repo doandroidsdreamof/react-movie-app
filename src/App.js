@@ -15,12 +15,14 @@ import ProtectedRoute from './components/routes/ProtectedRoute'
 import { collection, getDocs, setDoc, doc, getDoc,updateDoc } from 'firebase/firestore'
 import { db, auth } from './firebase'
 import { getAdditionalUserInfo} from "firebase/auth"
+import { AuthContext } from './context/AuthContext.js';
 
 
 function App() {
   const [load, setLoad] = useState(false)
   const user = useAuth()
-  const auth = useAuth()
+
+
 
   useEffect(() => {
     setLoad(true)

@@ -1,19 +1,35 @@
-import React, { useContext, useEffect, useState } from 'react'
-import { getAuth } from 'firebase/auth'
-import { collection, doc, setDoc, Timestamp, query, where, getDocs } from 'firebase/firestore'
-import { useParams } from 'react-router-dom'
-import { v4 as uuidv4 } from 'uuid'
+import React, { useContext, useState } from 'react';
+import { getAuth } from 'firebase/auth';
+import { deleteDoc, getDocs, collectionGroup } from 'firebase/firestore';
+import { useParams } from 'react-router-dom';
 
-import { AuthContext } from '../../context/AuthContext'
-import { db } from '../../firebase'
-import CommentForm from '../comments/CommentForm'
-import Comment from '../comments/Comment'
-import ReplyComment from '../comments/ReplyComment'
+import { AuthContext } from '../../context/AuthContext';
+import { db } from '../../firebase';
 
-const CommentEdit = ({ userID }) => {
-  const [toggle, setToggle] = useState(false)
-  const user = useContext(AuthContext)
-  const auth = getAuth()
+function CommentEdit({ userID, reply, postID }) {
+
+  const [toggle, setToggle] = useState(false);
+  const user = useContext(AuthContext);
+  const auth = getAuth();
+  const { id } = useParams();
+
+  async function deleteReplyComment() {
+    if (reply === true) {
+      try {
+        const idPost = await postID;
+        const allPosts = await getDocs(collectionGroup(db, 'sub-comments'));
+        allPosts.forEach((doc) => {
+          if (doc.data().postID == idPost) {
+            deleteDoc(doc.ref);
+          }
+          user.editState()
+
+        });
+      } catch (error) {
+        console.error(error);
+      }
+    }
+  }
 
   return (
     <>
@@ -33,7 +49,7 @@ const CommentEdit = ({ userID }) => {
           viewBox="0 0 20 20"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <path d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z"></path>
+          <path d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z" />
         </svg>
         <span className="sr-only">Comment settings</span>
       </button>
@@ -58,15 +74,28 @@ const CommentEdit = ({ userID }) => {
             </span>
           </li>
           <li>
-            <span className="block cursor-pointer py-2 px-4 hover:bg-gray-100 ">Edit</span>
+            <span
+              onClick={(e) => setToggle(false)}
+              className="block cursor-pointer py-2 px-4 hover:bg-gray-100 "
+            >
+              Edit
+            </span>
           </li>
           <li>
-            <span className="block cursor-pointer py-2 px-4 hover:bg-gray-100 ">Remove</span>
+            <span
+              onClick={(e) => {
+                deleteReplyComment();
+                setToggle(false);
+              }}
+              className="block cursor-pointer py-2 px-4 hover:bg-gray-100 "
+            >
+              Remove
+            </span>
           </li>
         </ul>
       </div>
     </>
-  )
+  );
 }
 
-export default CommentEdit
+export default CommentEdit;

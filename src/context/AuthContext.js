@@ -11,6 +11,7 @@ export function useAuth() {
 export function AuthProvider({ children }) {
   const [currentUser, setCurrentUser] = useState()
   const [loading, setLoading] = useState(true)
+  const [edit,setEdit] = useState(false)
 
 
   useEffect(() => {
@@ -25,9 +26,14 @@ export function AuthProvider({ children }) {
   function getUser() {
     return auth.currentUser
   }
+  function editState() {
+    setEdit(!edit)
+  }
   const value = {
     currentUser,
     getUser,
+    editState,
+    edit
   }
 
   return <AuthContext.Provider value={value}>{!loading && children}</AuthContext.Provider>
