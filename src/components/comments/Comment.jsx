@@ -1,53 +1,51 @@
-import React, { useState, useEffect } from 'react'
-import { collection, getDocs } from 'firebase/firestore'
+import React, { useState, useEffect } from 'react';
+import { collection, getDocs } from 'firebase/firestore';
 
-import { db } from '../../firebase'
-import { useParams } from 'react-router-dom'
+import { db } from '../../firebase';
+import { useParams } from 'react-router-dom';
+import { v4 as uuidv4 } from 'uuid';
 
-import CommentEdit from './CommentEdit'
-import CommentHeader from './CommentHeader'
-import CommentReplyButton from './CommentReplyButton'
-import CommentText from './CommentText'
-import ReplyComment from './ReplyComment'
-import ReplyCommentForm from './ReplyCommentForm'
+import CommentEdit from './CommentEdit';
+import CommentHeader from './CommentHeader';
+import CommentReplyButton from './CommentReplyButton';
+import CommentText from './CommentText';
+import ReplyComment from './ReplyComment';
+import ReplyCommentForm from './ReplyCommentForm';
 
 function Comment({ items }) {
-  const [reply, setReply] = useState([])
-  const [replyToggle, setReplyToggle] = useState(false)
-  const { id } = useParams()
-
-
+  const [reply, setReply] = useState([]);
+  const [replyToggle, setReplyToggle] = useState(false);
+  const { id } = useParams();
 
   useEffect(() => {
-    getReply()
-  }, [replyToggle])
+    getReply();
+  }, [replyToggle]);
 
   async function getReply() {
     try {
-      const subColRef = collection(db, id, items.postID, 'sub-comments')
-      const querySnapshot = await getDocs(subColRef)
-      const getData = []
+      const subColRef = collection(db, id, items.postID, 'sub-comments');
+      const querySnapshot = await getDocs(subColRef);
+      const getData = [];
       querySnapshot.forEach((doc) => {
-        getData.push(doc.data())
-      })
+        getData.push(doc.data());
+      });
 
-      getData.sort((a, b) => b.createdAt - a.createdAt)
-      setReply([...getData])
+      const sortedGetData = await getData.sort((a, b) => b.createdAt - a.createdAt);
+      setReply([...sortedGetData]);
     } catch (err) {
-      console.error(err)
+      console.error(err);
     }
   }
   function handleReplyToggle() {
-    setReplyToggle(!replyToggle)
+    setReplyToggle(!replyToggle);
   }
-
 
   return (
     <>
       <article
         className={
           !replyToggle
-            ? 'p-3 mb-6 -translate-x-4 md:translate-x-0  ml-auto w-eighty  md:w-ninty text-base bg-white rounded-lg '
+            ? 'p-3 mb-2 -translate-x-4 md:translate-x-0  ml-auto w-eighty  md:w-ninty text-base bg-white rounded-lg '
             : 'hidden'
         }
       >
@@ -56,22 +54,28 @@ function Comment({ items }) {
             date={items?.date}
             userName={items?.userName}
             avatarURL={items?.photoURL}
+            key={uuidv4()}
           />
-          <CommentEdit userID={items?.userID} />
+          <CommentEdit key={uuidv4()} userID={items?.userID} />
         </div>
-        <CommentText commentValue={items?.text} />
-        <CommentReplyButton nested={false} replyToggle={(e) => handleReplyToggle()} />
+        <CommentText key={uuidv4()} commentValue={items?.text} />
+        <CommentReplyButton
+          key={uuidv4()}
+          nested={false}
+          replyToggle={(e) => handleReplyToggle()}
+        />
       </article>
       <ReplyCommentForm
         parentID={items?.postID}
         cancelComment={(e) => setReplyToggle(false)}
         replyToggle={replyToggle}
+        key={uuidv4()}
       />
       {reply.map((data, index) => (
         <ReplyComment userID={items?.userID} replyComments={data} key={data.postID} />
       ))}
     </>
-  )
+  );
 }
 
-export default Comment
+export default Comment;

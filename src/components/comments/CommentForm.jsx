@@ -1,24 +1,34 @@
-import React, { useContext, useEffect, useState } from 'react'
-import { getAuth } from 'firebase/auth'
-import { collection, doc, setDoc, Timestamp } from 'firebase/firestore'
-import { useParams } from 'react-router-dom'
-import { v4 as uuidv4 } from 'uuid'
+import React, { useContext, useEffect, useState } from 'react';
+import { getAuth } from 'firebase/auth';
+import {
+  collection,
+  doc,
+  setDoc,
+  Timestamp,
+  query,
+  getDoc,
+  where,
+  getDocs,
+  updateDoc,
+} from 'firebase/firestore';
+import { useParams } from 'react-router-dom';
+import { v4 as uuidv4 } from 'uuid';
 
-import { AuthContext } from '../../context/AuthContext'
-import { db } from '../../firebase'
+import { AuthContext } from '../../context/AuthContext';
+import { db } from '../../firebase';
 
 function CommentForm(props) {
-  const [comments, setComments] = useState('')
-  const { id } = useParams()
-  const user = useContext(AuthContext)
-  const auth = getAuth()
+  const [comments, setComments] = useState('');
+  const { id } = useParams();
+  const user = useContext(AuthContext);
+  const auth = getAuth();
 
   async function setCommentValue(e) {
-    e.preventDefault()
+    e.preventDefault();
     if (comments.length > 0) {
       try {
-        const postID = uuidv4()
-        const colRef = collection(db, id)
+        const postID = await uuidv4();
+        const colRef = collection(db, id);
         const docRef = await setDoc(doc(db, id, postID), {
           userName: auth?.currentUser?.displayName,
           createdAt: Timestamp.fromDate(new Date()),
@@ -28,13 +38,26 @@ function CommentForm(props) {
           postID: postID,
           photoURL: auth?.currentUser?.photoURL,
           email: user?.currentUser.email,
-        })
-        setComments('')
-        props.renderForm()
+        });
+
+        setComments('');
+        props.renderForm();
+        insertAvatarToDocs();
       } catch (error) {
-        console.error(error)
+        console.error(error);
       }
     }
+  }
+
+  //* To update user avatar to all documents //
+  async function insertAvatarToDocs() {
+    const q = query(collection(db, id), where('email', '==', user?.currentUser?.email));
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+      updateDoc(doc.ref, {
+        photoURL: auth?.currentUser?.photoURL,
+      });
+    });
   }
 
   return (
@@ -63,7 +86,7 @@ function CommentForm(props) {
         Post comment
       </button>
     </form>
-  )
+  );
 }
 
-export default CommentForm
+export default CommentForm;

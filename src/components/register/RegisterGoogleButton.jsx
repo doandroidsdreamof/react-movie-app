@@ -1,32 +1,32 @@
-import React from 'react'
-import { getAuth, GoogleAuthProvider, linkWithPopup, signInWithPopup } from 'firebase/auth'
-import { useNavigate } from 'react-router-dom'
-import { auth, db } from '../../firebase'
-import { doc, setDoc, getDocs,collection } from 'firebase/firestore'
-import { AuthContext,useAuth } from '../../context/AuthContext'
+import React from 'react';
+import { getAuth, GoogleAuthProvider, linkWithPopup, signInWithPopup } from 'firebase/auth';
+import { useNavigate } from 'react-router-dom';
+import { auth, db } from '../../firebase';
+import { doc, setDoc, getDocs, collection } from 'firebase/firestore';
+import { AuthContext, useAuth } from '../../context/AuthContext';
 
 function RegisterGoogleButton() {
-  const auth = getAuth()
-  const navigate = useNavigate()
+  const auth = getAuth();
+  const navigate = useNavigate();
   // const user = useAuth()
 
   const registerWithGoogle = async () => {
     signInWithPopup(auth, new GoogleAuthProvider()).then(async (result) => {
       const user = result.user;
-      const ref = await doc(db, 'users-data',user.currentUser?.uid);
-      console.log("🚀 ~ file: RegisterGoogleButton.jsx ~ line 16 ~ signInWithPopup ~ user", user)
+      const ref = await doc(db, 'users-data', user.currentUser?.uid);
+      console.log('🚀 ~ file: RegisterGoogleButton.jsx ~ line 16 ~ signInWithPopup ~ user', user);
       setDoc(ref, {
-        firstName: 'valis',
+        firstName: user.currentUser?.displayName,
         lastName: '',
         bookmarks: [],
         comments: [],
-      })
-    })
-     navigate('/')
-    .catch((error) => {
-      console.log(error)
-    })
-  }
+        photoURL: user?.currentUser?.PhotoURL,
+      });
+    });
+    navigate('/').catch((error) => {
+      console.log(error);
+    });
+  };
 
   return (
     <div className=" flex w-full mb-4 mt-4 flex-row h-11 text-center justify-center">
@@ -53,7 +53,7 @@ function RegisterGoogleButton() {
         Register with Google
       </button>
     </div>
-  )
+  );
 }
 
-export default RegisterGoogleButton
+export default RegisterGoogleButton;

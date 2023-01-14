@@ -28,8 +28,8 @@ const CommentsLayout = () => {
       datas.push(doc.data())
     })
     //* sort by created time //
-    datas.sort((a, b) => b.createdAt - a.createdAt)
-    setUserComments([...datas])
+    const sortedDatas = await datas.sort((a, b) => b.createdAt - a.createdAt)
+    setUserComments([...sortedDatas])
   }
 
 

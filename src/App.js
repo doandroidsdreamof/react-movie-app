@@ -20,6 +20,7 @@ import { getAdditionalUserInfo} from "firebase/auth"
 function App() {
   const [load, setLoad] = useState(false)
   const user = useAuth()
+  const auth = useAuth()
 
   useEffect(() => {
     setLoad(true)

@@ -1,6 +1,6 @@
-import React, { useRef, useState, useEffect, useContext } from 'react'
-import MenuItem from '@mui/material/MenuItem'
-import Button from '@mui/material/Button'
+import React, { useRef, useState, useEffect, useContext } from 'react';
+import MenuItem from '@mui/material/MenuItem';
+import Button from '@mui/material/Button';
 // firebase //
 import {
   getStorage,
@@ -10,57 +10,59 @@ import {
   getDownloadURL,
   listAll,
   list,
-} from 'firebase/storage'
-import { AuthProvider, useAuth, AuthContext } from '../../context/AuthContext'
-import { updateProfile } from 'firebase/auth'
+} from 'firebase/storage';
+import { db } from '../../firebase';
+import { useParams } from 'react-router-dom';
+import { collection, doc, setDoc, getDocs, query } from 'firebase/firestore';
+import { AuthProvider, useAuth, AuthContext } from '../../context/AuthContext';
+import { updateProfile } from 'firebase/auth';
 
 const UploadImage = () => {
-
-  const refImage = useRef()
-  const user = useContext(AuthContext)
-  const storage = getStorage()
-  const [url, setUrl] = useState(null)
+  const refImage = useRef();
+  const user = useContext(AuthContext);
+  const storage = getStorage();
+  const [url, setUrl] = useState(null);
+  const { id } = useParams();
 
   useEffect(() => {
     // if user already have an avatar download it //
     if (user?.currentUser?.photoURL !== null) {
-      setUrl(user?.currentUser?.photoURL)
+      setUrl(user?.currentUser?.photoURL);
     }
-  }, [])
+  }, []);
 
   function handleClick(e) {
-    refImage.current.click()
+    refImage.current.click();
   }
   function uploadAvatar(file) {
-    const storageRef = ref(storage, `usersAvatar/${user?.currentUser?.uid}/${file}`)
-    if (file == null) return
+    const storageRef = ref(storage, `usersAvatar/${user?.currentUser?.uid}/${file}`);
+    if (file == null) return;
     uploadBytes(storageRef, file).then(() => {
       getDownloadURL(storageRef).then((url) => {
-        setUrl(url)
-        updateUserAvatar(url)
-        props.render()
-
-      })
-    })
+        setUrl(url);
+        updateUserAvatar(url);
+      });
+    });
   }
 
-  // upload avatar link with user profile //
+  //* upload avatar link with user profile //
   function updateUserAvatar(avatar) {
     updateProfile(user?.currentUser, { photoURL: `${avatar}` })
       .then(() => {
-        console.log('user avatar is updated')
+        console.log('user avatar is updated');
       })
       .catch((error) => {
-        console.log(error)
-      })
+        console.log(error);
+      });
   }
+
 
   return (
     <MenuItem onClick={() => handleClick()} variant="contained" component="label">
       Upload Avatar
       <input
         onChange={(e) => {
-          uploadAvatar(e.target.files[0])
+          uploadAvatar(e.target.files[0]);
         }}
         ref={refImage}
         hidden
@@ -68,7 +70,7 @@ const UploadImage = () => {
         type="file"
       />
     </MenuItem>
-  )
-}
+  );
+};
 
-export default UploadImage
+export default UploadImage;

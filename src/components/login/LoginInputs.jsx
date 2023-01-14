@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react';
 
-import LoginWithGoogleButton from './LoginWithGoogleButton'
+import LoginWithGoogleButton from './LoginWithGoogleButton';
 import {
   getAuth,
   signInWithPopup,
@@ -8,29 +8,34 @@ import {
   createUserWithEmailAndPassword,
   sendPasswordResetEmail,
   signOut,
-} from 'firebase/auth'
-import InvalidLogin from '../common/InvalidLogin'
-import { useNavigate } from 'react-router-dom'
+} from 'firebase/auth';
+import InvalidLogin from '../common/InvalidLogin';
+import { useNavigate } from 'react-router-dom';
 
 function LoginInputs() {
-  const auth = getAuth()
-  const [password, setPassword] = useState('')
-  const [email, setEmail] = useState('')
-  const [error, setError] = useState(false)
-  const [ok, setOk] = useState(false)
-  const navigate = useNavigate()
+  const auth = getAuth();
+  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('');
+  const [error, setError] = useState(false);
+  const [ok, setOk] = useState(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    setError(false)
+    setOk(false)
+  }, [ok]);
 
   const logInWithEmailAndPassword = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
     try {
-      await signInWithEmailAndPassword(auth, email, password)
-      setOk(true)
-      navigate('/')
+      await signInWithEmailAndPassword(auth, email, password);
+      setOk(true);
+      navigate('/');
     } catch (error) {
-      console.error(error)
-      setError(true)
+      console.error(error);
+      setError(true);
     }
-  }
+  };
 
   return (
     <>
@@ -70,7 +75,7 @@ invalid:ring-2 "
         <span className="text-white">Continue</span>
       </button>
     </>
-  )
+  );
 }
 
-export default LoginInputs
+export default LoginInputs;
