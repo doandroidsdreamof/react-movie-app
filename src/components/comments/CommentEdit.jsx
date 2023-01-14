@@ -11,7 +11,6 @@ import Comment from '../comments/Comment'
 import ReplyComment from '../comments/ReplyComment'
 
 const CommentEdit = ({ userID }) => {
-  console.log('🚀 ~ file: CommentEdit.jsx:15 ~ CommentEdit ~ userID', userID)
   const [toggle, setToggle] = useState(false)
   const user = useContext(AuthContext)
   const auth = getAuth()
@@ -30,7 +29,6 @@ const CommentEdit = ({ userID }) => {
       >
         <svg
           className="w-5 h-5"
-          aria-hidden="true"
           fill="currentColor"
           viewBox="0 0 20 20"
           xmlns="http://www.w3.org/2000/svg"

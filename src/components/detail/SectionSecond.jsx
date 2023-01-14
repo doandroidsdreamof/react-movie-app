@@ -1,21 +1,19 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 
 import { Tab } from "@headlessui/react";
 
 import CastGrid from "../layouts/CastGrid.jsx";
+import CommentsLayout from "../layouts/CommentsLayout.jsx";
 
 import Cast from "./Cast.jsx";
-import Overview from "./Overview.jsx";
-import CommentsLayout from "../layouts/CommentsLayout.jsx";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-const SectionSecond = () => {
+function SectionSecond() {
   const [logic, setLogic] = useState(0);
-  let [categories] = useState({
+  const [categories] = useState({
     Overview: [{ id: 0 }, { name: "Overview" }],
     Cast: [{ id: 1 }, { name: "Cast" }],
     Comments: [{ id: 2 }, { name: "Comments" }],
@@ -51,7 +49,7 @@ const SectionSecond = () => {
               </Tab>
             ))}
           </Tab.List>
-          <Tab.Panels className="mt-2"></Tab.Panels>
+          <Tab.Panels className="mt-2" />
         </Tab.Group>
       </div>
       {/* <Overview /> => logic === 0 */}
@@ -70,7 +68,7 @@ const SectionSecond = () => {
       )}
     </div>
   );
-};
+}
 
 export default SectionSecond;
 

@@ -57,7 +57,7 @@ const UploadImage = () => {
 
   return (
     <MenuItem onClick={() => handleClick()} variant="contained" component="label">
-      Upload
+      Upload Avatar
       <input
         onChange={(e) => {
           uploadAvatar(e.target.files[0])

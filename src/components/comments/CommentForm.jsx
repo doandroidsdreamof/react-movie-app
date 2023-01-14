@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { getAuth } from 'firebase/auth'
 import { collection, doc, setDoc, Timestamp } from 'firebase/firestore'
 import { useParams } from 'react-router-dom'
@@ -7,7 +7,7 @@ import { v4 as uuidv4 } from 'uuid'
 import { AuthContext } from '../../context/AuthContext'
 import { db } from '../../firebase'
 
-function CommentForm() {
+function CommentForm(props) {
   const [comments, setComments] = useState('')
   const { id } = useParams()
   const user = useContext(AuthContext)
@@ -30,6 +30,7 @@ function CommentForm() {
           email: user?.currentUser.email,
         })
         setComments('')
+        props.renderForm()
       } catch (error) {
         console.error(error)
       }

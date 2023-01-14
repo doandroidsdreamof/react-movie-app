@@ -13,12 +13,12 @@ import ReplyComment from '../comments/ReplyComment'
 const CommentsLayout = () => {
   const { id } = useParams()
   const [userComments, setUserComments] = useState([])
-  console.log("🚀 ~ file: CommentsLayout.jsx:16 ~ CommentsLayout ~ userComments", userComments)
+  const [render,setRender] = useState(false)
 
 
   useEffect(() => {
     getData()
-  }, [])
+  }, [render])
 
   async function getData() {
     const q = query(collection(db, id))
@@ -27,12 +27,20 @@ const CommentsLayout = () => {
     querySnapshot.forEach((doc) => {
       datas.push(doc.data())
     })
+    //* sort by created time //
+    datas.sort((a, b) => b.createdAt - a.createdAt)
     setUserComments([...datas])
   }
 
+
+  function handleRender(){
+    setRender(!render)
+  }
+
+
   return (
     <div className=" px-6 w-ninty mx-auto  md:px-12 flex flex-col justify-center">
-      <CommentForm />
+      <CommentForm renderForm={(e) => handleRender()} />
       {userComments.length > 0
         ? userComments &&
           userComments.map((items, id) => (

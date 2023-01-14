@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
 import { getAuth } from 'firebase/auth'
-import { collection, doc, setDoc, Timestamp } from 'firebase/firestore'
+import { collection, doc, setDoc, Timestamp,addDoc } from 'firebase/firestore'
 import { useParams } from 'react-router-dom'
 import { v4 as uuidv4 } from 'uuid'
 
@@ -8,7 +8,6 @@ import { AuthContext } from '../../context/AuthContext'
 import { db } from '../../firebase'
 
 function ReplyCommentForm(prop) {
-  console.log("🚀 ~ file: ReplyCommentForm.jsx:11 ~ ReplyCommentForm ~ prop", prop)
   const [comments, setComments] = useState('')
   const { id } = useParams()
   const user = useContext(AuthContext)
@@ -16,32 +15,28 @@ function ReplyCommentForm(prop) {
 
   async function setReplyComments(e) {
     e.preventDefault()
-    if (commentsData.length > 0) {
+    if (comments.length > 0) {
       try {
         //* update database //
         const docRef = await addDoc(
-          collection(db, id, open.ID, 'sub-comments'),
+          collection(db, id,  prop.parentID, 'sub-comments'),
           {
             userName: auth?.currentUser?.displayName,
             createdAt: Timestamp.fromDate(new Date()),
             date: new Date().toDateString(),
-            userID: user?.uid,
+            userID: user?.currentUser?.uid,
             text: comments,
             postID: uuidv4(),
             nested: true,
             photoURL: auth?.currentUser?.photoURL,
             email: user?.currentUser.email,
-            parentPostID: open?.ID
+            parentPostID: prop.parentID,
+            parentColID: id
 
           }
         );
-        setTimeout(() => {
-          dispatch(commentObserver())
-        }, 100)
-        setCommentsData('')
-        //* after submit close form //
-        open.open()
-
+        setComments('')
+        prop.cancelComment()
       }
       catch (error) {
         console.error(error)
