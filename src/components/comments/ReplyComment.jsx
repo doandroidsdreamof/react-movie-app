@@ -19,7 +19,7 @@ const ReplyComment = ({userID}) => {
 
 
   return (
-    <article className="p-3 mb-6 -translate-x-4 md:translate-x-0  ml-auto w-seventy  md:w-eighty text-base bg-white rounded-lg ">
+    <article className="p-3 mb-2 -translate-x-4 md:translate-x-0  ml-auto w-seventy  md:w-eighty text-base bg-white rounded-lg ">
       <div className="flex justify-between items-center mb-2">
         <CommentHeader />
         <CommentEdit />
