@@ -34,7 +34,6 @@ function RegisterInputs() {
         firstName: values.firstName,
         lastName: values.lastName,
         bookmarks: [],
-        comments: [],
       })
 
       updateProfile(auth.currentUser, {

@@ -19,7 +19,6 @@ function RegisterGoogleButton() {
         firstName: user.currentUser?.displayName,
         lastName: '',
         bookmarks: [],
-        comments: [],
         photoURL: user?.currentUser?.PhotoURL,
       });
     });

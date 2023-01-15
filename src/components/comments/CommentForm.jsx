@@ -38,6 +38,7 @@ function CommentForm(props) {
           postID: postID,
           photoURL: auth?.currentUser?.photoURL,
           email: user?.currentUser.email,
+          removed: null,
         });
 
         setComments('');
@@ -55,7 +56,8 @@ function CommentForm(props) {
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
       updateDoc(doc.ref, {
-        photoURL: auth?.currentUser?.photoURL,
+        //* if comment is removed not update user avatar *//
+        photoURL: photoURL !== 'removed' ? auth?.currentUser?.photoURL : 'removed',
       });
     });
   }

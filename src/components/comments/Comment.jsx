@@ -76,6 +76,8 @@ function Comment({ items, renderForm }) {
             reply={false}
             key={uuidv4()}
             userID={items?.userID}
+            removed={items?.removed}
+
           />
         </div>
         <CommentText key={uuidv4()} commentValue={items?.text} />

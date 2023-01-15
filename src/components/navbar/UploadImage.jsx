@@ -24,8 +24,9 @@ const UploadImage = () => {
   const [url, setUrl] = useState(null);
   const { id } = useParams();
 
+  
+    //* if user already have an avatar download it //
   useEffect(() => {
-    // if user already have an avatar download it //
     if (user?.currentUser?.photoURL !== null) {
       setUrl(user?.currentUser?.photoURL);
     }

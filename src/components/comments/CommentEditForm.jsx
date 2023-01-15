@@ -23,11 +23,12 @@ import { v4 as uuidv4 } from 'uuid';
 import { AuthContext } from '../../context/AuthContext';
 import { db } from '../../firebase';
 
-function CommentEditForm({ toggle, cancelEditFunction,reply,text,postID }) {
+function CommentEditForm({ toggle, cancelEditFunction, reply, text, postID }) {
   const [comments, setComments] = useState(text);
   const { id } = useParams();
   const user = useContext(AuthContext);
   const auth = getAuth();
+  const closeEditForm = () => cancelEditFunction();
 
   async function editComment(e) {
     e.preventDefault();
@@ -55,7 +56,6 @@ function CommentEditForm({ toggle, cancelEditFunction,reply,text,postID }) {
             });
           });
           user.editState();
-
         }
       } catch (error) {
         console.error(error);
@@ -86,7 +86,10 @@ function CommentEditForm({ toggle, cancelEditFunction,reply,text,postID }) {
         />
       </div>
       <button
-        onClick={(e) => editComment(e)}
+        onClick={(e) => {
+          editComment(e);
+          closeEditForm();
+        }}
         type="submit"
         className="inline-flex items-center bg-star py-2.5 px-4 text-xs font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200  hover:bg-primary-800"
       >
@@ -94,7 +97,6 @@ function CommentEditForm({ toggle, cancelEditFunction,reply,text,postID }) {
       </button>
       <button
         onClick={(e) => {
-          const closeEditForm = () => cancelEditFunction();
           closeEditForm();
         }}
         type="submit"

@@ -15,7 +15,7 @@ import { useParams } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
 import { db } from '../../firebase';
 
-function CommentEdit({ userID, reply, postID, mainPostID, commentEditFunction }) {
+function CommentEdit({ userID, reply, postID, mainPostID, commentEditFunction, removed }) {
   const [toggle, setToggle] = useState(false);
   const user = useContext(AuthContext);
   const auth = getAuth();
@@ -48,6 +48,7 @@ function CommentEdit({ userID, reply, postID, mainPostID, commentEditFunction })
             text: 'removed',
             userName: 'removed',
             photoURL: null,
+            removed: true,
           });
         });
         user.editState();
@@ -70,7 +71,7 @@ function CommentEdit({ userID, reply, postID, mainPostID, commentEditFunction })
         type="button"
       >
         <svg
-          className="w-5 h-5"
+          className={removed === true ? 'hidden' : 'w-5 h-5'}
           fill="currentColor"
           viewBox="0 0 20 20"
           xmlns="http://www.w3.org/2000/svg"
@@ -103,7 +104,7 @@ function CommentEdit({ userID, reply, postID, mainPostID, commentEditFunction })
             <span
               onClick={(e) => {
                 const editComment = () => commentEditFunction();
-                editComment()
+                editComment();
               }}
               className="block cursor-pointer py-2 px-4 hover:bg-gray-100 "
             >
