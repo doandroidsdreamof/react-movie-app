@@ -18,7 +18,7 @@ const CommentsLayout = () => {
 
   useEffect(() => {
     getData();
-  }, [render]);
+  }, [render,contextState.edit]);
 
   async function getData() {
     const q = query(collection(db, id));

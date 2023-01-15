@@ -1,13 +1,21 @@
 import React, { useContext, useState } from 'react';
 import { getAuth } from 'firebase/auth';
-import { deleteDoc, getDocs, collectionGroup } from 'firebase/firestore';
+import {
+  deleteDoc,
+  getDocs,
+  collectionGroup,
+  query,
+  where,
+  doc,
+  collection,
+  updateDoc,
+} from 'firebase/firestore';
 import { useParams } from 'react-router-dom';
 
 import { AuthContext } from '../../context/AuthContext';
 import { db } from '../../firebase';
 
-function CommentEdit({ userID, reply, postID }) {
-
+function CommentEdit({ userID, reply, postID, mainPostID, commentEditFunction }) {
   const [toggle, setToggle] = useState(false);
   const user = useContext(AuthContext);
   const auth = getAuth();
@@ -22,11 +30,29 @@ function CommentEdit({ userID, reply, postID }) {
           if (doc.data().postID == idPost) {
             deleteDoc(doc.ref);
           }
-          user.editState()
-
+          user.editState();
         });
       } catch (error) {
         console.error(error);
+      }
+    }
+  }
+
+  async function deleteMainComment() {
+    if (reply === false) {
+      try {
+        const q = query(collection(db, id), where('postID', '==', mainPostID));
+        const querySnapshot = await getDocs(q);
+        querySnapshot.forEach((doc) => {
+          updateDoc(doc.ref, {
+            text: 'removed',
+            userName: 'removed',
+            photoURL: null,
+          });
+        });
+        user.editState();
+      } catch (err) {
+        console.error(err);
       }
     }
   }
@@ -75,7 +101,10 @@ function CommentEdit({ userID, reply, postID }) {
           </li>
           <li>
             <span
-              onClick={(e) => setToggle(false)}
+              onClick={(e) => {
+                const editComment = () => commentEditFunction();
+                editComment()
+              }}
               className="block cursor-pointer py-2 px-4 hover:bg-gray-100 "
             >
               Edit
@@ -86,6 +115,7 @@ function CommentEdit({ userID, reply, postID }) {
               onClick={(e) => {
                 deleteReplyComment();
                 setToggle(false);
+                deleteMainComment();
               }}
               className="block cursor-pointer py-2 px-4 hover:bg-gray-100 "
             >

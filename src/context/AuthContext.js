@@ -1,40 +1,41 @@
-import React, { createContext, useContext, useEffect, useState } from 'react'
-import { auth } from '../firebase'
+import React, { createContext, useContext, useEffect, useState } from 'react';
+import { auth } from '../firebase';
 
-
-export const AuthContext = createContext()
+export const AuthContext = createContext();
 
 export function useAuth() {
-  return useContext(AuthContext)
+  return useContext(AuthContext);
 }
 
 export function AuthProvider({ children }) {
-  const [currentUser, setCurrentUser] = useState()
-  const [loading, setLoading] = useState(true)
-  const [edit,setEdit] = useState(false)
+  const [currentUser, setCurrentUser] = useState();
+  const [loading, setLoading] = useState(true);
+  const [edit, setEdit] = useState(false);
 
-
+  //* to pass auth data //
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
-      setCurrentUser(user)
-      setLoading(false)
-    })
+      setCurrentUser(user);
+      setLoading(false);
+    });
 
-    return unsubscribe
-  }, [])
+    return unsubscribe;
+  }, []);
 
   function getUser() {
-    return auth.currentUser
+    return auth.currentUser;
   }
+
+  //* to render components when comments are edited or removed //
   function editState() {
-    setEdit(!edit)
+    setEdit(!edit);
   }
   const value = {
     currentUser,
     getUser,
     editState,
-    edit
-  }
+    edit,
+  };
 
-  return <AuthContext.Provider value={value}>{!loading && children}</AuthContext.Provider>
+  return <AuthContext.Provider value={value}>{!loading && children}</AuthContext.Provider>;
 }

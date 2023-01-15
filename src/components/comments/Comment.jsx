@@ -1,4 +1,4 @@
-import React, { useState, useEffect,useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { collection, getDocs } from 'firebase/firestore';
 
 import { db } from '../../firebase';
@@ -12,16 +12,25 @@ import CommentReplyButton from './CommentReplyButton';
 import CommentText from './CommentText';
 import ReplyComment from './ReplyComment';
 import ReplyCommentForm from './ReplyCommentForm';
+import CommentEditForm from './CommentEditForm';
 
-function Comment({ items,renderForm }) {
+function Comment({ items, renderForm }) {
   const [reply, setReply] = useState([]);
   const [replyToggle, setReplyToggle] = useState(false);
+  const [editToggle, setEditToggle] = useState(false);
   const { id } = useParams();
   const contextEdit = useContext(AuthContext);
 
+  /**
+
+ //* ContextEdit.edit render state to crud operations
+ //* When a new post is added or changed context API trigger renders and getReply function  gets new data from firestore
+
+  */
+
   useEffect(() => {
     getReply();
-  }, [replyToggle,contextEdit.edit]);
+  }, [replyToggle, contextEdit.edit, editToggle]);
 
   async function getReply() {
     try {
@@ -31,7 +40,7 @@ function Comment({ items,renderForm }) {
       querySnapshot.forEach((doc) => {
         getData.push(doc.data());
       });
-
+      //* sort by last comments //
       const sortedGetData = await getData.sort((a, b) => b.createdAt - a.createdAt);
       setReply([...sortedGetData]);
     } catch (err) {
@@ -40,14 +49,16 @@ function Comment({ items,renderForm }) {
   }
   function handleReplyToggle() {
     setReplyToggle(!replyToggle);
-
+  }
+  function handleCommentEditForm() {
+    setEditToggle(!editToggle);
   }
 
   return (
     <>
       <article
         className={
-          !replyToggle
+          !replyToggle && !editToggle
             ? 'p-3 mb-2 -translate-x-4 md:translate-x-0 shadow-sm  ml-auto w-eighty  md:w-ninty text-base bg-white rounded-lg '
             : 'hidden'
         }
@@ -59,15 +70,29 @@ function Comment({ items,renderForm }) {
             avatarURL={items?.photoURL}
             key={uuidv4()}
           />
-          <CommentEdit  reply={false} key={uuidv4()} userID={items?.userID} />
+          <CommentEdit
+            commentEditFunction={(e) => handleCommentEditForm()}
+            mainPostID={items?.postID}
+            reply={false}
+            key={uuidv4()}
+            userID={items?.userID}
+          />
         </div>
         <CommentText key={uuidv4()} commentValue={items?.text} />
         <CommentReplyButton
           key={uuidv4()}
           nested={false}
-          replyToggle={(e) => handleReplyToggle(false)}
+          replyToggle={(e) => handleReplyToggle()}
         />
       </article>
+      <CommentEditForm
+        text={items?.text}
+        reply={false}
+        postID={items?.postID}
+        key={uuidv4()}
+        cancelEditFunction={(e) => setEditToggle(false)}
+        toggle={editToggle}
+      />
       <ReplyCommentForm
         parentID={items?.postID}
         cancelComment={(e) => setReplyToggle(false)}
@@ -75,7 +100,7 @@ function Comment({ items,renderForm }) {
         key={uuidv4()}
       />
       {reply.map((data, index) => (
-        <ReplyComment     userID={items?.userID} replyComments={data} key={data.postID} />
+        <ReplyComment userID={items?.userID} replyComments={data} key={data.postID} />
       ))}
     </>
   );
