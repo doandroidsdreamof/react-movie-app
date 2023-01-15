@@ -37,7 +37,7 @@ const CommentsLayout = () => {
   }
 
   return (
-    <div className=" px-6 w-ninty mx-auto  md:px-12 flex flex-col justify-center">
+    <div className=" px-6  w-ninty mx-auto  md:px-12 flex flex-col justify-center">
       <CommentForm renderForm={(e) => handleRender()} />
       {userComments.length > 0
         ? userComments &&

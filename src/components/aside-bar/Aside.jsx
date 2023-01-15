@@ -20,7 +20,8 @@ const Aside = ({ trendData,DetailPage,HomePage }) => {
 
 
   return (
-    <div className={" bg-nav relative  min-h-screen hidden font-roboto right-0 border-gray-800   lg:block w-[350px]  "}>
+   <aside>
+     <div className={" bg-nav relative  min-h-screen hidden font-roboto right-0 border-gray-800   lg:block w-[350px]  "}>
       <div className=" flex flex-col w-onehundred  h-full gap-y-6">
         <div className=" text-white mt-8 flex relative justify-center w-onehundred self-center">
           <SearchBar />
@@ -35,6 +36,7 @@ const Aside = ({ trendData,DetailPage,HomePage }) => {
         </div>
       </div>
     </div>
+   </aside>
   );
 };
 export default Aside;

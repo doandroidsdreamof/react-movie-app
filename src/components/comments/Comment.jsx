@@ -48,7 +48,7 @@ function Comment({ items,renderForm }) {
       <article
         className={
           !replyToggle
-            ? 'p-3 mb-2 -translate-x-4 md:translate-x-0  ml-auto w-eighty  md:w-ninty text-base bg-white rounded-lg '
+            ? 'p-3 mb-2 -translate-x-4 md:translate-x-0 shadow-sm  ml-auto w-eighty  md:w-ninty text-base bg-white rounded-lg '
             : 'hidden'
         }
       >

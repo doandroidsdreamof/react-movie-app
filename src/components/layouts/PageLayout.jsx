@@ -34,5 +34,3 @@ const PageLayout = (props) => {
 }
 
 export default PageLayout
-
-

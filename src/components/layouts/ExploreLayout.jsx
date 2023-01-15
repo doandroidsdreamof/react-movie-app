@@ -57,7 +57,7 @@ function ExploreLayout(props) {
 
   return (
     <section className=" flex  flex-row bg-lm-bg dark:bg-bg-color ">
-      <div className="   max-h-screen      flex flex-color  ">{props.sideNav}</div>
+      <div className="   max-h-screen      flex  ">{props.sideNav}</div>
       <div className="w-full    max-h-screen bg-lm-bg dark:bg-bg-color">
         <div
           id="scrollableDiv"
