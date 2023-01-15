@@ -1,9 +1,10 @@
-import React from 'react'
+import React from 'react';
 
-import Menu from '@mui/material/Menu'
-import MenuItem from '@mui/material/MenuItem'
-import Button from '@mui/material/Button'
-import UploadImage from '../navbar/UploadImage'
+//* Material UI //
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+
+import UploadImage from '../navbar/UploadImage';
 
 function ProfileSettings(props) {
   return (
@@ -26,9 +27,9 @@ function ProfileSettings(props) {
     >
       <MenuItem onClick={(e) => props.handleLogout()}>Logout</MenuItem>
       <MenuItem onClick={(e) => props.openDel()}>Delete Account</MenuItem>
-      <UploadImage  />
+      <UploadImage />
     </Menu>
-  )
+  );
 }
 
-export default ProfileSettings
+export default ProfileSettings;

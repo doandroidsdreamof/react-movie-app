@@ -1,7 +1,6 @@
-import React from 'react'
+import React from 'react';
 
-
-const PageLayout = (props) => {
+function PageLayout(props) {
   return (
     <main className="flex flex-col h-screen   overflow bg-lm-bg dark:bg-bg-color">
       <div className="flex flex-1 overflow-x-hidden   overflow-y-auto ">
@@ -24,13 +23,17 @@ const PageLayout = (props) => {
             }
           >
             <div className="top-slider w-screen md:w-full  ">{props.slider}</div>
-            {props.row ? <div className="row-layout   w-screen sm:w-full  ">{props.row}</div> : <></>}
+            {props.row ? (
+              <div className="row-layout   w-screen sm:w-full  ">{props.row}</div>
+            ) : (
+              <></>
+            )}
             {props.sectionSecond}
           </div>
         </div>
       </div>
     </main>
-  )
+  );
 }
 
-export default PageLayout
+export default PageLayout;

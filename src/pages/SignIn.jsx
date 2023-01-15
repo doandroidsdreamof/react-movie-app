@@ -1,10 +1,11 @@
-import React from 'react'
+import React from 'react';
 
-import LoginHead from '../components/login/LoginHead'
-import LoginImage from '../components/login/LoginImage'
-import LoginInputs from '../components/login/LoginInputs'
-import PasswordReset from '../components/login/PasswordReset'
-import RegisterLink from '../components/login/RegisterLink'
+//* Local imports //
+import LoginHead from '../components/login/LoginHead';
+import LoginImage from '../components/login/LoginImage';
+import LoginInputs from '../components/login/LoginInputs';
+import PasswordReset from '../components/login/PasswordReset';
+import RegisterLink from '../components/login/RegisterLink';
 
 function SignIn() {
   return (
@@ -23,7 +24,7 @@ function SignIn() {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default SignIn
+export default SignIn;

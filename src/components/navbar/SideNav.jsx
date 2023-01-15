@@ -1,99 +1,93 @@
-import React, { useEffect, useState, useContext } from 'react'
-import { getAuth } from 'firebase/auth'
-import { AiFillHome } from 'react-icons/ai'
-import { BsBookmarkStarFill } from 'react-icons/bs'
-import { CgProfile } from 'react-icons/cg'
-import { HiOutlineLogin } from 'react-icons/hi'
-import { MdOutlineExplore } from 'react-icons/md'
-import { Link, useNavigate } from 'react-router-dom'
-import { AuthProvider, useAuth, AuthContext } from '../../context/AuthContext'
+import React, { useContext, useEffect, useState } from 'react';
+//* Firebase //
+import { getAuth } from 'firebase/auth';
+//* Third-party //
+import { AiFillHome } from 'react-icons/ai';
+import { BsBookmarkStarFill } from 'react-icons/bs';
+import { CgProfile } from 'react-icons/cg';
+import { HiOutlineLogin } from 'react-icons/hi';
+import { MdOutlineExplore } from 'react-icons/md';
+import { Link, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { injectStyle } from 'react-toastify/dist/inject-style';
 
-import Tooltip from '@mui/material/Tooltip'
+import Tooltip from '@mui/material/Tooltip';
 
-import ErrorModal from '../common/ErrorModal.jsx'
-import LoginErrorModal from '../common/LoginErrorModal.jsx'
-import ProfileSettings from '../profile/ProfileSettings.jsx'
-import SignOutModal from '../common/SignOutModal.jsx'
-import Avatar from './Avatar.jsx'
+//* Local imports //
+import { AuthContext } from '../../context/AuthContext';
+import signOutUser from '../../utils/signOut.js';
+import AlertDialog from '../profile/AlertDialog.jsx';
+import ProfileSettings from '../profile/ProfileSettings.jsx';
 
-import DarkMode from './DarkMode.jsx'
+import Avatar from './Avatar.jsx';
+import DarkMode from './DarkMode.jsx';
 
-import AlertDialog from '../profile/AlertDialog.jsx'
-import signOutUser from '../../utils/signOut.js'
-import 'react-toastify/dist/ReactToastify.css'
-import { ToastContainer, toast } from 'react-toastify'
-import { injectStyle } from 'react-toastify/dist/inject-style'
+import 'react-toastify/dist/ReactToastify.css';
 
 function SideNav() {
-  const [error, setError] = useState(false)
-  const [dropdown, setDropDown] = useState(false)
-  const [login, setLogin] = useState(false)
-  const [out, setOut] = useState(false)
-  const [anchorEl, setAnchorEl] = React.useState(null)
-  const [open, setOpen] = React.useState(false)
-  const [avatar, setAvatar] = React.useState(false)
-  const navigate = useNavigate()
-  const user = useContext(AuthContext)
+  const [error, setError] = useState(false);
+  const [dropdown, setDropDown] = useState(false);
+  const [login, setLogin] = useState(false);
+  const [out, setOut] = useState(false);
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [open, setOpen] = React.useState(false);
+  const navigate = useNavigate();
+  const user = useContext(AuthContext);
 
-  const auth = getAuth()
+  const auth = getAuth();
 
   useEffect(() => {
-
-    setError(false)
-    setLogin(false)
-  }, [error, login])
+    setError(false);
+    setLogin(false);
+  }, [error, login]);
 
   const handleProfile = (e) => {
     if (auth.currentUser === null) {
-      setError(true)
-      injectStyle()
+      setError(true);
+      injectStyle();
       toast.dark('please login or register to use this feature', {
         toastId: 2,
-      })
+      });
     } else {
-      setDropDown(!dropdown)
-      setAnchorEl(e.currentTarget)
+      setDropDown(!dropdown);
+      setAnchorEl(e.currentTarget);
     }
-  }
+  };
   const handleBookmark = (e) => {
     if (auth.currentUser === null) {
-      setError(true)
-      injectStyle()
+      setError(true);
+      injectStyle();
       toast.dark('please login or register to use this feature', {
         toastId: 1,
-      })
+      });
     } else {
-      navigate('/bookmark')
+      navigate('/bookmark');
     }
-  }
+  };
   const handleLogin = (e) => {
     if (auth.currentUser !== null) {
-      setLogin(true)
-      injectStyle()
+      setLogin(true);
+      injectStyle();
       toast.dark('You are already logged in', {
         toastId: 4,
-      })
+      });
     } else {
-      navigate('/login')
+      navigate('/login');
     }
-  }
+  };
 
   const handleLogout = () => {
-    signOutUser()
-    navigate('/')
-    setOut(true)
-    injectStyle()
+    signOutUser();
+    navigate('/');
+    setOut(true);
+    injectStyle();
     toast.dark('logged out successfully', {
       toastId: 3,
-    })
-  }
+    });
+  };
 
   return (
-    <div
-      className={
-        ' bg-nav  z-50 border-r border-r-gray-600 relative font-roboto left-0   min-h-screen w-14   '
-      }
-    >
+    <div className=" bg-nav  z-50 border-r border-r-gray-600 relative font-roboto left-0   min-h-screen w-14   ">
       <AlertDialog open={open} openMenu={(e) => setOpen(true)} closeMenu={(e) => setOpen(false)} />
       <div className="text-center  text-white  " />
       <ul className="mt-0 flex  gap-y-4 flex-col h-full justify-center  ">
@@ -146,6 +140,6 @@ function SideNav() {
         </li>
       </ul>
     </div>
-  )
+  );
 }
-export default SideNav
+export default SideNav;

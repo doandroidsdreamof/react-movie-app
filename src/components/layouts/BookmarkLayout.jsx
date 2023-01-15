@@ -1,50 +1,54 @@
-import React, { useState, useEffect } from 'react'
-import { doc, updateDoc, setDoc, getDoc, arrayUnion, arrayRemove } from 'firebase/firestore'
-import { AuthProvider, useAuth } from '../../context/AuthContext'
-import { db, auth } from '../../firebase'
-import { Link } from 'react-router-dom'
-import 'react-lazy-load-image-component/src/effects/opacity.css'
-import Bookmarks from '../bookmarks/Bookmarks'
-import data from '../../../Data'
-import CardAnimation from '../explore/CardAnimation'
+import React, { useEffect, useState } from 'react';
+//* Firebase //
+import { doc, getDoc } from 'firebase/firestore';
 
-const BookmarkLayout = (props) => {
-  const [bookmarks, setBookMarks] = useState([])
-  const [datas, setDatas] = useState([])
-  const [logic, setLogic] = useState(false)
-  const [update, setUpdate] = useState(false)
-  const user = useAuth()
+//* Third-party //
+import data from '../../../Data';
+//* Local imports //
+import { useAuth } from '../../context/AuthContext';
+import { db } from '../../firebase';
+import Bookmarks from '../bookmarks/Bookmarks';
+import CardAnimation from '../explore/CardAnimation';
+
+import 'react-lazy-load-image-component/src/effects/opacity.css';
+
+function BookmarkLayout(props) {
+  const [bookmarks, setBookMarks] = useState([]);
+  const [datas, setDatas] = useState([]);
+  const [logic, setLogic] = useState(false);
+  const [update, setUpdate] = useState(false);
+  const user = useAuth();
 
   useEffect(() => {
-    getData()
-    fetchDetails()
-  }, [logic, bookmarks])
+    getData();
+    fetchDetails();
+  }, [logic, bookmarks]);
 
   async function getData() {
-    const docRef = doc(db, 'users-data', user.currentUser?.uid)
-    const docSnap = await getDoc(docRef)
+    const docRef = doc(db, 'users-data', user.currentUser?.uid);
+    const docSnap = await getDoc(docRef);
     if (docSnap.exists()) {
-      let bookMarks = docSnap.data().bookmarks
-      setBookMarks(bookMarks)
-      setLogic(true)
+      const bookMarks = docSnap.data().bookmarks;
+      setBookMarks(bookMarks);
+      setLogic(true);
     } else {
-      setBookMarks([])
-      setLogic(false)
+      setBookMarks([]);
+      setLogic(false);
     }
   }
 
   async function fetchDetails() {
-    let parse = []
+    const parse = await [];
     if (logic === true) {
       for (let i = 0; i < bookmarks.length; i++) {
         const response = await fetch(
           `https://api.themoviedb.org/3/movie/${bookmarks[i]}?${data.requestSearchByID}`
-        )
-        const get = await response.json()
-        parse.push(get)
+        );
+        const get = await response.json();
+        parse.push(get);
       }
-      setUpdate(true)
-      setDatas(parse)
+      setUpdate(true);
+      setDatas(parse);
     }
   }
 
@@ -60,16 +64,15 @@ const BookmarkLayout = (props) => {
             <div
               className={`     overflow-hidden gap-y-10  order-3 h-full   w-full   grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4     lg:px-32 gap-5   px-7 md:px-10 `}
             >
-            {datas.map((value, index) => {
-                return <CardAnimation cards={<Bookmarks data={value} key={index} />} />
-              })}
-
+              {datas.map((value, index) => (
+                <CardAnimation cards={<Bookmarks data={value} key={index} />} />
+              ))}
             </div>
           </div>
         </div>
       </div>
     </section>
-  )
+  );
 }
 
-export default BookmarkLayout
+export default BookmarkLayout;

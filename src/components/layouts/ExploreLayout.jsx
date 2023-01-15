@@ -1,57 +1,61 @@
-import React, { useEffect, useState } from 'react'
-import InfiniteScroll from 'react-infinite-scroll-component'
+import React, { useEffect, useState } from 'react';
+//* Third-party //
+import InfiniteScroll from 'react-infinite-scroll-component';
 
-import data from '../../../Data'
-import SearchBar from '../aside-bar/SearchBar.jsx'
-import GenresExplore from '../explore/GenresExplore.jsx'
-import MovieExplore from '../explore/MovieExplore.jsx'
-import SortInput from '../explore/SortInput.jsx'
+//* Local imports //
+import data from '../../../Data';
+import SearchBar from '../aside-bar/SearchBar.jsx';
+import GenresExplore from '../explore/GenresExplore.jsx';
+import MovieExplore from '../explore/MovieExplore.jsx';
+import SortInput from '../explore/SortInput.jsx';
 
 function ExploreLayout(props) {
-  const [initialMovies, setInitialMovies] = useState([])
-  const [page, setPage] = useState(1)
-  const [getData, setGetData] = useState(data.requestExploreInitial)
-  const [genreQuery, setGenreQuery] = useState()
+  const [initialMovies, setInitialMovies] = useState([]);
+  const [page, setPage] = useState(1);
+  const [getData, setGetData] = useState(data.requestExploreInitial);
+  const [genreQuery, setGenreQuery] = useState();
 
   useEffect(() => {
     fetch(`${getData}${page}${genreQuery}`)
       .then((res) => res.json())
       .then((get) => setInitialMovies([...initialMovies, ...get.results]))
       .catch((err) => {
-        console.error(err)
-      })
-  }, [page, props.logic, getData, genreQuery])
+        console.error(err);
+      });
+  }, [page, props.logic, getData, genreQuery]);
 
   const infiniteIncrease = () => {
-    setPage(page < 1000 ? page + 1 : page)
-  }
+    setPage(page < 1000 ? page + 1 : page);
+  };
+
+  //* Fetch data via option input *//
   function onChangeSort(e) {
-    const inputValue = e.target.innerText
-    setInitialMovies([])
+    const inputValue = e.target.innerText;
+    setInitialMovies([]);
     switch (inputValue) {
       case 'Top Rated':
-        setGetData(data.requestTopRatedSort)
-        break
+        setGetData(data.requestTopRatedSort);
+        break;
       case 'Most Popular':
-        setGetData(data.requestPopularSort)
-        break
+        setGetData(data.requestPopularSort);
+        break;
       case 'Most Recent':
-        setGetData(data.requestRecentSort)
-        break
+        setGetData(data.requestRecentSort);
+        break;
     }
   }
   function onChangeGenres(e) {
-    const inputValue = e.target.innerText
-    const genreId = e.target.id
-    setInitialMovies([])
-    setGenreQuery('')
+    const inputValue = e.target.innerText;
+    const genreId = e.target.id;
+    setInitialMovies([]);
+    setGenreQuery('');
     if (genreId == '1') {
-      setGetData(data.requestPopularSort)
-      return
+      setGetData(data.requestPopularSort);
+      return;
     }
     if (genreId != '1') {
-      setGenreQuery(`&with_genres=${e.target.id}`)
-      setGetData(data.requestSortByGenre)
+      setGenreQuery(`&with_genres=${e.target.id}`);
+      setGetData(data.requestSortByGenre);
     }
   }
 
@@ -89,7 +93,7 @@ function ExploreLayout(props) {
         </div>
       </div>
     </section>
-  )
+  );
 }
 
-export default ExploreLayout
+export default ExploreLayout;

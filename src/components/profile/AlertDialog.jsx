@@ -1,47 +1,52 @@
-import React, { useRef, useState, useEffect } from 'react'
-import Button from '@mui/material/Button'
-import Dialog from '@mui/material/Dialog'
-import DialogActions from '@mui/material/DialogActions'
-import DialogContent from '@mui/material/DialogContent'
-import DialogContentText from '@mui/material/DialogContentText'
-import DialogTitle from '@mui/material/DialogTitle'
-import { getAuth, reauthenticateWithCredential, deleteUser, EmailAuthProvider } from 'firebase/auth'
-import { useAuth } from '../../context/AuthContext'
-import InvalidPassword from '../common/InvalidPassword'
+import React, { useEffect, useState } from 'react';
+//* Firebase //
+import {
+  deleteUser,
+  EmailAuthProvider,
+  getAuth,
+  reauthenticateWithCredential,
+} from 'firebase/auth';
+
+//* Material UI //
+import Button from '@mui/material/Button';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+
+//* Local imports //
+import InvalidPassword from '../common/InvalidPassword';
 
 function AlertDialog(props) {
-  const auth = getAuth()
-  const user = auth.currentUser
-  const [password, setPassword] = useState('')
-  const [error, setError] = useState(false)
-  const [ok, setOk] = useState(false)
+  const auth = getAuth();
+  const user = auth.currentUser;
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState(false);
+  const [ok, setOk] = useState(false);
 
-  useEffect(() =>{
+  useEffect(() => {
+    setError(false);
+  }, [error]);
 
-  setError(false)
-  },[error])
-
-  const handleClickOpen = () => {
-    props.openMenu()
-  }
 
   const handleClose = () => {
-    props.closeMenu()
-  }
+    props.closeMenu();
+  };
 
   function deleteAccount() {
-    const credential = EmailAuthProvider.credential(auth.currentUser.email, password)
-    const result = reauthenticateWithCredential(auth.currentUser, credential)
+    const credential = EmailAuthProvider.credential(auth.currentUser.email, password);
+    const result = reauthenticateWithCredential(auth.currentUser, credential);
     deleteUser(user)
       .then(() => {
-        console.log('🚀 ~ file: AlertDialog.jsx ~ line 31 ~ deleteUser ~ user', user)
-        handleClose()
-        setOk(true)
+        console.log('🚀 ~ file: AlertDialog.jsx ~ line 31 ~ deleteUser ~ user', user);
+        handleClose();
+        setOk(true);
       })
       .catch((error) => {
-        console.log('🚀 ~ file: AlertDialog.jsx ~ line 33 ~ deleteUser ~ error', error)
-        setError(true)
-      })
+        console.log('🚀 ~ file: AlertDialog.jsx ~ line 33 ~ deleteUser ~ error', error);
+        setError(true);
+      });
   }
 
   return (
@@ -53,7 +58,7 @@ function AlertDialog(props) {
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
-        <DialogTitle id="alert-dialog-title">{'Danger Zone!'}</DialogTitle>
+        <DialogTitle id="alert-dialog-title">Danger Zone!</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
             Are you sure you want to delete this account?
@@ -83,7 +88,7 @@ function AlertDialog(props) {
         </DialogActions>
       </Dialog>
     </div>
-  )
+  );
 }
 
-export default AlertDialog
+export default AlertDialog;

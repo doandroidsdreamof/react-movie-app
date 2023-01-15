@@ -1,20 +1,23 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+//* Firebase //
 import { collection, getDocs } from 'firebase/firestore';
-
-import { db } from '../../firebase';
+//* Third-party //
 import { useParams } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
-import { AuthContext } from '../../context/AuthContext';
 
+import { AuthContext } from '../../context/AuthContext';
+import { db } from '../../firebase';
+
+//* Local imports //
 import CommentEdit from './CommentEdit';
+import CommentEditForm from './CommentEditForm';
 import CommentHeader from './CommentHeader';
 import CommentReplyButton from './CommentReplyButton';
 import CommentText from './CommentText';
 import ReplyComment from './ReplyComment';
 import ReplyCommentForm from './ReplyCommentForm';
-import CommentEditForm from './CommentEditForm';
 
-function Comment({ items, renderForm }) {
+function Comment({ items }) {
   const [reply, setReply] = useState([]);
   const [replyToggle, setReplyToggle] = useState(false);
   const [editToggle, setEditToggle] = useState(false);
@@ -34,7 +37,7 @@ function Comment({ items, renderForm }) {
 
   async function getReply() {
     try {
-      const subColRef = collection(db, id, items.postID, 'sub-comments');
+      const subColRef = collection(db, id, items?.postID, 'sub-comments');
       const querySnapshot = await getDocs(subColRef);
       const getData = [];
       querySnapshot.forEach((doc) => {
@@ -47,6 +50,7 @@ function Comment({ items, renderForm }) {
       console.error(err);
     }
   }
+
   function handleReplyToggle() {
     setReplyToggle(!replyToggle);
   }
@@ -71,38 +75,33 @@ function Comment({ items, renderForm }) {
             key={uuidv4()}
           />
           <CommentEdit
-            commentEditFunction={(e) => handleCommentEditForm()}
+            commentEditFunction={() => handleCommentEditForm()}
             mainPostID={items?.postID}
             reply={false}
             key={uuidv4()}
             userID={items?.userID}
             removed={items?.removed}
-
           />
         </div>
         <CommentText key={uuidv4()} commentValue={items?.text} />
-        <CommentReplyButton
-          key={uuidv4()}
-          nested={false}
-          replyToggle={(e) => handleReplyToggle()}
-        />
+        <CommentReplyButton key={uuidv4()} nested={false} replyToggle={() => handleReplyToggle()} />
       </article>
       <CommentEditForm
         text={items?.text}
         reply={false}
         postID={items?.postID}
         key={uuidv4()}
-        cancelEditFunction={(e) => setEditToggle(false)}
+        cancelEditFunction={() => setEditToggle(false)}
         toggle={editToggle}
       />
       <ReplyCommentForm
         parentID={items?.postID}
-        cancelComment={(e) => setReplyToggle(false)}
+        cancelComment={() => setReplyToggle(false)}
         replyToggle={replyToggle}
         key={uuidv4()}
       />
-      {reply.map((data, index) => (
-        <ReplyComment      userID={items?.userID} replyComments={data} key={data.postID} />
+      {reply.map((data) => (
+        <ReplyComment userID={items?.userID} replyComments={data} key={data.postID} />
       ))}
     </>
   );

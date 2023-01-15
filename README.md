@@ -93,7 +93,7 @@
 <details>
 <summary>Database</summary>
   <ul>
-    <li>Firebase Cloud Firestore</li>
+    <li>Firestore</li>
   </ul>
 </details>
 
@@ -161,7 +161,7 @@ Start the server
 
 ## :compass: Roadmap
 
-- [ ] Comment Functionality
+- [x] Comment Functionality
 - [x] Bookmark Functionality
 - [x] Social Media Share
 - [x] Profile Settings

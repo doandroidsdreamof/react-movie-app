@@ -1,8 +1,7 @@
-import React from 'react'
-import Aside from '../aside-bar/Aside.jsx'
+import React from 'react';
 
-const RowLayout = ({ children }) => {
-  return <div className=" flex flex-wrap  ">{children}</div>
+function RowLayout({ children }) {
+  return <div className="flex flex-wrap">{children}</div>;
 }
 
-export default RowLayout
+export default RowLayout;

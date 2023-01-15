@@ -1,6 +1,6 @@
-import React from 'react'
+import React from 'react';
 
-const CastGrid = ({ children }) => {
+function CastGrid({ children }) {
   return (
     <section>
       <div
@@ -9,7 +9,7 @@ const CastGrid = ({ children }) => {
         {children}
       </div>
     </section>
-  )
+  );
 }
 
-export default CastGrid
+export default CastGrid;

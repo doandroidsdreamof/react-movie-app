@@ -1,31 +1,24 @@
-import React, { useRef, useState, useEffect, useContext } from 'react';
-import MenuItem from '@mui/material/MenuItem';
-import Button from '@mui/material/Button';
-// firebase //
-import {
-  getStorage,
-  ref,
-  uploadBytesResumable,
-  uploadBytes,
-  getDownloadURL,
-  listAll,
-  list,
-} from 'firebase/storage';
-import { db } from '../../firebase';
-import { useParams } from 'react-router-dom';
-import { collection, doc, setDoc, getDocs, query } from 'firebase/firestore';
-import { AuthProvider, useAuth, AuthContext } from '../../context/AuthContext';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import { updateProfile } from 'firebase/auth';
+//* Firebase //
+import { getDownloadURL, getStorage, ref, uploadBytes } from 'firebase/storage';
+//* Third-party //
+import { useParams } from 'react-router-dom';
 
-const UploadImage = () => {
+//* Material UI //
+import MenuItem from '@mui/material/MenuItem';
+
+//* Local imports //
+import { AuthContext } from '../../context/AuthContext';
+
+function UploadImage() {
   const refImage = useRef();
   const user = useContext(AuthContext);
   const storage = getStorage();
   const [url, setUrl] = useState(null);
   const { id } = useParams();
 
-  
-    //* if user already have an avatar download it //
+  //* if user already have an avatar download it //
   useEffect(() => {
     if (user?.currentUser?.photoURL !== null) {
       setUrl(user?.currentUser?.photoURL);
@@ -57,7 +50,6 @@ const UploadImage = () => {
       });
   }
 
-
   return (
     <MenuItem onClick={() => handleClick()} variant="contained" component="label">
       Upload Avatar
@@ -72,6 +64,6 @@ const UploadImage = () => {
       />
     </MenuItem>
   );
-};
+}
 
 export default UploadImage;

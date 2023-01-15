@@ -1,8 +1,9 @@
-import React from 'react'
+import React from 'react';
 
-import LoginLink from '../components/register/LoginLink'
-import RegisterImage from '../components/register/RegisterImage'
-import RegisterInputs from '../components/register/RegisterInputs'
+//* Local imports //
+import LoginLink from '../components/register/LoginLink';
+import RegisterImage from '../components/register/RegisterImage';
+import RegisterInputs from '../components/register/RegisterInputs';
 
 function SignUp() {
   return (
@@ -20,7 +21,7 @@ function SignUp() {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default SignUp
+export default SignUp;
