@@ -18,8 +18,8 @@ function Comment({ items, renderForm }) {
   const [reply, setReply] = useState([]);
   const [replyToggle, setReplyToggle] = useState(false);
   const [editToggle, setEditToggle] = useState(false);
-  const { id } = useParams();
   const contextEdit = useContext(AuthContext);
+  const { id } = useParams();
 
   /**
 
@@ -102,7 +102,7 @@ function Comment({ items, renderForm }) {
         key={uuidv4()}
       />
       {reply.map((data, index) => (
-        <ReplyComment userID={items?.userID} replyComments={data} key={data.postID} />
+        <ReplyComment      userID={items?.userID} replyComments={data} key={data.postID} />
       ))}
     </>
   );

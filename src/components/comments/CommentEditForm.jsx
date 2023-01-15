@@ -31,6 +31,12 @@ function CommentEditForm({ toggle, cancelEditFunction, reply, text, postID }) {
   const closeEditForm = () => cancelEditFunction();
 
   async function editComment(e) {
+    /*
+    * Check which components invoke edit function.
+    * And check comment empty or not.
+
+    */
+
     e.preventDefault();
     if (comments.length > 0) {
       try {
@@ -45,7 +51,6 @@ function CommentEditForm({ toggle, cancelEditFunction, reply, text, postID }) {
           });
           user.editState();
         }
-
         if (reply === false) {
           //* update database //
           const q = query(collection(db, id), where('postID', '==', postID));
