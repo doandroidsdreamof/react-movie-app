@@ -21,7 +21,7 @@
 </p>
 
 <h4>
-    <a href="https://github.com/react-movie-app/react-movie-app">View Demo</a>
+    <a href="https://comfy-seahorse-2583c7.netlify.app/">View Demo</a>
   <span> · </span>
     <a href="https://github.com/react-movie-app/react-movie-app/issues">Report Bug</a>
   <span> · </span>
