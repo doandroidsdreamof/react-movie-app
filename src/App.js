@@ -23,7 +23,7 @@ function App() {
 
   return (
     <Routes>
-      <Route exact path="/majestic-kleicha-9e6e37.netlify.app/" element={<Home />} />
+      <Route exact path="/" element={<Home />} />
       <Route path="movie/:id" element={<DetailPage />} />
       <Route
         path="/login"
