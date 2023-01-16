@@ -19,6 +19,7 @@ function App() {
 
   useEffect(() => {
     setLoad(true);
+    
   }, []);
 
   return (
