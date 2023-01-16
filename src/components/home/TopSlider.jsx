@@ -19,7 +19,7 @@ function TopSlider({ endpoint }) {
   useEffect(() => {
     fetch(endpoint)
       .then((res) => res.json())
-      .then((get) => setData(get.results.slice(0, 7)))
+      .then((get) => setData(get.results.slice(0, 3)))
       .catch((err) => {
         console.error(err)
       })
