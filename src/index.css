@@ -70,6 +70,18 @@ li.active::after {
 }
 
 .Toastify__toast {
- z-index: 50;
+  z-index: 50;
+}
 
+/* Chrome Scroll Bar  */
+::-webkit-scrollbar {
+  display: none;
+}
+
+::-webkit-scrollbar-track {
+  display: none;
+}
+
+::-webkit-scrollbar-button {
+  display: none;
 }
