@@ -76,7 +76,7 @@ function TopSlider({ endpoint }) {
               }}
               data-hash={id}
               className=" object-cover object-center w-full min-h-onehundred"
-              src={`https://image.tmdb.org/t/p/w1280/${
+              src={`https://image.tmdb.org/t/p/original/${
                 items.backdrop_path ? items.backdrop_path : fallBack
               }`}
               alt={items?.name}
