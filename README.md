@@ -184,11 +184,7 @@ Start the server
 <a href="https://github.com/Louis3797/awesome-readme-template/graphs/contributors">
 </a>
 
-Contributions are always welcome!
-
-## :handshake: Contact
-
-mutlukuytuoglu@gmail.com
+Contributions are always welcome
 
 ## :gem: Acknowledgements
 
