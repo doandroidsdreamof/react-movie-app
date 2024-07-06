@@ -5,7 +5,7 @@ import errorPage from '../assets/image/404.jpg';
 
 function Error() {
   return (
-    <div className=" relative overflow-hidden h-screen">
+    <div className="relative overflow-hidden h-screen">
       <img alt="error-page" src={errorPage} className=" h-full w-full absolute object-cover" />
 
       <div className="container mx-auto px-6  md:px-12 relative z-50 flex items-center py-32 xl:py-40">

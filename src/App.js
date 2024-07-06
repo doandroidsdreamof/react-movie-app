@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
-//* Third-party //
 import { Route, Routes } from 'react-router-dom';
 
-//* Local imports //
 import FormLayout from './components/layouts/FormLayout.jsx';
 import ProtectedRoute from './components/routes/ProtectedRoute';
 import ActorPage from './pages/ActorPage.jsx';
@@ -19,7 +17,6 @@ function App() {
 
   useEffect(() => {
     setLoad(true);
-    
   }, []);
 
   return (

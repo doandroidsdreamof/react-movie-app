@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 
-//* Local imports //
 import ExploreLayout from '../components/layouts/ExploreLayout.jsx';
 import SideNav from '../components/navbar/SideNav.jsx';
 

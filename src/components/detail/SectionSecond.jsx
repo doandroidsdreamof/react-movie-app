@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
-//* Headless UI //
 import { Tab } from '@headlessui/react';
 
-//* Local imports //
 import CastGrid from '../layouts/CastGrid.jsx';
 import CommentsLayout from '../layouts/CommentsLayout.jsx';
 import Overview from './Overview.jsx';
@@ -13,44 +11,24 @@ function classNames(...classes) {
 }
 
 function SectionSecond() {
-  const [logic, setLogic] = useState(0);
-  const [categories] = useState({
-    Overview: [{ id: 0 }, { name: 'Overview' }],
-    Cast: [{ id: 1 }, { name: 'Cast' }],
-    Comments: [{ id: 2 }, { name: 'Comments' }],
-  });
-
-
-//* Change UI sections //
-  function handleChange(e) {
-    switch (e) {
-      case 0:
-        setLogic(0);
-        break;
-      case 1:
-        setLogic(1);
-        break;
-      case 2:
-        setLogic(2);
-        break;
-    }
-  }
+  const [currentTab, setCurrentTab] = useState(0);
+  const categories = [
+    { id: 0, name: 'Overview' },
+    { id: 1, name: 'Cast' },
+    { id: 2, name: 'Comments' },
+  ];
 
   return (
-    <div className="w-full  flex flex-col h-full pb-10">
-      <div className="w-full  mt-4 max-w-md px-2 sm:px-0 mx-auto relative top-0 ">
-        <Tab.Group
-          onChange={(e) => {
-            handleChange(e);
-          }}
-        >
-          <Tab.List className="flex space-x-1 rounded-xl bg-bg-color-radio dark:bg-card-second p-1 ">
-            {Object.keys(categories).map((category) => (
+    <div className="w-full flex flex-col h-full pb-10">
+      <div className="w-full mt-4 max-w-md px-2 sm:px-0 mx-auto relative top-0">
+        <Tab.Group onChange={(e) => setCurrentTab(e)}>
+          <Tab.List className="flex space-x-1 rounded-xl bg-bg-color-radio dark:bg-card-second p-1">
+            {categories.map((category) => (
               <Tab
-                key={category}
+                key={category.id}
                 className={({ selected }) =>
                   classNames(
-                    ' overview w-full rounded-lg py-2.5 text-sm font-medium leading-5 font-roboto text-gray-700',
+                    'overview w-full rounded-lg py-2.5 text-sm font-medium leading-5 font-roboto text-gray-700',
                     'ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2',
                     selected
                       ? 'bg-white shadow'
@@ -58,25 +36,25 @@ function SectionSecond() {
                   )
                 }
               >
-                {category}
+                {category.name}
               </Tab>
             ))}
           </Tab.List>
-          <Tab.Panels className="mt-2" />
+          <Tab.Panels className="mt-2">
+            {categories.map((category) => (
+              <Tab.Panel key={category.id} />
+            ))}
+          </Tab.Panels>
         </Tab.Group>
       </div>
-      {logic === 0 ? (
+      {currentTab === 0 ? (
         <Overview />
-      ) : logic === 1 ? (
+      ) : currentTab === 1 ? (
         <CastGrid>
           <Cast />
         </CastGrid>
-      ) : logic === 2 ? (
-        <CommentsLayout />
       ) : (
-        <CastGrid>
-          <Cast />
-        </CastGrid>
+        <CommentsLayout />
       )}
     </div>
   );

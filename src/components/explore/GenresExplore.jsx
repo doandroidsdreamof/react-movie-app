@@ -3,6 +3,7 @@ import SelectUnstyled, { selectUnstyledClasses } from '@mui/base/SelectUnstyled'
 import OptionUnstyled, { optionUnstyledClasses } from '@mui/base/OptionUnstyled';
 import PopperUnstyled from '@mui/base/PopperUnstyled';
 import { styled } from '@mui/system';
+import genres from '../../constants/genreList'
 
 const blue = {
   100: '#DAECFF',
@@ -146,66 +147,11 @@ const CustomSelect = React.forwardRef(function CustomSelect(props, ref) {
 function GenresExplore(prop) {
   return (
     <CustomSelect onChange={(e) => prop.onChange(e)} defaultValue={1}>
-      <StyledOption id={1} value={0}>
-        All Genres
-      </StyledOption>
-      <StyledOption id={12} value={1}>
-        Adventure
-      </StyledOption>
-      <StyledOption id={28} value={2}>
-        Action
-      </StyledOption>
-      <StyledOption id={16} value={3}>
-        Animation
-      </StyledOption>
-      <StyledOption id={35} value={4}>
-        Comedy
-      </StyledOption>
-      <StyledOption id={80} value={5}>
-        Crime
-      </StyledOption>
-      <StyledOption id={99} value={6}>
-        Documentary
-      </StyledOption>
-      <StyledOption id={18} value={7}>
-        Drama
-      </StyledOption>
-      <StyledOption id={10751} value={8}>
-        Family
-      </StyledOption>
-      <StyledOption id={14} value={9}>
-        Fantasy
-      </StyledOption>
-      <StyledOption id={36} value={10}>
-        History
-      </StyledOption>
-      <StyledOption id={27} value={11}>
-        Horror
-      </StyledOption>
-      <StyledOption id={10402} value={12}>
-        Music
-      </StyledOption>
-      <StyledOption id={9648} value={13}>
-        Mystery
-      </StyledOption>
-      <StyledOption id={10749} value={14}>
-        Romance
-      </StyledOption>
-      <StyledOption id={878} value={15}>
-        Science Fiction
-      </StyledOption>
-      <StyledOption id={10770} value={16}>
-        TV Movie
-      </StyledOption>
-      <StyledOption id={53} value={17}>
-        Thriller
-      </StyledOption>
-      <StyledOption id={10752} value={18}>
-        War
-      </StyledOption>
-      <StyledOption id={37} value={19}>
-        Western
-      </StyledOption>
+      {genres?.map((genre) => (
+        <StyledOption key={genre.id} id={genre.id} value={genre.value}>
+          {genre.label}
+        </StyledOption>
+      ))}
     </CustomSelect>
   );
 }

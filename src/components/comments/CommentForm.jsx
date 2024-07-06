@@ -1,16 +1,15 @@
-import React, { useContext, useEffect, useState } from 'react';
 import { getAuth } from 'firebase/auth';
 import {
   collection,
   doc,
+  getDocs,
+  query,
   setDoc,
   Timestamp,
-  query,
-  getDoc,
-  where,
-  getDocs,
   updateDoc,
+  where
 } from 'firebase/firestore';
+import React, { useContext, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 

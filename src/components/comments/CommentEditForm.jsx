@@ -1,13 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { getAuth } from 'firebase/auth';
-import {
-  collection,
-  collectionGroup,
-  getDocs,
-  query,
-  updateDoc,
-  where,
-} from 'firebase/firestore';
+import { collection, collectionGroup, getDocs, query, updateDoc, where } from 'firebase/firestore';
 import { useParams } from 'react-router-dom';
 
 import { AuthContext } from '../../context/AuthContext';
@@ -21,12 +14,6 @@ function CommentEditForm({ toggle, cancelEditFunction, reply, text, postID }) {
   const closeEditForm = () => cancelEditFunction();
 
   async function editComment(e) {
-    /*
-    * Check which components invoke edit function.
-    * And check comment empty or not.
-
-    */
-
     e.preventDefault();
     if (comments.length > 0) {
       try {
@@ -61,12 +48,10 @@ function CommentEditForm({ toggle, cancelEditFunction, reply, text, postID }) {
   return (
     <form
       className={
-        toggle
-          ? 'mb-6  mt-2 w-eighty  md:w-ninty ml-auto -translate-x-4 md:translate-x-0 '
-          : 'hidden'
+        toggle ? 'mb-6 mt-2 w-eighty  md:w-ninty ml-auto -translate-x-4 md:translate-x-0' : 'hidden'
       }
     >
-      <div className="py-2 px-3 mb-4 bg-white rounded-lg rounded-t-lg border border-gray-200 ">
+      <div className="py-2 px-3 mb-4 bg-white rounded-lg rounded-t-lg border border-gray-200">
         <label htmlFor="comment" className="sr-only">
           Edit Form
         </label>
@@ -75,7 +60,7 @@ function CommentEditForm({ toggle, cancelEditFunction, reply, text, postID }) {
           onChange={(e) => setComments(e.target.value)}
           id="comment"
           rows="6"
-          className="px-0 w-full text-sm text-gray-900 border-0 focus:ring-0 focus:outline-none "
+          className="px-0 w-full text-sm text-gray-900 border-0 focus:ring-0 focus:outline-none"
           placeholder="Write a comment..."
           required
         />
@@ -86,7 +71,7 @@ function CommentEditForm({ toggle, cancelEditFunction, reply, text, postID }) {
           closeEditForm();
         }}
         type="submit"
-        className="inline-flex items-center bg-star py-2.5 px-4 text-xs font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200  hover:bg-primary-800"
+        className="inline-flex items-center bg-star py-2.5 px-4 text-xs font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 hover:bg-primary-800"
       >
         Post Edit
       </button>

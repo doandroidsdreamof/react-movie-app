@@ -1,7 +1,7 @@
-import { auth } from '../firebase'
+import { auth } from '../firebase';
 
- const signOutUser = () => {
-       auth.signOut()
-}
+const signOutUser = () => {
+  auth.signOut();
+};
 
-export default signOutUser
+export default signOutUser;
